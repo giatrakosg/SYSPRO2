@@ -96,6 +96,13 @@ int Client::parseArgs(void) {
         perror("opendir");
         return -1 ;
     }
+
+    log = fopen(log_file,"w+");
+    if (log == NULL) {
+        perror("fopen");
+        return -1 ;
+    }
+    return 0 ;
 }
 void Client::printArgs(void) {
     std::cout
@@ -106,4 +113,10 @@ void Client::printArgs(void) {
     << "B_SIZE : " << buff_size << std::endl
     << "LOG_F : " << log_file << std::endl ;
 }
-Client::~Client() {}
+Client::~Client() {
+    std::cout <<  "Deleting Client Object " << std::endl ;
+    closedir(i_dir);
+    closedir(c_dir);
+    closedir(m_dir);
+    fclose(log);
+}

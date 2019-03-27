@@ -20,7 +20,7 @@ Client.o : Client.cpp
 	$(CC) $(FLAGS) Client.cpp
 # clean house
 clean:
-	rm -f $(OBJS) $(OUT)
+	rm -f $(OBJS) $(OUT) err.log
 
 # do a bit of accounting
 count:

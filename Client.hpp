@@ -29,9 +29,10 @@ private:
     DIR* c_dir ; // Pointer to common directory
     DIR* i_dir ; // Pointer to input dir
     DIR* m_dir ; // Pointer to mirror dir
+    FILE* log  ; // Pointer to log file 
 public:
     Client();
-    void getArgs(int ,char **); // Parses cmd line arguments 
+    void getArgs(int ,char **); // Parses cmd line arguments
     void printArgs(void); // Prints cmd line arguments
     int  parseArgs(void) ; // Initiliazes values
     ~Client();
