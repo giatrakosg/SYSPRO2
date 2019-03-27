@@ -79,7 +79,23 @@ void Client::getArgs(int argc,char **argv) {
                 abort ();
         }
     }
-
+}
+int Client::parseArgs(void) {
+    c_dir = opendir(common_dir);
+    if (c_dir == NULL) {
+        perror("opendir");
+        return -1 ;
+    }
+    i_dir = opendir(input_dir);
+    if (i_dir == NULL) {
+        perror("opendir");
+        return -1 ;
+    }
+    m_dir = opendir(mirror_dir);
+    if (m_dir == NULL) {
+        perror("opendir");
+        return -1 ;
+    }
 }
 void Client::printArgs(void) {
     std::cout
