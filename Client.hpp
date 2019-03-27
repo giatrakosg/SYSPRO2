@@ -33,13 +33,14 @@ private:
     DIR* m_dir ; // Pointer to mirror dir
     FILE* log  ; // Pointer to log file
     FILE* f_id ; // Pointer to file id
-    char* id_fn ; // Filename of id 
+    char* id_fn ; // Filename of id
 public:
     Client();
     void getArgs(int ,char **); // Parses cmd line arguments
     void printArgs(void); // Prints cmd line arguments
     int  parseArgs(void) ; // Initiliazes values
     int writeID(void); // Writes file with id in common dir
+    int listen(void); 
     ~Client();
 protected:
 

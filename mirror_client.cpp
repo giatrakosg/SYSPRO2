@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
         delete cli ;
         return -1 ;
     }
+    cli->listen();
     delete cli ;
     return 0;
 }
