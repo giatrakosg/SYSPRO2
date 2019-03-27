@@ -16,10 +16,12 @@
 #include <getopt.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 class Client {
 private:
-    int id ;
+    int id ;   // Int representation of id
+    char* id_s ; // String with id
     char *common_dir ;
     char *input_dir ;
     char *mirror_dir ;
@@ -29,12 +31,15 @@ private:
     DIR* c_dir ; // Pointer to common directory
     DIR* i_dir ; // Pointer to input dir
     DIR* m_dir ; // Pointer to mirror dir
-    FILE* log  ; // Pointer to log file 
+    FILE* log  ; // Pointer to log file
+    FILE* f_id ; // Pointer to file id
+    char* id_fn ; // Filename of id 
 public:
     Client();
     void getArgs(int ,char **); // Parses cmd line arguments
     void printArgs(void); // Prints cmd line arguments
     int  parseArgs(void) ; // Initiliazes values
+    int writeID(void); // Writes file with id in common dir
     ~Client();
 protected:
 
