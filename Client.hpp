@@ -16,6 +16,7 @@
 #include <getopt.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 class Client {
@@ -34,13 +35,16 @@ private:
     FILE* log  ; // Pointer to log file
     FILE* f_id ; // Pointer to file id
     char* id_fn ; // Filename of id
+
+    int detectNewID(void); // Scans the common dir for new
+    // .id files
 public:
     Client();
     void getArgs(int ,char **); // Parses cmd line arguments
     void printArgs(void); // Prints cmd line arguments
     int  parseArgs(void) ; // Initiliazes values
     int writeID(void); // Writes file with id in common dir
-    int listen(void); 
+    int listen(void);
     ~Client();
 protected:
 

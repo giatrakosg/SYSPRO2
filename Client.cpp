@@ -80,16 +80,19 @@ void Client::getArgs(int argc,char **argv) {
     }
 }
 int Client::parseArgs(void) {
+    struct  stat cs = {0};
+    if (stat(common_dir,&cs) == -1) {
+        mkdir(common_dir,0755);
+    }
     c_dir = opendir(common_dir);
-    if (c_dir == NULL) {
-        perror("opendir");
-        return -1 ;
+
+    struct  stat is = {0};
+    if (stat(input_dir,&is) == -1) {
+        mkdir(input_dir,0755);
     }
+
     i_dir = opendir(input_dir);
-    if (i_dir == NULL) {
-        perror("opendir");
-        return -1 ;
-    }
+
     m_dir = opendir(mirror_dir);
     if (m_dir == NULL) {
         perror("opendir");
@@ -131,12 +134,14 @@ int Client::writeID(void) {
     if (f_id == NULL) {
         return -1 ;
     }
-    fprintf(f_id, "%d",getpid() );
+    fprintf(f_id, "%ld",(long)getpid() );
     return 0 ;
 
 }
+
 int Client::listen(void) {
     getchar();
+    return 0 ;
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;
