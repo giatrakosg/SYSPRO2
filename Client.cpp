@@ -80,11 +80,14 @@ void Client::getArgs(int argc,char **argv) {
     }
 }
 int Client::parseArgs(void) {
+    // Check if the common dir exists and create it if it doesnt
     struct  stat cs = {0};
     if (stat(common_dir,&cs) == -1) {
         mkdir(common_dir,0755);
     }
     c_dir = opendir(common_dir);
+
+    // Check if the input dir exists and create it if it doesnt
 
     struct  stat is = {0};
     if (stat(input_dir,&is) == -1) {
@@ -93,6 +96,7 @@ int Client::parseArgs(void) {
 
     i_dir = opendir(input_dir);
 
+    // Check if the mirror dir exists , if it doesnt terminate
     m_dir = opendir(mirror_dir);
     if (m_dir == NULL) {
         perror("opendir");
@@ -143,11 +147,15 @@ int Client::writeID(void) {
     strcpy(id_fn,common_dir);
     strcat(id_fn,"/");
     strcat(id_fn,id_s);
-    f_id = fopen(id_fn,"w+");
+    f_id = fopen(id_fn,"w");
     if (f_id == NULL) {
         return -1 ;
     }
-    fprintf(f_id, "%ld",(long)getpid() );
+    std::cout << id_fn << std::endl ;
+    long ppid = (long) getpid() ;
+    fflush(f_id);
+    fprintf(f_id, "%ld",ppid);
+    fclose(f_id);
     return 0 ;
 
 }
