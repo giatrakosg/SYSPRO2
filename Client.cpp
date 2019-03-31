@@ -156,7 +156,41 @@ int Client::listen(void) {
     getchar();
     return 0 ;
 }
-int detectNewID(void) {
+int Client::detectNewID(void) {
+
+    char buffer[EVENT_BUF_LEN];
+    int i = 0;
+    int length = read( cdir_nfy_d, buffer, EVENT_BUF_LEN );
+
+    /*checking for error*/
+    if ( length < 0 ) {
+      perror( "read" );
+    }
+
+    /*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/
+    while ( i < length ) {
+        struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];     if ( event->len ) {
+        if ( event->mask & IN_CREATE ) {
+          if ( event->mask & IN_ISDIR ) {
+            printf( "New directory %s created.\n", event->name );
+          }
+          else {
+            printf( "New file %s created.\n", event->name );
+          }
+        }
+        else if ( event->mask & IN_DELETE ) {
+          if ( event->mask & IN_ISDIR ) {
+            printf( "Directory %s deleted.\n", event->name );
+          }
+          else {
+            printf( "File %s deleted.\n", event->name );
+          }
+        }
+      }
+      i += EVENT_SIZE + event->len;
+    }
+    return 0 ;
+
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;
