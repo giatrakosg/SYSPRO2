@@ -6,7 +6,7 @@ SOURCE	= Client.cpp mirror_client.cpp
 HEADER  = Client.hpp
 OUT  	= mirror_client
 CC	= g++
-FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra
+FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers
 # -g option enables debugging mode
 # -c flag generates object code for separate files
 

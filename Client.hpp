@@ -18,6 +18,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <sys/inotify.h>
+
+#define EVENT_SIZE  ( sizeof (struct inotify_event) )
+#define EVENT_BUF_LEN    ( 1024 * ( EVENT_SIZE + 16 ) )
 
 class Client {
 private:
@@ -36,8 +40,9 @@ private:
     FILE* f_id ; // Pointer to file id
     char* id_fn ; // Filename of id
 
-    int detectNewID(void); // Scans the common dir for new
-    // .id files
+    int cdir_nfy_d ; // Common dir file descriptor used by
+    // inotify
+    int wd ; // Watch list descriptor
 public:
     Client();
     void getArgs(int ,char **); // Parses cmd line arguments
@@ -45,6 +50,9 @@ public:
     int  parseArgs(void) ; // Initiliazes values
     int writeID(void); // Writes file with id in common dir
     int listen(void);
+    int detectNewID(void); // Scans the common dir for new id
+    // and places it in the ids array
+
     ~Client();
 protected:
 

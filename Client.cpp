@@ -8,7 +8,7 @@
 
 #include "Client.hpp"
 
-Client::Client()  {}
+Client::Client(){}
 void Client::getArgs(int argc,char **argv) {
     // Parse cmd line parameters using getopts
     // Modified example found at :
@@ -104,6 +104,19 @@ int Client::parseArgs(void) {
         perror("fopen");
         return -1 ;
     }
+
+    /*creating the INOTIFY instance*/
+    cdir_nfy_d = inotify_init();
+
+    /*checking for error*/
+    if ( cdir_nfy_d < 0 ) {
+      perror( "inotify_init" );
+    }
+
+    /*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/
+    wd = inotify_add_watch( cdir_nfy_d, common_dir , IN_CREATE | IN_DELETE );
+
+
     return 0 ;
 }
 void Client::printArgs(void) {
@@ -142,6 +155,8 @@ int Client::writeID(void) {
 int Client::listen(void) {
     getchar();
     return 0 ;
+}
+int detectNewID(void) {
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;
