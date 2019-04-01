@@ -43,13 +43,15 @@ private:
     int cdir_nfy_d ; // Common dir file descriptor used by
     // inotify
     int wd ; // Watch list descriptor
+    int createReaderProcess(int ); // To id
+    int getIDfromString(char *);
+
 public:
     Client();
     void getArgs(int ,char **); // Parses cmd line arguments
     void printArgs(void); // Prints cmd line arguments
-    int  parseArgs(void) ; // Initiliazes values
+    int parseArgs(void) ; // Initiliazes values
     int writeID(void); // Writes file with id in common dir
-    int listen(void);
     int detectNewID(void); // Scans the common dir for new id
     // and places it in the ids array
 

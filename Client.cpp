@@ -7,6 +7,22 @@
 //
 
 #include "Client.hpp"
+int Client::getIDfromString(char *string) {
+    // We get the id as an integer from the string eg. 1.id etc
+    char *out = new char[strlen(string) + 1];
+    memset(out,5,'\0');
+    for (int i = 0; i < strlen(string); i++) {
+        if (string[i] == '.') {
+            break ;
+        }
+        out[i] = string[i];
+
+    }
+    printf("%d\n",atoi(out) );
+    int retID = atoi(out);
+    delete out ;
+    return retID;
+}
 
 Client::Client(){}
 void Client::getArgs(int argc,char **argv) {
@@ -160,10 +176,6 @@ int Client::writeID(void) {
 
 }
 
-int Client::listen(void) {
-    getchar();
-    return 0 ;
-}
 int Client::detectNewID(void) {
     std::cout << "Waiting for new id to appear " << std::endl ;
     char buffer[EVENT_BUF_LEN];
@@ -180,26 +192,32 @@ int Client::detectNewID(void) {
         struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];
         if ( event->len ) {
             if ( event->mask & IN_CREATE ) {
-              if ( event->mask & IN_ISDIR ) {
-                printf( "New directory %s created.\n", event->name );
-              }
-              else {
                 printf( "New file %s created.\n", event->name );
-              }
+                int toID = getIDfromString(event->name);
+                createReaderProcess(toID);
             }
-            else if ( event->mask & IN_DELETE ) {
-              if ( event->mask & IN_ISDIR ) {
-                printf( "Directory %s deleted.\n", event->name );
-              }
-              else {
-                printf( "File %s deleted.\n", event->name );
-              }
-            }
-      }
+        }
+        else if ( event->mask & IN_DELETE ) {
+            printf( "File %s deleted.\n", event->name );
+        }
+
       i += EVENT_SIZE + event->len;
     }
     return 0 ;
 
+}
+int Client::createReaderProcess(int to) {
+    printf("Creating Reader process \n" );
+    char toID[5] = {0};
+    sprintf(toID,"%d",to);
+    char fromID[5] = {0};
+    sprintf(fromID,"%d",id);
+
+    pid_t child = fork() ;
+    if (child == 0) {
+        // We are in the child
+        execl("./reader_client","./reader_client",fromID,toID,mirror_dir,common_dir,NULL);
+    }
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;
