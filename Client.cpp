@@ -165,7 +165,7 @@ int Client::listen(void) {
     return 0 ;
 }
 int Client::detectNewID(void) {
-
+    std::cout << "Waiting for new id to appear " << std::endl ;
     char buffer[EVENT_BUF_LEN];
     int i = 0;
     int length = read( cdir_nfy_d, buffer, EVENT_BUF_LEN );
@@ -177,23 +177,24 @@ int Client::detectNewID(void) {
 
     /*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/
     while ( i < length ) {
-        struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];     if ( event->len ) {
-        if ( event->mask & IN_CREATE ) {
-          if ( event->mask & IN_ISDIR ) {
-            printf( "New directory %s created.\n", event->name );
-          }
-          else {
-            printf( "New file %s created.\n", event->name );
-          }
-        }
-        else if ( event->mask & IN_DELETE ) {
-          if ( event->mask & IN_ISDIR ) {
-            printf( "Directory %s deleted.\n", event->name );
-          }
-          else {
-            printf( "File %s deleted.\n", event->name );
-          }
-        }
+        struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];
+        if ( event->len ) {
+            if ( event->mask & IN_CREATE ) {
+              if ( event->mask & IN_ISDIR ) {
+                printf( "New directory %s created.\n", event->name );
+              }
+              else {
+                printf( "New file %s created.\n", event->name );
+              }
+            }
+            else if ( event->mask & IN_DELETE ) {
+              if ( event->mask & IN_ISDIR ) {
+                printf( "Directory %s deleted.\n", event->name );
+              }
+              else {
+                printf( "File %s deleted.\n", event->name );
+              }
+            }
       }
       i += EVENT_SIZE + event->len;
     }

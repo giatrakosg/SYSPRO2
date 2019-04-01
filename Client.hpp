@@ -20,8 +20,8 @@
 #include <unistd.h>
 #include <sys/inotify.h>
 
-#define EVENT_SIZE  ( sizeof (struct inotify_event) )
-#define EVENT_BUF_LEN    ( 1024 * ( EVENT_SIZE + 16 ) )
+#define EVENT_SIZE ( sizeof (struct inotify_event) )
+#define EVENT_BUF_LEN ( 1024 * ( EVENT_SIZE + 16 ) )
 
 class Client {
 private:
