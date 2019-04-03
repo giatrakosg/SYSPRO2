@@ -13,8 +13,12 @@
 
 class Writer {
 private:
+    int from ;
+    int to ;
+    char *inp_dir ;
+    char *common_dir ;
 public:
-    Writer();
+    Writer(int ,int ,char *,char *);// From id,to id , input dir, common dir
     ~Writer();
 protected:
 

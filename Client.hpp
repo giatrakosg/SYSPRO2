@@ -54,7 +54,6 @@ public:
     int writeID(void); // Writes file with id in common dir
     int detectNewID(void); // Scans the common dir for new id
     // and places it in the ids array
-
     ~Client();
 protected:
 

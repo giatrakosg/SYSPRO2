@@ -10,7 +10,6 @@
 int Client::getIDfromString(char *string) {
     // We get the id as an integer from the string eg. 1.id etc
     char *out = new char[strlen(string) + 1];
-    memset(out,5,'\0');
     for (int i = 0; i < strlen(string); i++) {
         if (string[i] == '.') {
             break ;
@@ -207,16 +206,19 @@ int Client::detectNewID(void) {
 
 }
 int Client::createReaderProcess(int to) {
-    printf("Creating Reader process \n" );
     char toID[5] = {0};
     sprintf(toID,"%d",to);
     char fromID[5] = {0};
     sprintf(fromID,"%d",id);
+    char buff_string[10];
+    sprintf(buff_string,"%d",buff_size);
 
+    printf("%s %s\n",toID,fromID );
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","./reader_client",fromID,toID,mirror_dir,common_dir,NULL);
+        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
+        perror("exec");
     }
 }
 Client::~Client() {
