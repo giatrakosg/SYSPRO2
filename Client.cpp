@@ -195,8 +195,9 @@ int Client::detectNewID(void) {
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
             int to = getIDfromString(ind->d_name);
-            createWriterProcess(to);
             createReaderProcess(to);
+            sleep(2);
+            createWriterProcess(to);
 
         }
     }
@@ -212,7 +213,6 @@ int Client::createReaderProcess(int to) {
     char buff_string[10];
     sprintf(buff_string,"%d",buff_size);
 
-    printf("%s %s\n",toID,fromID );
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
@@ -228,7 +228,6 @@ int Client::createWriterProcess(int to) {
     char buff_string[10];
     sprintf(buff_string,"%d",buff_size);
 
-    printf("%s %s\n",toID,fromID );
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child

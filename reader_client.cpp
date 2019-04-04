@@ -7,9 +7,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Not enough arguments \n");
         return -1 ;
     }
-    for (int i = 0; i < argc; i++) {
-        std::cout << argv[i] << std::endl ;
-    }
 
     int buff = atoi(argv[1]);
     int fromID = atoi(argv[2]);

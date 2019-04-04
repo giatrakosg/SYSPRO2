@@ -19,8 +19,8 @@ from(from) , to(to) {
 int Writer::connect(void) {
     char fifo_file[256] ;
     sprintf(fifo_file,"%s/%d_to_%d.fifo",common_dir,from,to);
-    mkfifo(fifo_file, S_IFIFO|0666);
-    pipeD = open(fifo_file, O_RDONLY);
+    mkfifo(fifo_file, 0666);
+    pipeD = open(fifo_file, O_WRONLY);
     return 0 ;
 
 }
@@ -28,8 +28,9 @@ int Writer::sendFile(char *path) {
     FILE *fd = fopen(path,"r");
     char *fName = basename(path) ;
     char fLen[3] = {0};
-    sprintf(fLen,"%d",fName);
+    sprintf(fLen,"%d",strlen(fName));
     write(pipeD,fLen,2);
+    close(pipeD);
 }
 Writer::~Writer() {
     delete common_dir ;

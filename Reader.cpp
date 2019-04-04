@@ -16,11 +16,6 @@ from(fromID) , to(toID) , count(MAX_TRIES){
     strcpy(commonDir,cDir);
 
 }
-void alarmhandler(int signum) {
-    signal(SIGALRM,alarmhandler);
-    printf("Just got an alarm \n");
-}
-
 // The skeleton of the implementation is taken from
 // https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_named_pipes.htm
 // and adapted to the protocol specified
@@ -31,7 +26,7 @@ int Reader::createPipe(void) {
     sprintf(fifo_file,"%s/%d_to_%d.fifo",commonDir,from,to);
 
     /* Create the FIFO if it does not exist */
-    mkfifo(fifo_file, S_IFIFO|0666);
+    mkfifo(fifo_file,0666);
     pipeD = open(fifo_file, O_RDONLY );
     return 0;
 }
