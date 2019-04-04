@@ -7,6 +7,17 @@
 //
 
 #include "Client.hpp"
+
+int myStrCmp(const void *p1,const void *p2) {
+    char *s1 = (char *)p1 ;
+    char *s2 = (char *)p2 ;
+    if ((s1 == NULL) || (s2 == NULL)) {
+        return -1 ;
+    }
+    return strcmp(s1,s2);
+
+}
+
 int Client::getIDfromString(char *string) {
     // We get the id as an integer from the string eg. 1.id etc
     char *out = new char[strlen(string) + 1];
@@ -23,7 +34,7 @@ int Client::getIDfromString(char *string) {
     return retID;
 }
 
-Client::Client(){}
+Client::Client():last_seen(0){}
 void Client::getArgs(int argc,char **argv) {
     // Parse cmd line parameters using getopts
     // Modified example found at :
@@ -124,18 +135,6 @@ int Client::parseArgs(void) {
         return -1 ;
     }
 
-    /*creating the INOTIFY instance*/
-    cdir_nfy_d = inotify_init();
-
-    /*checking for error*/
-    if ( cdir_nfy_d < 0 ) {
-      perror( "inotify_init" );
-    }
-
-    /*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/
-    wd = inotify_add_watch( cdir_nfy_d, common_dir , IN_CREATE | IN_DELETE );
-
-
     return 0 ;
 }
 void Client::printArgs(void) {
@@ -171,39 +170,30 @@ int Client::writeID(void) {
     fflush(f_id);
     fprintf(f_id, "%ld",ppid);
     fclose(f_id);
+    strcpy(seen[last_seen],id_s);
+    last_seen++;
     return 0 ;
 
 }
 
 int Client::detectNewID(void) {
+    struct dirent *ind;
+    rewinddir(c_dir);
+    while ((ind = readdir(c_dir)) != NULL) {
+        char *item = (char *)bsearch(ind->d_name,seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
+        if (item != NULL) {
+            continue ;
+            fprintf(stderr, "Error : %s id already exists\n",id_s );
+            return -1 ;
+        } else  {
+            fprintf(stdout, "Detected %s\n",ind->d_name );
+            strcpy(seen[last_seen],ind->d_name);
+            last_seen++;
+            qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
 
-    std::cout << "Waiting for new id to appear " << std::endl ;
-    char buffer[EVENT_BUF_LEN];
-    int length = read( cdir_nfy_d, buffer, EVENT_BUF_LEN );
-
-    /*checking for error*/
-    if ( length < 0 ) {
-      perror( "read" );
-    }
-    // Cycle through all events
-    struct inotify_event *event ;
-    for (int i = 0; i < length; i+= EVENT_SIZE + event->len) {
-        event = (struct inotify_event *)&buffer[i];
-        if ( event->len ) {
-            if ( event->mask & IN_CREATE ) {
-                printf( "New file %s created.\n", event->name );
-                if (strstr(event->name,".fifo") != NULL) {
-                    continue ; // A file with .fifo was created so we ignore and move on
-                }
-                int toID = getIDfromString(event->name);
-                createReaderProcess(toID);
-                createWriterProcess(toID);
-            }
-        }
-        else if ( event->mask & IN_DELETE ) {
-            printf( "File %s deleted.\n", event->name );
         }
     }
+
     return 0 ;
 
 }
@@ -246,6 +236,5 @@ Client::~Client() {
     closedir(c_dir);
     closedir(m_dir);
     fclose(log);
-    fclose(f_id);
     remove(id_fn);
 }

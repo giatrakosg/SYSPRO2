@@ -20,9 +20,8 @@
 #include <unistd.h>
 #include <sys/inotify.h>
 
-#define EVENT_SIZE ( sizeof (struct inotify_event) )
-#define EVENT_BUF_LEN ( 1024 * ( EVENT_SIZE + 16 ) )
-
+#define SEEN_BUFFER 256
+#define FILE_NAME 256
 class Client {
 private:
     int id ;   // Int representation of id
@@ -40,9 +39,8 @@ private:
     FILE* f_id ; // Pointer to file id
     char* id_fn ; // Filename of id
 
-    int cdir_nfy_d ; // Common dir file descriptor used by
-    // inotify
-    int wd ; // Watch list descriptor
+    char seen[SEEN_BUFFER][FILE_NAME] ; // Strings of files we have already seen
+    int last_seen ;
     int createReaderProcess(int ); // To id
     int createWriterProcess(int );
     int getIDfromString(char *);
