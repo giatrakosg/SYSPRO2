@@ -1,6 +1,8 @@
 
 #include "Client.hpp"
 #include <signal.h>
+#define SLEEP_PERIOD 3
+
 bool runFlag ;
 Client *cli ;
 
@@ -35,7 +37,7 @@ int main(int argc, char *argv[]) {
         return -1 ;
     }
     while (runFlag == true) {
-        //sleep(20);
+        sleep(SLEEP_PERIOD);
         cli->detectNewID();
     }
 

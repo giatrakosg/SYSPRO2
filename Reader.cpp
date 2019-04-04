@@ -8,18 +8,17 @@
 
 #include "Reader.hpp"
 
-Reader::Reader(int fromID,int toID,char *sDir,char *cDir) :
+Reader::Reader(int buff,int fromID,int toID,char *sDir,char *cDir) : buffer_size(buff) ,
 from(fromID) , to(toID) , count(MAX_TRIES){
-    toDir = new char [strlen(sDir) + 1];
-    strcpy(toDir,sDir);
+    outDir = new char [strlen(sDir) + 1];
+    strcpy(outDir,sDir);
     commonDir = new char [strlen(cDir) + 1];
     strcpy(commonDir,cDir);
 
 }
-void Reader::alarmhandler(int signum) {
-    signal(SIGALRM,Reader::alarmhandler);
+void alarmhandler(int signum) {
+    signal(SIGALRM,alarmhandler);
     printf("Just got an alarm \n");
-    this->count--;
 }
 
 // The skeleton of the implementation is taken from
@@ -27,43 +26,41 @@ void Reader::alarmhandler(int signum) {
 // and adapted to the protocol specified
 
 int Reader::createPipe(void) {
-    signal(SIGALRM,Reader::alarmhandler);
 
-    char id1[5] ;
-    sprintf(id1,"%d",from);
-    char id2[5] ;
-    sprintf(id2,"%d",to);
+    fifo_file = new char[MAX_NAME];
+    sprintf(fifo_file,"%s/%d_to_%d.fifo",commonDir,from,to);
 
-    char *fifo_file = new char[strlen(commonDir) + strlen(id1) +
-    strlen("_to_") + strlen(id2) + 2];
-    sprintf(fifo_file,"%s/%s_to_%s",commonDir,id1,id2);
-    printf("%s\n",fifo_file );
-    char titleLen[3]; // 2 bytes denoting the length of the title
-    char *title ; // Where we store the title
-    char fileLen[4] ; // 4 bytes denoting the length of the  file
-    char *contents ; // The contents of the file
-
-    int read_bytes;
     /* Create the FIFO if it does not exist */
-    mkfifo(fifo_file, S_IFIFO|0640);
-    fd = open(fifo_file, O_RDWR);
-
-    while(count > 0) {
-        alarm(3);
-        read_bytes = read(fd, titleLen, sizeof(titleLen) - 1);
-        titleLen[read_bytes] = '\0';
-        printf("Length of file title is %d\n",atoi(titleLen) );
-        title = new char[atoi(titleLen) + 1];
-        read_bytes = read(fd, title, sizeof(title) - 1);
-        title[read_bytes] = '\0';
-        printf("Read title of file %s\n",title );
-
-    }
-    close(fd);
+    mkfifo(fifo_file, S_IFIFO|0666);
+    pipeD = open(fifo_file, O_RDONLY );
     return 0;
+}
+int Reader::readFromPipe(void) {
+    int read_bytes ;
+    char titleLen[3]; // We get the 2 bytes for the name length
+    read_bytes = read(pipeD,titleLen,2);
+    titleLen[2] = '\0' ;
+    int titleSize = atoi(titleLen);
+    printf("READER:Reading file with %d size of title \n",titleSize);
+    char *title = new char[titleSize + 1];
+    read_bytes = read(pipeD,title,titleSize);
+    title[titleSize] = '\0';
+    printf("READER:Reading file with title %s\n",title);
+    char fileSize[3] = {0} ;
+    read_bytes = read(pipeD,fileSize,2);
+    int f_size = atoi(fileSize);
+    printf("READER:Reading file with %d size\n",f_size);
+    char *contents = new char[f_size + 1];
+    while (f_size > 0) {
+        read_bytes = read(pipeD,contents,buffer_size);
+        f_size -= read_bytes ;
+    }
+    printf("READER:Read file \n%s\n",contents );
 
+    return 0 ;
 }
 Reader::~Reader() {
-    delete toDir ;
+    close(pipeD);
+    delete outDir ;
     delete commonDir ;
 }

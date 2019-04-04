@@ -20,21 +20,24 @@
 #include <signal.h>
 
 #define MAX_TRIES 3
-
+#define MAX_NAME 2048
 
 class Reader {
 private:
-    static void alarmhandler(int );
-    int count ;
+    int buffer_size ; // Size of buffer to use over pipes
     int from ;
     int to ;
-    char *toDir;
+    int count ;
+    char *outDir;
     char *commonDir ;
-    int fd ; // File descriptor used to open and read from .fifo file
+    char *fifo_file ; // Name of fifo file
+    int pipeD ; // File descriptor used to open and read from .fifo file
 public:
-    Reader(int ,int ,char *,char *); // Id from , id to
+    Reader(int ,int ,int ,char *,char *);
+    // Buffer size Id from , id to
     // to directory , common dir
     int createPipe(void);
+    int readFromPipe(void);
     ~Reader();
 protected:
 

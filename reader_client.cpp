@@ -2,6 +2,7 @@
 #include <iostream>
 
 int main(int argc, char *argv[]) {
+    printf("Created reader proc \n");
     if (argc < 5) {
         fprintf(stderr, "Not enough arguments \n");
         return -1 ;
@@ -9,10 +10,14 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < argc; i++) {
         std::cout << argv[i] << std::endl ;
     }
-    int fromID = atoi(argv[1]);
-    int toID = atoi(argv[2]);
-    class Reader reader(fromID,toID,argv[3],argv[4]) ;
-    reader.createPipe();
 
+    int buff = atoi(argv[1]);
+    int fromID = atoi(argv[2]);
+    int toID = atoi(argv[3]);
+    class Reader reader(buff,fromID,toID,argv[4],argv[5]) ;
+    reader.createPipe();
+    reader.readFromPipe();
+
+    printf("Exiting READER\n");
     return 0;
 }
