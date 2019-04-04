@@ -6,6 +6,6 @@ int main(int argc, char *argv[]) {
     int toID = atoi(argv[3]);
     Writer writer(buff,fromID,toID,argv[4],argv[5]);
     writer.connect();
-    writer.sendFile("./hello");
+    writer.sendFile("./hello.txt");
     return 0;
 }

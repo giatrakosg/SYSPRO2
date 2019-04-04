@@ -42,12 +42,16 @@ int Reader::readFromPipe(void) {
     title[titleSize] = '\0';
     printf("READER:Reading file with title %s\n",title);
     char fileSize[3] = {0} ;
-    read_bytes = read(pipeD,fileSize,2);
-    int f_size = atoi(fileSize);
+    short f_size ;
+    read_bytes = read(pipeD,&f_size,2);
     printf("READER:Reading file with %d size\n",f_size);
     char *contents = new char[f_size + 1];
+    char readBuffer[buffer_size+1];
     while (f_size > 0) {
-        read_bytes = read(pipeD,contents,buffer_size);
+        char readBuffer[buffer_size+1] = {'\0'};
+        read_bytes = read(pipeD,readBuffer,buffer_size);
+        strcat(contents,readBuffer);
+
         f_size -= read_bytes ;
     }
     printf("READER:Read file \n%s\n",contents );
