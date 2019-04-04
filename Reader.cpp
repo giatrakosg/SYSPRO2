@@ -32,7 +32,7 @@ int Reader::createPipe(void) {
 
     /* Create the FIFO if it does not exist */
     mkfifo(fifo_file, S_IFIFO|0666);
-    pipeD = open(fifo_file, O_RDONLY | O_NONBLOCK);
+    pipeD = open(fifo_file, O_RDONLY );
     return 0;
 }
 int Reader::readFromPipe(void) {

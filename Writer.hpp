@@ -17,6 +17,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <signal.h>
+#include <libgen.h>
 
 
 class Writer {
@@ -27,10 +28,10 @@ private:
     char *inp_dir ;
     char *common_dir ;
     int pipeD ; // File descriptor for fifo
-    int sendFile(char *); // Send file in this path 
 public:
     Writer(int ,int ,int ,char *,char *);// From id,to id , input dir, common dir
     int connect(void) ; // Connects to the .fifo
+    int sendFile(char *); // Send file in this path
     ~Writer();
 protected:
 

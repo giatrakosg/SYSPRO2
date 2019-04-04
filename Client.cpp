@@ -176,31 +176,33 @@ int Client::writeID(void) {
 }
 
 int Client::detectNewID(void) {
+
     std::cout << "Waiting for new id to appear " << std::endl ;
     char buffer[EVENT_BUF_LEN];
-    int i = 0;
     int length = read( cdir_nfy_d, buffer, EVENT_BUF_LEN );
 
     /*checking for error*/
     if ( length < 0 ) {
       perror( "read" );
     }
-
-    /*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/
-    while ( i < length ) {
-        struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];
+    // Cycle through all events
+    struct inotify_event *event ;
+    for (int i = 0; i < length; i+= EVENT_SIZE + event->len) {
+        event = (struct inotify_event *)&buffer[i];
         if ( event->len ) {
             if ( event->mask & IN_CREATE ) {
                 printf( "New file %s created.\n", event->name );
+                if (strstr(event->name,".fifo") != NULL) {
+                    continue ; // A file with .fifo was created so we ignore and move on
+                }
                 int toID = getIDfromString(event->name);
                 createReaderProcess(toID);
+                createWriterProcess(toID);
             }
         }
         else if ( event->mask & IN_DELETE ) {
             printf( "File %s deleted.\n", event->name );
         }
-
-      i += EVENT_SIZE + event->len;
     }
     return 0 ;
 
@@ -220,6 +222,23 @@ int Client::createReaderProcess(int to) {
         execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
         perror("exec");
     }
+}
+int Client::createWriterProcess(int to) {
+    char toID[5] = {0};
+    sprintf(toID,"%d",to);
+    char fromID[5] = {0};
+    sprintf(fromID,"%d",id);
+    char buff_string[10];
+    sprintf(buff_string,"%d",buff_size);
+
+    printf("%s %s\n",toID,fromID );
+    pid_t child = fork() ;
+    if (child == 0) {
+        // We are in the child
+        execl("./writer_client","writer_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
+        perror("exec");
+    }
+
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;

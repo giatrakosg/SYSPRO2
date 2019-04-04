@@ -44,6 +44,7 @@ private:
     // inotify
     int wd ; // Watch list descriptor
     int createReaderProcess(int ); // To id
+    int createWriterProcess(int );
     int getIDfromString(char *);
 
 public:
