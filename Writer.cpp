@@ -8,12 +8,24 @@
 
 #include "Writer.hpp"
 
-Writer::Writer(int from,int to,char *inpDir,char *cDir) : from(from) , to(to) {
+Writer::Writer(int buff,int from,int to,char *inpDir,char *cDir) : buff(buff) ,
+from(from) , to(to) {
     inp_dir = new char[strlen(inpDir) + 1];
     strcpy(inp_dir,inpDir);
     common_dir = new char[strlen(cDir) + 1];
     strcpy(common_dir,cDir);
 
+}
+int Writer::connect(void) {
+    char fifo_file[256] ;
+    sprintf(fifo_file,"%s/%d_to_%d.fifo",common_dir,from,to);
+    mkfifo(fifo_file, S_IFIFO|0666);
+    pipeD = open(fifo_file, O_RDONLY | O_NONBLOCK);
+    return 0 ;
+
+}
+int Writer::sendFile(char *path) {
+    
 }
 Writer::~Writer() {
     delete common_dir ;

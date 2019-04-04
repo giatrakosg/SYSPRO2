@@ -10,15 +10,27 @@
 #define Writer_hpp
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <signal.h>
+
 
 class Writer {
 private:
+    int buff ;
     int from ;
     int to ;
     char *inp_dir ;
     char *common_dir ;
+    int pipeD ; // File descriptor for fifo
+    int sendFile(char *); // Send file in this path 
 public:
-    Writer(int ,int ,char *,char *);// From id,to id , input dir, common dir
+    Writer(int ,int ,int ,char *,char *);// From id,to id , input dir, common dir
+    int connect(void) ; // Connects to the .fifo
     ~Writer();
 protected:
 

@@ -26,13 +26,9 @@ void alarmhandler(int signum) {
 // and adapted to the protocol specified
 
 int Reader::createPipe(void) {
-    char id1[5] ;
-    sprintf(id1,"%d",from);
-    char id2[5] ;
-    sprintf(id2,"%d",to);
 
     fifo_file = new char[MAX_NAME];
-    sprintf(fifo_file,"%s/%s_to_%s.fifo",commonDir,id1,id2);
+    sprintf(fifo_file,"%s/%d_to_%d.fifo",commonDir,from,to);
 
     /* Create the FIFO if it does not exist */
     mkfifo(fifo_file, S_IFIFO|0666);
