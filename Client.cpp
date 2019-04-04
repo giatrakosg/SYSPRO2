@@ -186,14 +186,17 @@ int Client::detectNewID(void) {
             fprintf(stderr, "Error : %s id already exists\n",id_s );
             return -1 ;
         } else  {
-            if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0)) {
+            if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0) ||
+                (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
             fprintf(stdout, "Detected %s\n",ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
-
+            int to = getIDfromString(ind->d_name);
+            createWriterProcess(to);
+            createReaderProcess(to);
 
         }
     }
