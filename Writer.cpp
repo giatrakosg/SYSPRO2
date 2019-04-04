@@ -28,7 +28,6 @@ int Writer::sendFile(char *path) {
     struct stat st;
     stat(path, &st);
     short fSize = st.st_size;
-    printf("%d\n",fSize );
     int fd = open(path,O_RDONLY);
     char *fName = basename(path) ;
     char fLen[3] = {0};
@@ -38,13 +37,14 @@ int Writer::sendFile(char *path) {
     char fS[3] = {0};
     write(pipeD,&fSize,2);
 
-    char contents[buff+1];
+    int i = 0 ;
     while(fSize > 0) {
+        char contents[buff+1] = {0};
         read(fd,contents,buff);
         write(pipeD,contents,buff);
         fSize -= buff ;
-
     }
+    close(fd);
     close(pipeD);
 }
 Writer::~Writer() {

@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
     cli = new Client;
     cli->getArgs(argc,argv);
-    cli->printArgs();
+    //cli->printArgs();
     int err = cli->parseArgs();
     if (err < 0) {
         delete cli ;

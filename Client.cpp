@@ -28,7 +28,7 @@ int Client::getIDfromString(char *string) {
         out[i] = string[i];
 
     }
-    printf("%d\n",atoi(out) );
+    //printf("%d\n",atoi(out) );
     int retID = atoi(out);
     delete out ;
     return retID;
@@ -165,7 +165,6 @@ int Client::writeID(void) {
     if (f_id == NULL) {
         return -1 ;
     }
-    std::cout << id_fn << std::endl ;
     long ppid = (long) getpid() ;
     fflush(f_id);
     fprintf(f_id, "%ld",ppid);
@@ -190,13 +189,12 @@ int Client::detectNewID(void) {
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            fprintf(stdout, "Detected %s\n",ind->d_name );
+            //fprintf(stdout, "Detected %s\n",ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
             int to = getIDfromString(ind->d_name);
             createReaderProcess(to);
-            sleep(2);
             createWriterProcess(to);
 
         }

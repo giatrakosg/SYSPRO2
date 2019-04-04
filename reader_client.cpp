@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main(int argc, char *argv[]) {
-    printf("Created reader proc \n");
+    //printf("Created reader proc \n");
     if (argc < 5) {
         fprintf(stderr, "Not enough arguments \n");
         return -1 ;
@@ -15,6 +15,6 @@ int main(int argc, char *argv[]) {
     reader.createPipe();
     reader.readFromPipe();
 
-    printf("Exiting READER\n");
+    //printf("Exiting READER\n");
     return 0;
 }
