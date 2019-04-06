@@ -18,7 +18,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <sys/inotify.h>
 
 #define SEEN_BUFFER 256
 #define FILE_NAME 256

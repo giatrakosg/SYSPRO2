@@ -14,6 +14,7 @@ from(from) , to(to) {
     strcpy(inp_dir,inpDir);
     common_dir = new char[strlen(cDir) + 1];
     strcpy(common_dir,cDir);
+    idirPtr = opendir(inp_dir);
 
 }
 int Writer::connect(void) {
@@ -45,7 +46,17 @@ int Writer::sendFile(char *path) {
         fSize -= buff ;
     }
     close(fd);
+    return 0 ;
+}
+int Writer::sendFiles(void) {
+    struct dirent *ind ;
+    while((ind = readdir(idirPtr)) != NULL) {
+        char path[256];
+        sprintf(path,"%s/%s",common_dir,ind->d_name);
+        sendFile(path);
+    }
     close(pipeD);
+    return 0 ;
 }
 Writer::~Writer() {
     delete common_dir ;
