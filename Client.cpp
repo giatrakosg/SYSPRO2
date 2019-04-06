@@ -189,7 +189,7 @@ int Client::detectNewID(void) {
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            //fprintf(stdout, "Detected %s\n",ind->d_name );
+            fprintf(stdout, "Detected %s\n",ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
@@ -214,7 +214,7 @@ int Client::createReaderProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
+        execl("./reader_client","reader_client",buff_string,fromID,toID,input_dir,common_dir,(char *)NULL);
         perror("exec");
         return -1 ;
     }

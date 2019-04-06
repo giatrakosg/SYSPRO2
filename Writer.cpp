@@ -50,6 +50,16 @@ int Writer::sendFiles(void) {
     while((ind = readdir(idirPtr)) != NULL) {
         char path[512];
         sprintf(path,"%s/%s",inp_dir,ind->d_name);
+        // We check if it is a dir or a regular file
+        // This code snippet was taken from
+        // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
+        struct stat path_stat;
+        stat(path, &path_stat);
+        if(!S_ISREG(path_stat.st_mode)) {
+            continue ;
+        }
+        printf("%s\n",path );
+        // We check if it
         sendFile(path);
     }
     write(pipeD,0,2);

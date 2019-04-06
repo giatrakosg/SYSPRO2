@@ -38,17 +38,17 @@ int Reader::readFromPipe(void) {
         if (titleLen == 0) {
             break;
         }
-        //printf("READER:Reading file with %d size of title \n",titleSize);
+        printf("READER:Reading file with %d size of title \n",titleLen);
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
         title[titleLen] = '\0';
         char path[256];
         sprintf(path,"%s/%s",outDir,title);
         FILE * outD = fopen(path,"r+");
-        //printf("READER:Reading file with title %s\n",title);
+        printf("READER:Reading file with title %s\n",title);
         short f_size ;
         read_bytes = read(pipeD,&f_size,2);
-        //printf("READER:Reading file with %d size\n",f_size);
+        printf("READER:Reading file with %d size\n",f_size);
         char *contents = new char[f_size + 1];
         memset(contents,0,f_size+1);
         while (f_size > 0) {
@@ -59,7 +59,7 @@ int Reader::readFromPipe(void) {
 
             f_size -= read_bytes ;
         }
-        fprintf(outD,"%s",contents );
+        fprintf(stdout,"%s",contents );
         fclose(outD);
     }
 
