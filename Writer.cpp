@@ -31,16 +31,13 @@ int Writer::sendFile(char *path) {
     short fSize = st.st_size;
     int fd = open(path,O_RDONLY);
     char *fName = basename(path) ;
-    char fLen[3] = {0};
-    sprintf(fLen,"%d",strlen(fName));
-    write(pipeD,fLen,2);
+    short fLen = atoi(fName);
+    write(pipeD,&fLen,2);
     write(pipeD,fName,strlen(fName));
-    char fS[3] = {0};
     write(pipeD,&fSize,2);
-
-    int i = 0 ;
     while(fSize > 0) {
-        char contents[buff+1] = {0};
+        char *contents = new char[buff+1];
+        memset(contents,'\0',buff+1);
         read(fd,contents,buff);
         write(pipeD,contents,buff);
         fSize -= buff ;
@@ -51,10 +48,11 @@ int Writer::sendFile(char *path) {
 int Writer::sendFiles(void) {
     struct dirent *ind ;
     while((ind = readdir(idirPtr)) != NULL) {
-        char path[256];
-        sprintf(path,"%s/%s",common_dir,ind->d_name);
+        char path[512];
+        sprintf(path,"%s/%s",inp_dir,ind->d_name);
         sendFile(path);
     }
+    write(pipeD,0,2);
     close(pipeD);
     return 0 ;
 }

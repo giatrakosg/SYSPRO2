@@ -9,7 +9,7 @@ Client *cli ;
 void sigstop_handler(int signum) {
     signal(SIGINT,sigstop_handler);
     signal(SIGQUIT,sigstop_handler);
-    std::cout << "Bye" <<std::endl ;
+    std::cout << "Bye Sig: " << signum << std::endl ;
     runFlag = false ;
     delete cli ;
     exit(0);

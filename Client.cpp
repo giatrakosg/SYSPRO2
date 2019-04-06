@@ -21,7 +21,7 @@ int myStrCmp(const void *p1,const void *p2) {
 int Client::getIDfromString(char *string) {
     // We get the id as an integer from the string eg. 1.id etc
     char *out = new char[strlen(string) + 1];
-    for (int i = 0; i < strlen(string); i++) {
+    for (int i = 0; i < (int)strlen(string); i++) {
         if (string[i] == '.') {
             break ;
         }
@@ -216,7 +216,9 @@ int Client::createReaderProcess(int to) {
         // We are in the child
         execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
         perror("exec");
+        return -1 ;
     }
+    return 0 ;
 }
 int Client::createWriterProcess(int to) {
     char toID[5] = {0};
@@ -231,8 +233,9 @@ int Client::createWriterProcess(int to) {
         // We are in the child
         execl("./writer_client","writer_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
         perror("exec");
+        return -1 ;
     }
-
+    return 0 ;
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;

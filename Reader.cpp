@@ -32,30 +32,36 @@ int Reader::createPipe(void) {
 }
 int Reader::readFromPipe(void) {
     int read_bytes ;
-    char titleLen[3]; // We get the 2 bytes for the name length
-    read_bytes = read(pipeD,titleLen,2);
-    titleLen[2] = '\0' ;
-    int titleSize = atoi(titleLen);
-    //printf("READER:Reading file with %d size of title \n",titleSize);
-    char *title = new char[titleSize + 1];
-    read_bytes = read(pipeD,title,titleSize);
-    title[titleSize] = '\0';
-    //printf("READER:Reading file with title %s\n",title);
-    char fileSize[3] = {0} ;
-    short f_size ;
-    read_bytes = read(pipeD,&f_size,2);
-    //printf("READER:Reading file with %d size\n",f_size);
-    char *contents = new char[f_size + 1];
-    memset(contents,0,f_size+1);
-    char readBuffer[buffer_size+1];
-    while (f_size > 0) {
-        char readBuffer[buffer_size+1] = {'\0'};
-        read_bytes = read(pipeD,readBuffer,buffer_size);
-        strcat(contents,readBuffer);
+    while (1) {
+        short titleLen; // We get the 2 bytes for the name length
+        read_bytes = read(pipeD,&titleLen,2);
+        if (titleLen == 0) {
+            break;
+        }
+        //printf("READER:Reading file with %d size of title \n",titleSize);
+        char *title = new char[titleLen + 1];
+        read_bytes = read(pipeD,title,titleLen);
+        title[titleLen] = '\0';
+        char path[256];
+        sprintf(path,"%s/%s",outDir,title);
+        FILE * outD = fopen(path,"r+");
+        //printf("READER:Reading file with title %s\n",title);
+        short f_size ;
+        read_bytes = read(pipeD,&f_size,2);
+        //printf("READER:Reading file with %d size\n",f_size);
+        char *contents = new char[f_size + 1];
+        memset(contents,0,f_size+1);
+        while (f_size > 0) {
+            char *readBuffer = new char[buffer_size+1];
+            memset(readBuffer,'\0',buffer_size+1);
+            read_bytes = read(pipeD,readBuffer,buffer_size);
+            strcat(contents,readBuffer);
 
-        f_size -= read_bytes ;
+            f_size -= read_bytes ;
+        }
+        fprintf(outD,"%s",contents );
+        fclose(outD);
     }
-    printf("%s",contents );
 
     return 0 ;
 }

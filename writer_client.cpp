@@ -1,6 +1,10 @@
 #include "Writer.hpp"
 
 int main(int argc, char *argv[]) {
+    if (argc < 5) {
+        fprintf(stderr, "Incorrect number of parameters\n");
+        return -1 ;
+    }
     int buff = atoi(argv[1]);
     int fromID = atoi(argv[2]);
     int toID = atoi(argv[3]);
