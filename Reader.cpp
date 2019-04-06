@@ -35,6 +35,7 @@ int Reader::readFromPipe(void) {
     while (1) {
         short titleLen; // We get the 2 bytes for the name length
         read_bytes = read(pipeD,&titleLen,2);
+        printf("%d\n",titleLen );
         if (titleLen == 0) {
             break;
         }

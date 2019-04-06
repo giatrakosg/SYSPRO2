@@ -31,8 +31,9 @@ int Writer::sendFile(char *path) {
     short fSize = st.st_size;
     int fd = open(path,O_RDONLY);
     char *fName = basename(path) ;
-    short fLen = atoi(fName);
-    write(pipeD,&fLen,2);
+    short tLen = (short)strlen(fName);
+    printf("File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    write(pipeD,&tLen,2);
     write(pipeD,fName,strlen(fName));
     write(pipeD,&fSize,2);
     while(fSize > 0) {
@@ -47,9 +48,11 @@ int Writer::sendFile(char *path) {
 }
 int Writer::sendFiles(void) {
     struct dirent *ind ;
+    printf("%s\n",inp_dir );
     while((ind = readdir(idirPtr)) != NULL) {
         char path[512];
-        sprintf(path,"%s/%s",inp_dir,ind->d_name);
+        printf("%s\n",ind->d_name );
+        sprintf(path,"./%s/%s",inp_dir,ind->d_name);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
         // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
@@ -59,6 +62,7 @@ int Writer::sendFiles(void) {
             continue ;
         }
         printf("%s\n",path );
+        fflush(stdout);
         // We check if it
         sendFile(path);
     }

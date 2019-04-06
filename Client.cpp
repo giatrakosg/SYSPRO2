@@ -214,7 +214,7 @@ int Client::createReaderProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","reader_client",buff_string,fromID,toID,input_dir,common_dir,(char *)NULL);
+        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
         perror("exec");
         return -1 ;
     }
@@ -231,7 +231,7 @@ int Client::createWriterProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./writer_client","writer_client",buff_string,fromID,toID,mirror_dir,common_dir,(char *)NULL);
+        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,(char *)NULL);
         perror("exec");
         return -1 ;
     }
