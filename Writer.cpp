@@ -35,7 +35,7 @@ int Writer::sendFile(char *path) {
     int fd = open(path,O_RDONLY);
     char *fName = basename(path) ;
     short tLen = (short)strlen(fName);
-    printf("File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
     write(pipeD,&tLen,2);
     write(pipeD,fName,strlen(fName));
     write(pipeD,&fSize,2);
@@ -51,10 +51,11 @@ int Writer::sendFile(char *path) {
 }
 int Writer::sendFilesInDir(char *dirpath) {
     DIR * dir = opendir(dirpath);
+    fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
     struct dirent *ind ;
     while((ind = readdir(dir)) != NULL) {
         char path[512];
-        fprintf(logF,"%s\n",ind->d_name );
+        fprintf(logF,"Dirpath : %s\n",ind->d_name );
         sprintf(path,"%s/%s",dirpath,ind->d_name);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
@@ -64,7 +65,7 @@ int Writer::sendFilesInDir(char *dirpath) {
         if(!S_ISREG(path_stat.st_mode)) {
             continue ;
         }
-        fprintf(logF,"%s\n",path );
+        fprintf(logF,"Path : %s\n",path );
         fflush(stdout);
         // We check if it
         sendFile(path);
@@ -87,7 +88,6 @@ int Writer::sendFiles(void) {
             if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0)) {
                 continue ;
             }
-            sprintf(path,"%s/",path);
             fprintf(logF,"Dir : %s\n",path );
             sendFilesInDir(path);
         }
