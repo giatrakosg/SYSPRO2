@@ -92,12 +92,13 @@ int Writer::sendFiles(void) {
             sendFilesInDir(path);
         }
     }
-    close(pipeD);
     short end = 0 ;
     write(pipeD,&end,2);
+    close(pipeD);
 
 }
 Writer::~Writer() {
+    fprintf(logF, "Exiting Writer \n");
     fclose(logF);
     closedir(idirPtr);
     delete common_dir ;

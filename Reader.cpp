@@ -66,6 +66,7 @@ int Reader::readFromPipe(void) {
     return 0 ;
 }
 Reader::~Reader() {
+    fprintf(logF, "Exiting Reader \n");
     fclose(logF);
     close(pipeD);
     delete outDir ;
