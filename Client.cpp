@@ -205,7 +205,7 @@ int Client::createReaderProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,log_file,(char *)NULL);
+        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,"reader.log",(char *)NULL);
         perror("exec");
         return -1 ;
     }
@@ -222,7 +222,7 @@ int Client::createWriterProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,log_file,(char *)NULL);
+        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,"writer.log",(char *)NULL);
         perror("exec");
         return -1 ;
     }
@@ -233,6 +233,10 @@ Client::~Client() {
     closedir(i_dir);
     closedir(c_dir);
     closedir(m_dir);
+    char cmd[1024] ;
+    sprintf(cmd,"rm %s/*",mirror_dir);
+    system(cmd);
+    perror("syscall");
     fclose(log);
     remove(id_fn);
 }

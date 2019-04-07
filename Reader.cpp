@@ -35,21 +35,20 @@ int Reader::readFromPipe(void) {
     while (1) {
         short titleLen; // We get the 2 bytes for the name length
         read_bytes = read(pipeD,&titleLen,2);
-        printf("%d\n",titleLen );
         if (titleLen == 0) {
             break;
         }
-        printf("READER:Reading file with %d size of title \n",titleLen);
+        fprintf(logF,"READER:Reading file with %d size of title \n",titleLen);
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
         title[titleLen] = '\0';
         char path[256];
         sprintf(path,"./%s/%s",outDir,title);
         FILE * outD = fopen(path,"w+");
-        printf("READER:Reading file with title %s\n",title);
+        fprintf(logF,"READER:Reading file with title %s\n",title);
         short f_size ;
         read_bytes = read(pipeD,&f_size,2);
-        printf("READER:Reading file with %d size\n",f_size);
+        fprintf(logF,"READER:Reading file with %d size\n",f_size);
         char *contents = new char[f_size + 1];
         memset(contents,0,f_size+1);
         while (f_size > 0) {
@@ -57,9 +56,9 @@ int Reader::readFromPipe(void) {
             memset(readBuffer,'\0',buffer_size+1);
             read_bytes = read(pipeD,readBuffer,buffer_size);
             strcat(contents,readBuffer);
-
             f_size -= read_bytes ;
         }
+        fflush(logF);
         fprintf(outD,"%s",contents );
         fclose(outD);
     }
@@ -67,6 +66,7 @@ int Reader::readFromPipe(void) {
     return 0 ;
 }
 Reader::~Reader() {
+    fclose(logF);
     close(pipeD);
     delete outDir ;
     delete commonDir ;
