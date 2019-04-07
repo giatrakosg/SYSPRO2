@@ -44,8 +44,8 @@ int Reader::readFromPipe(void) {
         read_bytes = read(pipeD,title,titleLen);
         title[titleLen] = '\0';
         char path[256];
-        sprintf(path,"%s/%s",outDir,title);
-        FILE * outD = fopen(path,"r+");
+        sprintf(path,"./%s/%s",outDir,title);
+        FILE * outD = fopen(path,"w+");
         printf("READER:Reading file with title %s\n",title);
         short f_size ;
         read_bytes = read(pipeD,&f_size,2);
@@ -60,7 +60,7 @@ int Reader::readFromPipe(void) {
 
             f_size -= read_bytes ;
         }
-        fprintf(stdout,"%s",contents );
+        fprintf(outD,"%s",contents );
         fclose(outD);
     }
 

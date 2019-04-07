@@ -8,12 +8,15 @@
 
 #include "Writer.hpp"
 
-Writer::Writer(int buff,int from,int to,char *inpDir,char *cDir) : buff(buff) ,
+Writer::Writer(int buff,int from,int to,char *inpDir,char *cDir,char *logfile) : buff(buff) ,
 from(from) , to(to) {
     inp_dir = new char[strlen(inpDir) + 1];
     strcpy(inp_dir,inpDir);
     common_dir = new char[strlen(cDir) + 1];
     strcpy(common_dir,cDir);
+    log_file = new char[strlen(logfile) + 1];
+    strcpy(log_file,logfile);
+    logF = fopen(log_file,"w");
     idirPtr = opendir(inp_dir);
 
 }
@@ -46,13 +49,13 @@ int Writer::sendFile(char *path) {
     close(fd);
     return 0 ;
 }
-int Writer::sendFiles(void) {
+int Writer::sendFilesInDir(char *dirpath) {
+    DIR * dir = opendir(dirpath);
     struct dirent *ind ;
-    printf("%s\n",inp_dir );
-    while((ind = readdir(idirPtr)) != NULL) {
+    while((ind = readdir(dir)) != NULL) {
         char path[512];
-        printf("%s\n",ind->d_name );
-        sprintf(path,"./%s/%s",inp_dir,ind->d_name);
+        fprintf(logF,"%s\n",ind->d_name );
+        sprintf(path,"%s/%s",dirpath,ind->d_name);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
         // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
@@ -61,16 +64,42 @@ int Writer::sendFiles(void) {
         if(!S_ISREG(path_stat.st_mode)) {
             continue ;
         }
-        printf("%s\n",path );
+        fprintf(logF,"%s\n",path );
         fflush(stdout);
         // We check if it
         sendFile(path);
     }
-    write(pipeD,0,2);
-    close(pipeD);
+    closedir(dir);
     return 0 ;
 }
+int Writer::sendFiles(void) {
+    sendFilesInDir(inp_dir);
+    struct dirent *ind ;
+    while ((ind = readdir(idirPtr)) != NULL) {
+        char path[512];
+        sprintf(path,"./%s/%s",inp_dir,ind->d_name);
+        // We check if it is a dir or a regular file
+        // This code snippet was taken from
+        // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
+        struct stat path_stat;
+        stat(path, &path_stat);
+        if(!S_ISREG(path_stat.st_mode)) {
+            if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0)) {
+                continue ;
+            }
+            sprintf(path,"%s/",path);
+            fprintf(logF,"Dir : %s\n",path );
+            sendFilesInDir(path);
+        }
+    }
+    close(pipeD);
+    short end = 0 ;
+    write(pipeD,&end,2);
+
+}
 Writer::~Writer() {
+    fclose(logF);
+    closedir(idirPtr);
     delete common_dir ;
     delete inp_dir ;
 }

@@ -27,13 +27,18 @@ private:
     int to ;
     char *inp_dir ;
     char *common_dir ;
+    char *log_file ;
+    FILE *logF ;
     DIR * idirPtr;
+
     int pipeD ; // File descriptor for fifo
     int sendFile(char *); // Send file in this path
+    int sendFilesInDir(char *dirpath);
 public:
-    Writer(int ,int ,int ,char *,char *);// From id,to id , input dir, common dir
+    Writer(int ,int ,int ,char *,char *,char *);// From id,to id , input dir, common dir
     int connect(void) ; // Connects to the .fifo
     int sendFiles(void); // Sends all files in inp_dir
+
     ~Writer();
 protected:
 

@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     int buff = atoi(argv[1]);
     int fromID = atoi(argv[2]);
     int toID = atoi(argv[3]);
-    Writer writer(buff,fromID,toID,argv[4],argv[5]);
+    Writer writer(buff,fromID,toID,argv[4],argv[5],argv[6]);
     writer.connect();
     writer.sendFiles();
     return 0;

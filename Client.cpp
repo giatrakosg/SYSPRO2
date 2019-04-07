@@ -28,7 +28,6 @@ int Client::getIDfromString(char *string) {
         out[i] = string[i];
 
     }
-    //printf("%d\n",atoi(out) );
     int retID = atoi(out);
     delete out ;
     return retID;
@@ -75,25 +74,17 @@ void Client::getArgs(int argc,char **argv) {
                 strcpy(common_dir,optarg);
                 break;
             case 'i':
-                //puts ("option -v \n");
-                //printf("With value %s\n",optarg );
                 input_dir = new char[strlen(optarg) + 1];
                 strcpy(input_dir,optarg);
                 break;
             case 'm':
-                //puts ("option --h1 \n");
-                //printf("With value %s\n",optarg );
                 mirror_dir = new char[strlen(optarg) + 1];
                 strcpy(mirror_dir,optarg);
                 break;
             case 'b':
-                //puts ("option --h2 \n");
-                //printf("With value %s\n",optarg );
                 buff_size = atoi(optarg);
                 break;
             case 'l' :
-                //puts ("option -b \n");
-                //printf("With value %s\n",optarg );
                 log_file = new char[strlen(optarg) + 1];
                 strcpy(log_file,optarg);
                 break ;
@@ -153,7 +144,7 @@ int Client::writeID(void) {
     // mirror_client
     while ((ind = readdir(c_dir)) != NULL) {
         if (strcmp(ind->d_name,id_s) == 0) {
-            fprintf(stderr, "Error : %s id already exists\n",id_s );
+            fprintf(log, "Error : %s id already exists\n",id_s );
             return -1 ;
         }
     }
@@ -182,14 +173,14 @@ int Client::detectNewID(void) {
         char *item = (char *)bsearch(ind->d_name,seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
         if (item != NULL) {
             continue ;
-            fprintf(stderr, "Error : %s id already exists\n",id_s );
+            fprintf(log, "Error : %s id already exists\n",id_s );
             return -1 ;
         } else  {
             if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0) ||
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            fprintf(stdout, "Detected %s\n",ind->d_name );
+            fprintf(log, "Detected %s\n",ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
@@ -231,7 +222,7 @@ int Client::createWriterProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,(char *)NULL);
+        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,log_file,(char *)NULL);
         perror("exec");
         return -1 ;
     }
