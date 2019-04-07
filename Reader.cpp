@@ -8,13 +8,13 @@
 
 #include "Reader.hpp"
 
-Reader::Reader(int buff,int fromID,int toID,char *sDir,char *cDir) : buffer_size(buff) ,
+Reader::Reader(int buff,int fromID,int toID,char *sDir,char *cDir,char *logfile) : buffer_size(buff) ,
 from(fromID) , to(toID) , count(MAX_TRIES){
     outDir = new char [strlen(sDir) + 1];
     strcpy(outDir,sDir);
     commonDir = new char [strlen(cDir) + 1];
     strcpy(commonDir,cDir);
-
+    logF = fopen(logfile,"w");
 }
 // The skeleton of the implementation is taken from
 // https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_named_pipes.htm

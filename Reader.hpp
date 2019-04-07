@@ -31,9 +31,10 @@ private:
     char *outDir;
     char *commonDir ;
     char *fifo_file ; // Name of fifo file
+    FILE *logF ;
     int pipeD ; // File descriptor used to open and read from .fifo file
 public:
-    Reader(int ,int ,int ,char *,char *);
+    Reader(int ,int ,int ,char *,char *,char *);
     // Buffer size Id from , id to
     // to directory , common dir
     int createPipe(void);

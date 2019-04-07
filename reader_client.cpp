@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     int buff = atoi(argv[1]);
     int fromID = atoi(argv[2]);
     int toID = atoi(argv[3]);
-    class Reader reader(buff,fromID,toID,argv[4],argv[5]) ;
+    class Reader reader(buff,fromID,toID,argv[4],argv[5],argv[6]) ;
     reader.createPipe();
     reader.readFromPipe();
 
