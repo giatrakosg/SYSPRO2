@@ -42,8 +42,17 @@ int Reader::readFromPipe(void) {
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
         title[titleLen] = '\0';
-        char path[256];
-        sprintf(path,"./%s/%s",outDir,title);
+        char dir[256] ;
+        strcpy(dir,dirname(title));
+        char fileName[256] ;
+        strcpy(fileName,basename(title));
+        char path[512];
+        mkdir(dir,766);
+        sprintf(path,"%s/%s/%s",outDir,dir,fileName);
+        fprintf(logF, "READER : file name %s\n",fileName );
+        fprintf(logF, "READER : dir name %s\n",dir );
+
+        fprintf(logF,"READER: path %s\n",path);
         FILE * outD = fopen(path,"w+");
         fprintf(logF,"READER:Reading file with title %s\n",title);
         short f_size ;

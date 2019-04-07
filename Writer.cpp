@@ -7,6 +7,9 @@
 //
 
 #include "Writer.hpp"
+// We remove everything before the 1st /
+
+
 
 Writer::Writer(int buff,int from,int to,char *inpDir,char *cDir,char *logfile) : buff(buff) ,
 from(from) , to(to) {
@@ -16,7 +19,7 @@ from(from) , to(to) {
     strcpy(common_dir,cDir);
     log_file = new char[strlen(logfile) + 1];
     strcpy(log_file,logfile);
-    logF = fopen(log_file,"w");
+    logF = fopen(log_file,"w+");
     idirPtr = opendir(inp_dir);
 
 }
@@ -28,14 +31,33 @@ int Writer::connect(void) {
     return 0 ;
 
 }
-int Writer::sendFile(char *path) {
+int Writer::sendFile(char *dir,char *name) {
+    char *strippedpath = strtok(dir,"/");
+    strippedpath = strtok(NULL,"");
+/*
+    char outPath[512];
+    char inPath[512];
+    sprintf(inPath,"./%s/%s",)
+    if (strcmp(dir,input_dir) == 0) {
+        sprintf(outPath,"./%s",name);
+    } else {
+        sprintf(outPath,"./%s/%s",dir,name);
+    }
+
+
     struct stat st;
-    stat(path, &st);
+    stat(outpath, &st);
     short fSize = st.st_size;
     int fd = open(path,O_RDONLY);
-    char *fName = basename(path) ;
+    char *fName ;
+    if ((strcmp(dir,".") == 0) ) {
+        strcpy(fName,name);
+    } else {
+        sprintf(fName,"%s/%s",dir,name);
+    }
     short tLen = (short)strlen(fName);
-    fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    fprintf(stdout,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    fflush(stdout);
     write(pipeD,&tLen,2);
     write(pipeD,fName,strlen(fName));
     write(pipeD,&fSize,2);
@@ -47,34 +69,49 @@ int Writer::sendFile(char *path) {
         fSize -= buff ;
     }
     close(fd);
+*/
+    fprintf(stdout, "Dir %s . Name %s \n",strippedpath,name );
     return 0 ;
 }
 int Writer::sendFilesInDir(char *dirpath) {
     DIR * dir = opendir(dirpath);
-    fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
+    if (dir == NULL) {
+        fprintf(stderr, "NULL dir\n");
+    }
+    fprintf(stdout,"Dirpath sendFilesInDir : %s \n",dirpath);
     struct dirent *ind ;
     while((ind = readdir(dir)) != NULL) {
-        char path[512];
         fprintf(logF,"Dirpath : %s\n",ind->d_name );
-        sprintf(path,"%s/%s",dirpath,ind->d_name);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
         // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
         struct stat path_stat;
-        stat(path, &path_stat);
-        if(!S_ISREG(path_stat.st_mode)) {
+        char totalpath[512];
+        sprintf(totalpath,"%s/%s",dirpath,ind->d_name);
+        stat(totalpath, &path_stat);
+
+        // Ignore . , .. directories
+        if ((strcmp(ind->d_name,"..") == 0) || (strcmp(ind->d_name,".") == 0)) {
             continue ;
         }
-        fprintf(logF,"Path : %s\n",path );
-        fflush(stdout);
+        // This is a directory
+        if(!S_ISREG(path_stat.st_mode)) {
+            char path[512] ;
+            sprintf(path,"%s/%s",dirpath,ind->d_name);
+            sendFilesInDir(path);
+            continue ;
+        }
+        fprintf(logF,"Path : %s\n",totalpath );
+        //fflush(logF);
         // We check if it
-        sendFile(path);
+        sendFile(dirpath,ind->d_name);
     }
     closedir(dir);
     return 0 ;
 }
 int Writer::sendFiles(void) {
     sendFilesInDir(inp_dir);
+    /*
     struct dirent *ind ;
     while ((ind = readdir(idirPtr)) != NULL) {
         char path[512];
@@ -92,8 +129,10 @@ int Writer::sendFiles(void) {
             sendFilesInDir(path);
         }
     }
+    */
     short end = 0 ;
     write(pipeD,&end,2);
+
     close(pipeD);
 
 }

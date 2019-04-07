@@ -1,0 +1,17 @@
+Dirpath : d1
+Dirpath : ..
+Dirpath : .
+Dirpath : d2
+Dirpath : ..
+Dirpath : .
+Dirpath : hello4.txt
+Path : inp_dir_1/d1/d2/hello4.txt
+Dirpath : hello2.txt
+Path : inp_dir_1/d1/hello2.txt
+Dirpath : hello3.txt
+Path : inp_dir_1/hello3.txt
+Dirpath : ..
+Dirpath : .
+Dirpath : hello.txt
+Path : inp_dir_1/hello.txt
+Exiting Writer 

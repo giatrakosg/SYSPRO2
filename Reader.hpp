@@ -18,6 +18,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <signal.h>
+#include <libgen.h>
 
 #define MAX_TRIES 3
 #define MAX_NAME 2048
