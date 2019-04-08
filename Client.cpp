@@ -180,7 +180,7 @@ int Client::detectNewID(void) {
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            fprintf(log, "Detected %s\n",ind->d_name );
+            fprintf(stdout, "Detected %s\n",ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
