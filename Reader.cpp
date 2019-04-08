@@ -7,7 +7,8 @@
 //
 
 #include "Reader.hpp"
-
+// This function creates recursively directories
+// Source : https://gist.github.com/JonathonReinhart/8c0d90191c38af2dcadb102c4e202950
 int mkdir_p(const char *path)
 {
     /* Adapted from http://stackoverflow.com/a/2336245/119527 */
@@ -75,31 +76,40 @@ int Reader::readFromPipe(void) {
         if (titleLen == 0) {
             break;
         }
-        fprintf(stdout,"READER:Reading file with %d size of title \n",titleLen);
+        fprintf(logF,"READER:Reading file with %d size of title \n",titleLen);
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
-        char *title2 = new char[strlen(title) + 1];
         title[titleLen] = '\0';
 
+        // basename / dirname modify their argument .So we pass a copy
+        char *title2 = new char[strlen(title) + 1];
         strcpy(title2,title);
-        char dirs[32][256] ; // We parse the dir structure
+        char *title3 = new char[strlen(title) + 1];
+        strcpy(title3,title);
+
+        // We retrieve the dir structure
         char basedir[256];
-        strcpy(basedir,dirname(title2)); // We remove the file title
+        strcpy(basedir,dirname(title2));
         char fileName[256] ;
-        strcpy(fileName,basename(title2));
-        fprintf(stdout, "Base dir %s | Basename %s \n",basedir,fileName );
+        strcpy(fileName,basename(title3));
+
+        fprintf(logF, "Base dir %s | Basename %s \n",basedir,fileName );
+        // We add the output dir so that mkdir_p creates the directories in the
+        // correct place
         char dirstruct[512];
         sprintf(dirstruct,"%s/%s/",outDir,basedir);
         mkdir_p(dirstruct);
+
         char path[512];
         //mkdir(dir,766);
-        sprintf(path,"%s/%s/%s",outDir,basedir,fileName);
+        sprintf(path,"%s%s",dirstruct,fileName);
+        fprintf(logF, "PATH : %s\n",path );
         /*
-        fprintf(stdout, "READER : file name %s\n",fileName );
-        fprintf(stdout, "READER : dir name %s\n",dir );
-        fprintf(stdout,"READER: path %s\n",path);
+        fprintf(logF, "READER : file name %s\n",fileName );
+        fprintf(logF, "READER : dir name %s\n",dir );
+        fprintf(logF,"READER: path %s\n",path);
         */
-        fprintf(stdout, "READER :Title %s\n",title);
+        fprintf(logF, "READER :Title %s\n",title);
         FILE * outD = fopen(path,"w+");
         fprintf(logF,"READER:Reading file with title %s\n",title);
         short f_size ;
@@ -117,6 +127,7 @@ int Reader::readFromPipe(void) {
         }
         fflush(logF);
         fprintf(outD,"%s",contents );
+        fflush(outD);
         fclose(outD);
     }
 

@@ -48,7 +48,7 @@ int Writer::sendFile(char *dir,char *name) {
         sprintf(fName,"%s/%s",strippedpath,name);
     }
     short tLen = (short)strlen(fName);
-    fprintf(stdout,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
     fflush(stdout);
     write(pipeD,&tLen,2);
     write(pipeD,fName,strlen(fName));
@@ -62,7 +62,7 @@ int Writer::sendFile(char *dir,char *name) {
     }
     close(fd);
 
-    fprintf(stdout, "Dir %s . Name %s \n",strippedpath,name );
+    fprintf(logF, "Dir %s . Name %s \n",strippedpath,name );
     return 0 ;
 }
 int Writer::sendFilesInDir(char *dirpath) {
@@ -70,7 +70,7 @@ int Writer::sendFilesInDir(char *dirpath) {
     if (dir == NULL) {
         fprintf(stderr, "NULL dir\n");
     }
-    fprintf(stdout,"Dirpath sendFilesInDir : %s \n",dirpath);
+    fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
     struct dirent *ind ;
     while((ind = readdir(dir)) != NULL) {
         fprintf(logF,"Dirpath : %s\n",ind->d_name );

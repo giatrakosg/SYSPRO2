@@ -1,17 +1,28 @@
+Dirpath sendFilesInDir : inp_dir_1 
 Dirpath : d1
+Dirpath sendFilesInDir : inp_dir_1/d1 
 Dirpath : ..
 Dirpath : .
 Dirpath : d2
+Dirpath sendFilesInDir : inp_dir_1/d1/d2 
 Dirpath : ..
 Dirpath : .
 Dirpath : hello4.txt
 Path : inp_dir_1/d1/d2/hello4.txt
+File Name : d1/d2/hello4.txt , 16
+Dir d1/d2 . Name hello4.txt 
 Dirpath : hello2.txt
 Path : inp_dir_1/d1/hello2.txt
+File Name : d1/hello2.txt , 13
+Dir d1 . Name hello2.txt 
 Dirpath : hello3.txt
 Path : inp_dir_1/hello3.txt
+File Name : ./hello3.txt , 12
+Dir (null) . Name hello3.txt 
 Dirpath : ..
 Dirpath : .
 Dirpath : hello.txt
 Path : inp_dir_1/hello.txt
+File Name : ./hello.txt , 11
+Dir (null) . Name hello.txt 
 Exiting Writer 
