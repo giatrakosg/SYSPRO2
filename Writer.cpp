@@ -126,7 +126,7 @@ int Writer::sendFiles(void) {
     write(pipeD,&end,2);
 
     close(pipeD);
-
+    return 0 ;
 }
 Writer::~Writer() {
     fprintf(logF, "Exiting Writer \n");

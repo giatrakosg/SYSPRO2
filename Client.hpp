@@ -13,10 +13,12 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
+#include <signal.h>
 #include <getopt.h>
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <wait.h>
 #include <unistd.h>
 
 #define SEEN_BUFFER 256

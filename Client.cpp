@@ -221,6 +221,12 @@ int Client::createWriterProcess(int to) {
         perror("exec");
         return -1 ;
     }
+    int status ;
+    waitpid(child,&status,NULL);
+    if (status == 0) {
+        fprintf(stdout, "SUCCESS CHILD %ld TERMINATED SUCCESSFULLY\n",(long)child );
+    }
+
     return 0 ;
 }
 Client::~Client() {

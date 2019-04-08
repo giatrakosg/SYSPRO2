@@ -7,7 +7,7 @@
 //
 
 #include "Reader.hpp"
-// This function creates recursively directories
+// This function creates directories recursively
 // Source : https://gist.github.com/JonathonReinhart/8c0d90191c38af2dcadb102c4e202950
 int mkdir_p(const char *path)
 {
@@ -93,33 +93,29 @@ int Reader::readFromPipe(void) {
         char fileName[256] ;
         strcpy(fileName,basename(title3));
 
-        fprintf(logF, "Base dir %s | Basename %s \n",basedir,fileName );
         // We add the output dir so that mkdir_p creates the directories in the
-        // correct place
+        // correct place and the id of the other user
         char dirstruct[512];
         sprintf(dirstruct,"%s/%d/%s/",outDir,from,basedir);
         mkdir_p(dirstruct);
 
+        // Path to the copy of the file we are creating
         char path[512];
-        //mkdir(dir,766);
         sprintf(path,"%s%s",dirstruct,fileName);
-        fprintf(stdout, "PATH : %s\n",path );
-        /*
-        fprintf(logF, "READER : file name %s\n",fileName );
-        fprintf(logF, "READER : dir name %s\n",dir );
-        fprintf(logF,"READER: path %s\n",path);
-        */
-        fprintf(logF, "READER :Title %s\n",title);
         FILE * outD = fopen(path,"w+");
+
         fprintf(logF,"READER:Reading file with title %s\n",title);
+
         int f_size ;
         read_bytes = read(pipeD,&f_size,sizeof(int));
         fprintf(logF,"READER:Reading file with %d size\n",f_size);
         fflush(logF);
+
         char *contents = new char[f_size + 1];
         memset(contents,0,f_size+1);
         while (f_size > 0) {
-            char *readBuffer = new char[buffer_size+1];
+            char *readBuffer = new char[buffer_size+1]; // We use a buffer to
+            // read over the pipe 
             memset(readBuffer,'\0',buffer_size+1);
             read_bytes = read(pipeD,readBuffer,buffer_size);
             strcat(contents,readBuffer);
@@ -129,6 +125,8 @@ int Reader::readFromPipe(void) {
         fprintf(outD,"%s",contents );
         fflush(outD);
         fclose(outD);
+        delete title2 ;
+        delete title3 ;
     }
 
     return 0 ;
@@ -139,4 +137,5 @@ Reader::~Reader() {
     close(pipeD);
     delete outDir ;
     delete commonDir ;
+    delete fifo_file;
 }

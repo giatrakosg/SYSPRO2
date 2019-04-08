@@ -14,7 +14,10 @@ void sigstop_handler(int signum) {
     delete cli ;
     exit(0);
 }
-
+void sigusr_handler(int signum){
+    signal(SIGINT,sigstop_handler);
+    std::cout << "Usr Sig: " << signum << std::endl ;
+}
 
 
 int main(int argc, char *argv[]) {
@@ -22,6 +25,7 @@ int main(int argc, char *argv[]) {
 
     signal(SIGQUIT,sigstop_handler);
     signal(SIGINT,sigstop_handler);
+    signal(SIGUSR1,sigusr_handler);
 
     cli = new Client;
     cli->getArgs(argc,argv);
