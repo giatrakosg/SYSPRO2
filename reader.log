@@ -1,1 +1,6 @@
-Exiting Reader 
+READER:Reading file with title d1/d2/hello4.txt
+READER:Reading file with 0 size
+READER:Reading file with title d1/hello2.txt
+READER:Reading file with 31 size
+READER:Reading file with title ./hello3.txt
+READER:Reading file with 35 size

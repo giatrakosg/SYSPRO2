@@ -8,6 +8,43 @@
 
 #include "Reader.hpp"
 
+int mkdir_p(const char *path)
+{
+    /* Adapted from http://stackoverflow.com/a/2336245/119527 */
+    const size_t len = strlen(path);
+    char _path[PATH_MAX];
+    char *p;
+
+    errno = 0;
+
+    /* Copy string so its mutable */
+    if (len > sizeof(_path)-1) {
+        errno = ENAMETOOLONG;
+        return -1;
+    }
+    strcpy(_path, path);
+
+    /* Iterate the string */
+    for (p = _path + 1; *p; p++) {
+        if (*p == '/') {
+            /* Temporarily truncate */
+            *p = '\0';
+
+            if (mkdir(_path, S_IRWXU) != 0) {}
+
+            *p = '/';
+        }
+    }
+
+    if (mkdir(_path, S_IRWXU) != 0) {
+        if (errno != EEXIST)
+            return -1;
+    }
+
+    return 0;
+}
+
+
 Reader::Reader(int buff,int fromID,int toID,char *sDir,char *cDir,char *logfile) : buffer_size(buff) ,
 from(fromID) , to(toID) , count(MAX_TRIES){
     outDir = new char [strlen(sDir) + 1];
@@ -38,26 +75,37 @@ int Reader::readFromPipe(void) {
         if (titleLen == 0) {
             break;
         }
-        fprintf(logF,"READER:Reading file with %d size of title \n",titleLen);
+        fprintf(stdout,"READER:Reading file with %d size of title \n",titleLen);
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
+        char *title2 = new char[strlen(title) + 1];
         title[titleLen] = '\0';
-        char dir[256] ;
-        strcpy(dir,dirname(title));
-        char fileName[256] ;
-        strcpy(fileName,basename(title));
-        char path[512];
-        mkdir(dir,766);
-        sprintf(path,"%s/%s/%s",outDir,dir,fileName);
-        fprintf(logF, "READER : file name %s\n",fileName );
-        fprintf(logF, "READER : dir name %s\n",dir );
 
-        fprintf(logF,"READER: path %s\n",path);
+        strcpy(title2,title);
+        char dirs[32][256] ; // We parse the dir structure
+        char basedir[256];
+        strcpy(basedir,dirname(title2)); // We remove the file title
+        char fileName[256] ;
+        strcpy(fileName,basename(title2));
+        fprintf(stdout, "Base dir %s | Basename %s \n",basedir,fileName );
+        char dirstruct[512];
+        sprintf(dirstruct,"%s/%s/",outDir,basedir);
+        mkdir_p(dirstruct);
+        char path[512];
+        //mkdir(dir,766);
+        sprintf(path,"%s/%s/%s",outDir,basedir,fileName);
+        /*
+        fprintf(stdout, "READER : file name %s\n",fileName );
+        fprintf(stdout, "READER : dir name %s\n",dir );
+        fprintf(stdout,"READER: path %s\n",path);
+        */
+        fprintf(stdout, "READER :Title %s\n",title);
         FILE * outD = fopen(path,"w+");
         fprintf(logF,"READER:Reading file with title %s\n",title);
         short f_size ;
         read_bytes = read(pipeD,&f_size,2);
         fprintf(logF,"READER:Reading file with %d size\n",f_size);
+        fflush(logF);
         char *contents = new char[f_size + 1];
         memset(contents,0,f_size+1);
         while (f_size > 0) {

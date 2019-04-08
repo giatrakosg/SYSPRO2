@@ -19,6 +19,10 @@
 #include <unistd.h>
 #include <signal.h>
 #include <libgen.h>
+#include <limits.h>     /* PATH_MAX */
+#include <sys/stat.h>   /* mkdir(2) */
+#include <errno.h>
+
 
 #define MAX_TRIES 3
 #define MAX_NAME 2048

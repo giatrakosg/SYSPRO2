@@ -34,26 +34,18 @@ int Writer::connect(void) {
 int Writer::sendFile(char *dir,char *name) {
     char *strippedpath = strtok(dir,"/");
     strippedpath = strtok(NULL,"");
-/*
-    char outPath[512];
-    char inPath[512];
-    sprintf(inPath,"./%s/%s",)
-    if (strcmp(dir,input_dir) == 0) {
-        sprintf(outPath,"./%s",name);
-    } else {
-        sprintf(outPath,"./%s/%s",dir,name);
-    }
 
-
+    char inpath[512] ;
+    sprintf(inpath,"%s/%s",dir,name);
     struct stat st;
-    stat(outpath, &st);
+    stat(inpath, &st);
     short fSize = st.st_size;
-    int fd = open(path,O_RDONLY);
-    char *fName ;
-    if ((strcmp(dir,".") == 0) ) {
-        strcpy(fName,name);
+    int fd = open(inpath,O_RDONLY);
+    char fName[512] ;
+    if (strippedpath == NULL) {
+        sprintf(fName,"./%s",name);
     } else {
-        sprintf(fName,"%s/%s",dir,name);
+        sprintf(fName,"%s/%s",strippedpath,name);
     }
     short tLen = (short)strlen(fName);
     fprintf(stdout,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
@@ -69,7 +61,7 @@ int Writer::sendFile(char *dir,char *name) {
         fSize -= buff ;
     }
     close(fd);
-*/
+
     fprintf(stdout, "Dir %s . Name %s \n",strippedpath,name );
     return 0 ;
 }
