@@ -36,7 +36,8 @@ writer_client.o : writer_client.cpp
 # clean house
 all : mirror_client reader_client writer_client
 clean:
-	rm -f $(OBJS) $(OUT) err.log common_dir/* mirror_dir/* -r
+	rm -f $(OBJS) $(OUT) err.log common_dir/* mirror_dir mirror_dir_1 mirror_dir_2 \
+	reader.log writer.log err.log -r
 
 # do a bit of accounting
 count:

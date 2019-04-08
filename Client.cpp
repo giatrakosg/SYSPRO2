@@ -104,22 +104,20 @@ int Client::parseArgs(void) {
     }
     c_dir = opendir(common_dir);
 
-    // Check if the input dir exists and create it if it doesnt
-
+    // Check if the input dir exists and exit it if it doesnt
     struct  stat is = {0};
     if (stat(input_dir,&is) == -1) {
-        mkdir(input_dir,0755);
-    }
-
-    i_dir = opendir(input_dir);
-
-    // Check if the mirror dir exists , if it doesnt terminate
-    m_dir = opendir(mirror_dir);
-    if (m_dir == NULL) {
-        perror("opendir");
         return -1 ;
     }
+    i_dir = opendir(input_dir);
 
+    // Check if the mirror dir exists , if it doesnt create it
+    m_dir = opendir(mirror_dir);
+    if (m_dir == NULL) {
+        mkdir(mirror_dir,0755);
+        return -1 ;
+    }
+    // Create log file if it doesnt exit and open
     log = fopen(log_file,"w+");
     if (log == NULL) {
         perror("fopen");
@@ -128,6 +126,7 @@ int Client::parseArgs(void) {
 
     return 0 ;
 }
+// Function that prints arguments .Used for debugging
 void Client::printArgs(void) {
     std::cout
     << "ID : " << id << std::endl
@@ -138,6 +137,7 @@ void Client::printArgs(void) {
     << "B_SIZE : " << buff_size << std::endl
     << "LOG_F : " << log_file << std::endl ;
 }
+
 int Client::writeID(void) {
     struct dirent *ind ;
     // We cycle through contents of c_dir for file with same id as this
@@ -149,19 +149,14 @@ int Client::writeID(void) {
         }
     }
     id_fn = new char[strlen(common_dir) + strlen(id_s) + 1 + 2];
-    strcpy(id_fn,common_dir);
-    strcat(id_fn,"/");
-    strcat(id_fn,id_s);
+    sprintf(id_fn,"%s/%s",common_dir,id_s);
     f_id = fopen(id_fn,"w");
     if (f_id == NULL) {
         return -1 ;
     }
     long ppid = (long) getpid() ;
-    fflush(f_id);
     fprintf(f_id, "%ld",ppid);
     fclose(f_id);
-    strcpy(seen[last_seen],id_s);
-    last_seen++;
     return 0 ;
 
 }
@@ -205,7 +200,7 @@ int Client::createReaderProcess(int to) {
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","reader_client",buff_string,fromID,toID,mirror_dir,common_dir,"reader.log",(char *)NULL);
+        execl("./reader_client","reader_client",buff_string,toID,fromID,mirror_dir,common_dir,"reader.log",(char *)NULL);
         perror("exec");
         return -1 ;
     }
@@ -234,7 +229,7 @@ Client::~Client() {
     closedir(c_dir);
     closedir(m_dir);
     char cmd[1024] ;
-    sprintf(cmd,"rm %s/*",mirror_dir);
+    sprintf(cmd,"rm -r %s/*",mirror_dir);
     system(cmd);
     perror("syscall");
     fclose(log);

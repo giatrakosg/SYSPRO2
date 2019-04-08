@@ -19,6 +19,7 @@
 #include <signal.h>
 #include <libgen.h>
 #include <dirent.h>
+#include <stdint.h>
 
 class Writer {
 private:

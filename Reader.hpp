@@ -15,8 +15,8 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <fcntl.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <signal.h>
 #include <libgen.h>
 #include <limits.h>     /* PATH_MAX */

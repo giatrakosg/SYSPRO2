@@ -97,13 +97,13 @@ int Reader::readFromPipe(void) {
         // We add the output dir so that mkdir_p creates the directories in the
         // correct place
         char dirstruct[512];
-        sprintf(dirstruct,"%s/%s/",outDir,basedir);
+        sprintf(dirstruct,"%s/%d/%s/",outDir,from,basedir);
         mkdir_p(dirstruct);
 
         char path[512];
         //mkdir(dir,766);
         sprintf(path,"%s%s",dirstruct,fileName);
-        fprintf(logF, "PATH : %s\n",path );
+        fprintf(stdout, "PATH : %s\n",path );
         /*
         fprintf(logF, "READER : file name %s\n",fileName );
         fprintf(logF, "READER : dir name %s\n",dir );
@@ -112,8 +112,8 @@ int Reader::readFromPipe(void) {
         fprintf(logF, "READER :Title %s\n",title);
         FILE * outD = fopen(path,"w+");
         fprintf(logF,"READER:Reading file with title %s\n",title);
-        short f_size ;
-        read_bytes = read(pipeD,&f_size,2);
+        int f_size ;
+        read_bytes = read(pipeD,&f_size,sizeof(int));
         fprintf(logF,"READER:Reading file with %d size\n",f_size);
         fflush(logF);
         char *contents = new char[f_size + 1];

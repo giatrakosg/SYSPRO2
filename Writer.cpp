@@ -39,7 +39,7 @@ int Writer::sendFile(char *dir,char *name) {
     sprintf(inpath,"%s/%s",dir,name);
     struct stat st;
     stat(inpath, &st);
-    short fSize = st.st_size;
+    int fSize = st.st_size;
     int fd = open(inpath,O_RDONLY);
     char fName[512] ;
     if (strippedpath == NULL) {
@@ -50,9 +50,9 @@ int Writer::sendFile(char *dir,char *name) {
     short tLen = (short)strlen(fName);
     fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
     fflush(stdout);
-    write(pipeD,&tLen,2);
+    write(pipeD,&tLen,sizeof(short));
     write(pipeD,fName,strlen(fName));
-    write(pipeD,&fSize,2);
+    write(pipeD,&fSize,sizeof(int));
     while(fSize > 0) {
         char *contents = new char[buff+1];
         memset(contents,'\0',buff+1);
