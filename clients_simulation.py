@@ -86,7 +86,7 @@ if timeInterval != None and timeInterval != 0:
                 "./" +
                 executable, "-n", str(ID), "-c", "./common", "-i", "./" +
                 inputFileName, "-m", "./" + str(ID) + "_mirror",
-                "-b", "100", "-l", "log_file" + str(ID)
+                "-b", "100", "-l", "log_file" + str(ID) + ".log"
             ])
         processes.append(process)
         ID += 1

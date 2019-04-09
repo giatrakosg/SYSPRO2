@@ -156,6 +156,9 @@ int Client::writeID(void) {
     long ppid = (long) getpid() ;
     fprintf(f_id, "%ld",ppid);
     fclose(f_id);
+    flock(fileno(log),LOCK_EX);
+    fprintf(log, "client %d\n",id );
+    flock(fileno(log),LOCK_UN);
     return 0 ;
 
 }
