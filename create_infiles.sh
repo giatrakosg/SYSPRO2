@@ -44,10 +44,14 @@ done
 echo ${PATHS[@]}
 j=0
 for (( i = 0; i < num_of_files; i++ )); do
-    size=`cat /dev/urandom | tr -dc '1-8' | fold -w 256 | head -n 1 | head --bytes 1`
+    size_title=`cat /dev/urandom | tr -dc '1-8' | fold -w 256 | head -n 1 | head --bytes 1`
     # then  we pick a random alphanumeric title
-    name=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $size | head -n 1`
-    touch "${PATHS[$j]}/$name"
+    name=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $size_title | head -n 1`
+    size_file=$(($RANDOM % 127))
+    size_file=$(($size_file * 1024))
+    file=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $size_file | head -n 1`
+    #touch "${PATHS[$j]}/$name"
+    echo $file > "${PATHS[$j]}/$name"
     j=$(($j + 1))
     if [[ "$j" -eq "$(($num_of_dirs + 1))" ]]; then
         j=$((0))
