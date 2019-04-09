@@ -52,7 +52,7 @@ from(fromID) , to(toID) , count(MAX_TRIES){
     strcpy(outDir,sDir);
     commonDir = new char [strlen(cDir) + 1];
     strcpy(commonDir,cDir);
-    logF = fopen(logfile,"w");
+    logF = fopen(logfile,"a");
 }
 // The skeleton of the implementation is taken from
 // https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_named_pipes.htm
@@ -76,7 +76,7 @@ int Reader::readFromPipe(void) {
         if (titleLen == 0) {
             break;
         }
-        fprintf(logF,"READER:Reading file with %d size of title \n",titleLen);
+        //fprintf(logF,"READER:Reading file with %d size of title \n",titleLen);
         char *title = new char[titleLen + 1];
         read_bytes = read(pipeD,title,titleLen);
         title[titleLen] = '\0';
@@ -104,24 +104,32 @@ int Reader::readFromPipe(void) {
         sprintf(path,"%s%s",dirstruct,fileName);
         FILE * outD = fopen(path,"w+");
 
-        fprintf(logF,"READER:Reading file with title %s\n",title);
+        //fprintf(logF,"READER:Reading file with title %s\n",title);
 
         int f_size ;
         read_bytes = read(pipeD,&f_size,sizeof(int));
-        fprintf(logF,"READER:Reading file with %d size\n",f_size);
+        //fprintf(logF,"READER:Reading file with %d size\n",f_size);
         fflush(logF);
 
         char *contents = new char[f_size + 1];
         memset(contents,0,f_size+1);
-        while (f_size > 0) {
+        int counter = f_size ;
+        while (counter > 0) {
             char *readBuffer = new char[buffer_size+1]; // We use a buffer to
             // read over the pipe
             memset(readBuffer,'\0',buffer_size+1);
             read_bytes = read(pipeD,readBuffer,buffer_size);
             strcat(contents,readBuffer);
-            f_size -= read_bytes ;
+            counter -= read_bytes ;
             delete readBuffer;
         }
+        flock(fileno(logF),LOCK_EX);
+        fprintf(logF, "bytes_received %d\n",f_size + (int)titleLen);
+        flock(fileno(logF),LOCK_UN);
+        flock(fileno(logF),LOCK_EX);
+        fprintf(logF, "received_file\n");
+        flock(fileno(logF),LOCK_UN);
+
         fflush(logF);
         fprintf(outD,"%s",contents );
         fflush(outD);

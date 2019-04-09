@@ -20,6 +20,8 @@
 #include <sys/stat.h>
 #include <wait.h>
 #include <unistd.h>
+#include <sys/file.h>
+
 
 #define SEEN_BUFFER 256
 #define FILE_NAME 256

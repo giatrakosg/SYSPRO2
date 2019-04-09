@@ -19,7 +19,7 @@ from(from) , to(to) {
     strcpy(common_dir,cDir);
     log_file = new char[strlen(logfile) + 1];
     strcpy(log_file,logfile);
-    logF = fopen(log_file,"w+");
+    logF = fopen(log_file,"a");
     idirPtr = opendir(inp_dir);
 
 }
@@ -32,16 +32,14 @@ int Writer::connect(void) {
 
 }
 int Writer::sendFile(char *dir,char *name) {
-    // We create  copy of dir because strtok modifies it 
-    char dir2[strlen(dir) + 1];
+    // We create  copy of dir because strtok modifies it
+    char *dir2 = new char[strlen(dir) + 1];
     strcpy(dir2,dir);
     char *strippedpath = strtok(dir2,"/");
     strippedpath = strtok(NULL,"");
 
     char inpath[512] ;
-    fprintf(stdout, "SENDFILE:DIR %s | NAME: %s\n",dir,name );
     sprintf(inpath,"%s/%s",dir,name);
-    fprintf(stdout, "inpath : %s\n",inpath );
     struct stat st;
     stat(inpath, &st);
     int fSize = st.st_size;
@@ -53,22 +51,30 @@ int Writer::sendFile(char *dir,char *name) {
         sprintf(fName,"%s/%s",strippedpath,name);
     }
     short tLen = (short)strlen(fName);
-    fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
+    //fprintf(logF,"File Name : %s , %hd\n",fName ,(short)strlen(fName));
     fflush(stdout);
     write(pipeD,&tLen,sizeof(short));
     write(pipeD,fName,strlen(fName));
     write(pipeD,&fSize,sizeof(int));
-    while(fSize > 0) {
+    int count = fSize ;
+    while(count > 0) {
         char *contents = new char[buff+1];
         memset(contents,'\0',buff+1);
         read(fd,contents,buff);
         write(pipeD,contents,buff);
-        fSize -= buff ;
+        count -= buff ;
         delete contents ;
     }
-    close(fd);
+    flock(fileno(logF),LOCK_EX);
+    fprintf(logF, "bytes_sent %d\n",fSize + (int)tLen);
+    flock(fileno(logF),LOCK_UN);
+    flock(fileno(logF),LOCK_EX);
+    fprintf(logF, "send_file\n");
+    flock(fileno(logF),LOCK_UN);
 
-    fprintf(logF, "Dir %s . Name %s \n",strippedpath,name );
+    close(fd);
+    delete dir2;
+    //fprintf(logF, "Dir %s . Name %s \n",strippedpath,name );
     return 0 ;
 }
 int Writer::sendFilesInDir(char *dirpath) {
@@ -77,10 +83,10 @@ int Writer::sendFilesInDir(char *dirpath) {
     if (dir == NULL) {
         fprintf(stderr, "NULL dir\n");
     }
-    fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
+    //fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
     struct dirent *ind ;
     while((ind = readdir(dir)) != NULL) {
-        fprintf(stdout,"Dirpath : %s\n",ind->d_name );
+        //fprintf(stdout,"Dirpath : %s\n",ind->d_name );
         fflush(stdout);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
@@ -101,7 +107,7 @@ int Writer::sendFilesInDir(char *dirpath) {
             sendFilesInDir(totalpath);
             continue ;
         }
-        fprintf(logF,"Path : %s\n",totalpath );
+        //fprintf(logF,"Path : %s\n",totalpath );
         //fflush(logF);
         // We check if it
         sendFile(dirpath,ind->d_name);
@@ -137,7 +143,9 @@ int Writer::sendFiles(void) {
     return 0 ;
 }
 Writer::~Writer() {
+    flock(fileno(logF),LOCK_EX);
     fprintf(logF, "Exiting Writer \n");
+    flock(fileno(logF),LOCK_UN);
     fclose(logF);
     closedir(idirPtr);
     delete common_dir ;

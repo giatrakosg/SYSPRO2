@@ -9,14 +9,12 @@ Client *cli ;
 void sigstop_handler(int signum) {
     signal(SIGINT,sigstop_handler);
     signal(SIGQUIT,sigstop_handler);
-    std::cout << "Bye Sig: " << signum << std::endl ;
     runFlag = false ;
     delete cli ;
     exit(0);
 }
 void sigusr_handler(int signum){
-    signal(SIGINT,sigstop_handler);
-    std::cout << "Usr Sig: " << signum << std::endl ;
+    signal(SIGUSR1,sigusr_handler);
 }
 
 

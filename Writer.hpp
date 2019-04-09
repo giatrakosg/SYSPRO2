@@ -20,6 +20,8 @@
 #include <libgen.h>
 #include <dirent.h>
 #include <stdint.h>
+#include <sys/file.h>
+
 
 class Writer {
 private:

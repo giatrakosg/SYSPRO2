@@ -22,6 +22,7 @@
 #include <limits.h>     /* PATH_MAX */
 #include <sys/stat.h>   /* mkdir(2) */
 #include <errno.h>
+#include <sys/file.h>
 
 
 #define MAX_TRIES 3

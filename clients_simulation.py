@@ -62,7 +62,7 @@ for i in range(numOfInitialClients):
             "./" +
             executable, "-n", str(ID), "-c", "./common", "-i", "./" +
             inputFileName, "-m", "./" + str(ID) + "_mirror",
-            "-b", "100", "-l", "log_file" + str(ID)
+            "-b", "100", "-l", "log_file" + str(ID) + ".log"
         ])
     )
     ID += 1
@@ -93,4 +93,3 @@ if timeInterval != None and timeInterval != 0:
 else:
     for i in processes:
         i.wait()
-

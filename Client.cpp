@@ -117,7 +117,7 @@ int Client::parseArgs(void) {
         mkdir(mirror_dir,0755);
     }
     // Create log file if it doesnt exit and open
-    log = fopen(log_file,"w+");
+    log = fopen(log_file,"a+");
     if (log == NULL) {
         perror("fopen");
         return -1 ;
@@ -143,7 +143,7 @@ int Client::writeID(void) {
     // mirror_client
     while ((ind = readdir(c_dir)) != NULL) {
         if (strcmp(ind->d_name,id_s) == 0) {
-            fprintf(log, "Error : %s id already exists\n",id_s );
+            fprintf(stderr, "Error : %s id already exists\n",id_s );
             return -1 ;
         }
     }
@@ -167,14 +167,17 @@ int Client::detectNewID(void) {
         char *item = (char *)bsearch(ind->d_name,seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
         if (item != NULL) {
             continue ;
-            fprintf(log, "Error : %s id already exists\n",id_s );
+            fprintf(stderr, "Error : %s id already exists\n",id_s );
             return -1 ;
         } else  {
             if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0) ||
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            fprintf(stdout, "%d : Detected %s\n",id,ind->d_name );
+            flock(fileno(log),LOCK_EX);
+            fprintf(log, "detected %s\n",ind->d_name );
+            flock(fileno(log),LOCK_UN);
+
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
@@ -195,11 +198,10 @@ int Client::createReaderProcess(int to) {
     sprintf(fromID,"%d",id);
     char buff_string[10];
     sprintf(buff_string,"%d",buff_size);
-
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./reader_client","reader_client",buff_string,toID,fromID,mirror_dir,common_dir,"reader.log",(char *)NULL);
+        execl("./reader_client","reader_client",buff_string,toID,fromID,mirror_dir,common_dir,log_file,(char *)NULL);
         perror("exec");
         return -1 ;
     }
@@ -212,20 +214,18 @@ int Client::createWriterProcess(int to) {
     sprintf(fromID,"%d",id);
     char buff_string[10];
     sprintf(buff_string,"%d",buff_size);
-
     pid_t child = fork() ;
     if (child == 0) {
         // We are in the child
-        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,"writer.log",(char *)NULL);
+        execl("./writer_client","writer_client",buff_string,fromID,toID,input_dir,common_dir,log_file,(char *)NULL);
         perror("exec");
         return -1 ;
     }
     int status ;
-    waitpid(child,&status,NULL);
+    waitpid(child,&status,0);
     if (status == 0) {
-        fprintf(stdout, "SUCCESS CHILD %ld TERMINATED SUCCESSFULLY\n",(long)child );
+        fprintf(stdout, "Client %d : success child %ld \n",id,(long)child );
     }
-
     return 0 ;
 }
 Client::~Client() {
