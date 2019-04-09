@@ -115,11 +115,12 @@ int Reader::readFromPipe(void) {
         memset(contents,0,f_size+1);
         while (f_size > 0) {
             char *readBuffer = new char[buffer_size+1]; // We use a buffer to
-            // read over the pipe 
+            // read over the pipe
             memset(readBuffer,'\0',buffer_size+1);
             read_bytes = read(pipeD,readBuffer,buffer_size);
             strcat(contents,readBuffer);
             f_size -= read_bytes ;
+            delete readBuffer;
         }
         fflush(logF);
         fprintf(outD,"%s",contents );
@@ -127,6 +128,7 @@ int Reader::readFromPipe(void) {
         fclose(outD);
         delete title2 ;
         delete title3 ;
+        delete contents ;
     }
 
     return 0 ;

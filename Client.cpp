@@ -115,7 +115,6 @@ int Client::parseArgs(void) {
     m_dir = opendir(mirror_dir);
     if (m_dir == NULL) {
         mkdir(mirror_dir,0755);
-        return -1 ;
     }
     // Create log file if it doesnt exit and open
     log = fopen(log_file,"w+");
@@ -175,7 +174,7 @@ int Client::detectNewID(void) {
                 (strstr(ind->d_name,".fifo") != NULL)) {
                 continue ;
             }
-            fprintf(stdout, "Detected %s\n",ind->d_name );
+            fprintf(stdout, "%d : Detected %s\n",id,ind->d_name );
             strcpy(seen[last_seen],ind->d_name);
             last_seen++;
             qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
@@ -235,7 +234,7 @@ Client::~Client() {
     closedir(c_dir);
     closedir(m_dir);
     char cmd[1024] ;
-    sprintf(cmd,"rm -r %s/*",mirror_dir);
+    sprintf(cmd,"rm -r %s*",mirror_dir);
     system(cmd);
     perror("syscall");
     fclose(log);

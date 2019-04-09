@@ -32,11 +32,16 @@ int Writer::connect(void) {
 
 }
 int Writer::sendFile(char *dir,char *name) {
-    char *strippedpath = strtok(dir,"/");
+    // We create  copy of dir because strtok modifies it 
+    char dir2[strlen(dir) + 1];
+    strcpy(dir2,dir);
+    char *strippedpath = strtok(dir2,"/");
     strippedpath = strtok(NULL,"");
 
     char inpath[512] ;
+    fprintf(stdout, "SENDFILE:DIR %s | NAME: %s\n",dir,name );
     sprintf(inpath,"%s/%s",dir,name);
+    fprintf(stdout, "inpath : %s\n",inpath );
     struct stat st;
     stat(inpath, &st);
     int fSize = st.st_size;
@@ -59,6 +64,7 @@ int Writer::sendFile(char *dir,char *name) {
         read(fd,contents,buff);
         write(pipeD,contents,buff);
         fSize -= buff ;
+        delete contents ;
     }
     close(fd);
 
@@ -66,6 +72,7 @@ int Writer::sendFile(char *dir,char *name) {
     return 0 ;
 }
 int Writer::sendFilesInDir(char *dirpath) {
+
     DIR * dir = opendir(dirpath);
     if (dir == NULL) {
         fprintf(stderr, "NULL dir\n");
@@ -73,7 +80,8 @@ int Writer::sendFilesInDir(char *dirpath) {
     fprintf(logF,"Dirpath sendFilesInDir : %s \n",dirpath);
     struct dirent *ind ;
     while((ind = readdir(dir)) != NULL) {
-        fprintf(logF,"Dirpath : %s\n",ind->d_name );
+        fprintf(stdout,"Dirpath : %s\n",ind->d_name );
+        fflush(stdout);
         // We check if it is a dir or a regular file
         // This code snippet was taken from
         // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
@@ -90,7 +98,7 @@ int Writer::sendFilesInDir(char *dirpath) {
         if(!S_ISREG(path_stat.st_mode)) {
             char path[512] ;
             sprintf(path,"%s/%s",dirpath,ind->d_name);
-            sendFilesInDir(path);
+            sendFilesInDir(totalpath);
             continue ;
         }
         fprintf(logF,"Path : %s\n",totalpath );

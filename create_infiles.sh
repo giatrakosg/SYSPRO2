@@ -22,7 +22,6 @@ fi
 # Commands for random generation found at
 # https://gist.github.com/earthgecko/3089509
 # First we pick a random number from 1-8 fro the size  of the title
-echo $name
 CURPATH="$dirname"
 PATHS=( $dirname )
 lvl=$((0))
@@ -34,14 +33,12 @@ for (( i = 0; i < $num_of_dirs; i++ )); do
     PATHS+=("$CURPATH/$name")
     lvl=$(($lvl + 1))
     if [[ "$lvl" -eq "$levels" ]]; then
-        echo "Reached end of level"
         lvl=$((0))
         CURPATH="$dirname"
     else
         CURPATH="$CURPATH/$name"
     fi
 done
-echo ${PATHS[@]}
 j=0
 for (( i = 0; i < num_of_files; i++ )); do
     size_title=`cat /dev/urandom | tr -dc '1-8' | fold -w 256 | head -n 1 | head --bytes 1`
