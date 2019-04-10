@@ -1,0 +1,27 @@
+2011-12-01  Werner Koch  <wk@g10code.com>
+
+	NB: ChangeLog files are no longer manually maintained.  Starting
+	on December 1st, 2011 we put change information only in the GIT
+	commit log, and generate a top-level ChangeLog file from logs at
+	"make dist".  See doc/HACKING for details.
+
+2009-02-03  Werner Koch  <wk@g10code.com>
+
+	* blue_yellow_cardkey.xpm: New.
+
+2008-12-17  Marcus Brinkmann  <marcus@g10code.de>
+
+	* smartcard.xpm: Darken border.
+
+2008-12-16  Werner Koch  <wk@g10code.com>
+
+	* smartcard.xpm: New. Create simple smartcard icon.
+
+2008-01-24  Marcus Brinkmann  <marcus@g10code.de>
+
+	* Makefile.am (noinst_HEADERS): Add keyringeditor.xpm.
+
+2002-12-12  Miguel Coca  <mcoca@gnu.org>
+
+	* New directory with the old icons, in some cases resized to fit the
+	standard toolbar size.

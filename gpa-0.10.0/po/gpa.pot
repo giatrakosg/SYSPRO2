@@ -1,0 +1,2696 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gpa 0.10.0\n"
+"Report-Msgid-Bugs-To: translations@gnupg.org\n"
+"POT-Creation-Date: 2018-10-16 23:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: src/clipboard.c:385 src/fileman.c:403
+msgid "Open File"
+msgstr ""
+
+#: src/clipboard.c:413 src/confdialog.c:1299
+msgid "GPA Message"
+msgstr ""
+
+#. TRANSLATORS: The arguments are the filename, the integer size
+#. and the unit (such as KB or MB).
+#: src/clipboard.c:430
+#, c-format
+msgid "The file %s is %llu%s large.  Do you really  want to open it?"
+msgstr ""
+
+#: src/clipboard.c:548
+msgid "Save As..."
+msgstr ""
+
+#: src/clipboard.c:589 src/clipboard.c:619 src/clipboard.c:649
+#: src/clipboard.c:679 src/clipboard.c:1020 src/clipboard.c:1050
+msgid "Clipboard"
+msgstr ""
+
+#: src/clipboard.c:761 src/fileman.c:526 src/keymanager.c:1000
+#: src/cardman.c:649
+msgid "_File"
+msgstr ""
+
+#: src/clipboard.c:762 src/fileman.c:527 src/keymanager.c:1001
+#: src/cardman.c:650
+msgid "_Edit"
+msgstr ""
+
+#: src/clipboard.c:766
+msgid "Clear buffer"
+msgstr ""
+
+#: src/clipboard.c:768 src/fileman.c:531
+msgid "Open a file"
+msgstr ""
+
+#: src/clipboard.c:770
+msgid "Save to a file"
+msgstr ""
+
+#: src/clipboard.c:772
+msgid "Sign buffer text"
+msgstr ""
+
+#: src/clipboard.c:774
+msgid "Check signatures of buffer text"
+msgstr ""
+
+#: src/clipboard.c:776
+msgid "Encrypt the buffer text"
+msgstr ""
+
+#: src/clipboard.c:778
+msgid "Decrypt the buffer text"
+msgstr ""
+
+#: src/clipboard.c:780
+msgid "Close the buffer"
+msgstr ""
+
+#: src/clipboard.c:782 src/fileman.c:545 src/keymanager.c:1011
+#: src/cardman.c:657
+msgid "Quit the program"
+msgstr ""
+
+#: src/clipboard.c:788
+msgid "Undo the last action"
+msgstr ""
+
+#: src/clipboard.c:790
+msgid "Redo the last undone action"
+msgstr ""
+
+#: src/clipboard.c:793
+msgid "Cut the selection"
+msgstr ""
+
+#: src/clipboard.c:795 src/keymanager.c:1015
+msgid "Copy the selection"
+msgstr ""
+
+#: src/clipboard.c:797 src/keymanager.c:1021
+msgid "Paste the clipboard"
+msgstr ""
+
+#: src/clipboard.c:799
+msgid "Delete the selected text"
+msgstr ""
+
+#: src/clipboard.c:801
+msgid "Select the entire document"
+msgstr ""
+
+#: src/clipboard.c:915 src/fileman.c:643 src/cardman.c:743
+msgid "Keyring"
+msgstr ""
+
+#: src/clipboard.c:917 src/keymanager.c:1214 src/cardman.c:745
+msgid "Files"
+msgstr ""
+
+#: src/clipboard.c:920 src/fileman.c:646 src/keymanager.c:1217
+msgid "Card"
+msgstr ""
+
+#: src/confdialog.c:1008
+msgid "<b>Main</b>"
+msgstr ""
+
+#: src/confdialog.c:1167
+msgid "Use default values"
+msgstr ""
+
+#: src/confdialog.c:1167
+msgid "Use default value"
+msgstr ""
+
+#: src/confdialog.c:1170
+msgid "Do not use option"
+msgstr ""
+
+#: src/confdialog.c:1175
+msgid "Use custom values"
+msgstr ""
+
+#: src/confdialog.c:1175
+msgid "Use custom value"
+msgstr ""
+
+#: src/confdialog.c:1179
+msgid "Use default argument"
+msgstr ""
+
+#: src/confdialog.c:1313
+msgid ""
+"There are unapplied changes by you. Changing the expert setting will apply "
+"those changes.  Do you want to continue?"
+msgstr ""
+
+#: src/confdialog.c:1358
+msgid "Crypto Backend Configuration"
+msgstr ""
+
+#: src/confdialog.c:1364
+msgid "Reset"
+msgstr ""
+
+#: src/confdialog.c:1383
+msgid "Configure the tools of the GnuPG system."
+msgstr ""
+
+#: src/confdialog.c:1387
+msgid "Level:"
+msgstr ""
+
+#: src/confdialog.c:1396
+msgid "Basic"
+msgstr ""
+
+#: src/confdialog.c:1397
+msgid "Advanced"
+msgstr ""
+
+#: src/confdialog.c:1398
+msgid "Expert"
+msgstr ""
+
+#: src/confdialog.c:1602
+msgid "A keyserver has not been configured."
+msgstr ""
+
+#: src/confdialog.c:1603
+msgid "Configure backend to use a keyserver?"
+msgstr ""
+
+#: src/confdialog.c:1605 src/gpaexportserverop.c:158
+#: src/gpafileencryptop.c:482 src/gpafileverifyop.c:183 src/gpgmetools.c:180
+#: src/keydeletedlg.c:44 src/keydeletedlg.c:93 src/keysigndlg.c:61
+msgid "_Yes"
+msgstr ""
+
+#: src/confdialog.c:1606 src/gpaexportserverop.c:159
+#: src/gpafileencryptop.c:483 src/gpafileverifyop.c:184 src/gpgmetools.c:181
+#: src/keydeletedlg.c:46 src/keydeletedlg.c:95 src/keysigndlg.c:63
+msgid "_No"
+msgstr ""
+
+#: src/confdialog.c:1618
+msgid "Configuring the backend to use a keyserver failed"
+msgstr ""
+
+#: src/convert.c:29
+msgid "days"
+msgstr ""
+
+#: src/convert.c:30
+msgid "weeks"
+msgstr ""
+
+#: src/convert.c:31
+msgid "months"
+msgstr ""
+
+#: src/convert.c:32
+msgid "years"
+msgstr ""
+
+#: src/convert.c:107
+msgid "never expires"
+msgstr ""
+
+#: src/convert.c:128 src/convert.c:139 src/cm-netkey.c:148 src/cm-netkey.c:526
+msgid "unknown"
+msgstr ""
+
+#: src/convert.c:140
+msgid "keyserver"
+msgstr ""
+
+#: src/convert.c:141
+msgid "DANE"
+msgstr ""
+
+#: src/convert.c:142
+msgid "Web Key Directory"
+msgstr ""
+
+#: src/convert.c:143
+msgid "URL"
+msgstr ""
+
+#: src/convert.c:144
+msgid "file"
+msgstr ""
+
+#: src/convert.c:145
+msgid "self"
+msgstr ""
+
+#: src/convert.c:146
+msgid "other"
+msgstr ""
+
+#: src/convert.c:168 src/gpgmetools.c:704 src/gpgmetools.c:727
+#: src/gpgmetools.c:744 src/gpgmetools.c:765 src/gpgmetools.c:1086
+#: src/gpgmetools.c:1119
+msgid "Unknown"
+msgstr ""
+
+#: src/convert.c:178
+msgid "Mr."
+msgstr ""
+
+#: src/convert.c:180
+msgid "Ms."
+msgstr ""
+
+#: src/convert.c:184
+msgid "(unknown)"
+msgstr ""
+
+#: src/encryptdlg.c:152
+msgid "Encrypt documents"
+msgstr ""
+
+#: src/encryptdlg.c:169
+msgid "_Public Keys"
+msgstr ""
+
+#: src/encryptdlg.c:192 src/icons.c:166
+msgid "_Sign"
+msgstr ""
+
+#: src/encryptdlg.c:198
+msgid "Sign _as "
+msgstr ""
+
+#: src/encryptdlg.c:228 src/filesigndlg.c:241
+msgid "A_rmor"
+msgstr ""
+
+#: src/expirydlg.c:64
+msgid "Please provide a correct date."
+msgstr ""
+
+#: src/expirydlg.c:108
+msgid "Change expiry date"
+msgstr ""
+
+#: src/expirydlg.c:113 src/gpaprogressdlg.c:138 src/gpgmetools.c:198
+msgid "_Cancel"
+msgstr ""
+
+#: src/expirydlg.c:124
+msgid "_never expire"
+msgstr ""
+
+#: src/expirydlg.c:129
+msgid "_expire on:"
+msgstr ""
+
+#: src/fileman.c:533
+msgid "Close all files"
+msgstr ""
+
+#: src/fileman.c:535
+msgid "Sign the selected file"
+msgstr ""
+
+#: src/fileman.c:537
+msgid "Check signatures of selected file"
+msgstr ""
+
+#: src/fileman.c:539
+msgid "Encrypt the selected file"
+msgstr ""
+
+#: src/fileman.c:541
+msgid "Decrypt the selected file"
+msgstr ""
+
+#: src/fileman.c:543 src/cardman.c:655
+msgid "Close the window"
+msgstr ""
+
+#: src/fileman.c:549
+msgid "Select all files"
+msgstr ""
+
+#: src/fileman.c:752
+msgid "File"
+msgstr ""
+
+#: src/fileman.c:816 src/fileman.c:839
+msgid "File Manager"
+msgstr ""
+
+#: src/fileman.c:915
+msgid "The file is already open."
+msgstr ""
+
+#: src/filesigndlg.c:171
+msgid "Sign documents"
+msgstr ""
+
+#: src/filesigndlg.c:180
+msgid "<b>Sign _as</b>"
+msgstr ""
+
+#: src/filesigndlg.c:201
+msgid "<b>Signing Mode</b>"
+msgstr ""
+
+#: src/filesigndlg.c:211
+msgid "Si_gn and compress"
+msgstr ""
+
+#: src/filesigndlg.c:217
+msgid "Clear_text signature"
+msgstr ""
+
+#: src/filesigndlg.c:232
+msgid "_Detached signature"
+msgstr ""
+
+#: src/gpa.c:107
+msgid "Output version information and exit"
+msgstr ""
+
+#: src/gpa.c:109
+msgid "Open key manager (default)"
+msgstr ""
+
+#: src/gpa.c:111
+msgid "Open file manager"
+msgstr ""
+
+#: src/gpa.c:114 src/gpa.h:93
+msgid "Open the card manager"
+msgstr ""
+
+#: src/gpa.c:117
+msgid "Open clipboard"
+msgstr ""
+
+#: src/gpa.c:119
+msgid "Open the settings dialog"
+msgstr ""
+
+#: src/gpa.c:121
+msgid "Only start the UI server"
+msgstr ""
+
+#: src/gpa.c:123
+msgid "Disable support for X.509"
+msgstr ""
+
+#: src/gpa.c:125
+msgid "Read options from file"
+msgstr ""
+
+#: src/gpa.c:127
+msgid "Do not connect to a running instance"
+msgstr ""
+
+#: src/gpa.c:446
+msgid "[FILE...]"
+msgstr ""
+
+#: src/gpa.c:448
+msgid "Graphical frontend to GnuPG"
+msgstr ""
+
+#: src/gpa.c:449
+msgid "Please report bugs to <"
+msgstr ""
+
+#: src/gpa.h:82
+msgid "_Windows"
+msgstr ""
+
+#: src/gpa.h:85
+msgid "Open the keyring editor"
+msgstr ""
+
+#: src/gpa.h:87
+msgid "Open the file manager"
+msgstr ""
+
+#: src/gpa.h:89
+msgid "Open the clipboard"
+msgstr ""
+
+#: src/gpa.h:107
+msgid "Configure the application"
+msgstr ""
+
+#: src/gpa.h:110
+msgid "_Backend Preferences"
+msgstr ""
+
+#: src/gpa.h:111
+msgid "Configure the backend programs"
+msgstr ""
+
+#: src/gpabackupop.c:221
+#, c-format
+msgid ""
+"A copy of your secret key has been made to the file:\n"
+"\n"
+"\t\"%s\"\n"
+"\n"
+"This is sensitive information, and should be stored carefully\n"
+"(for example, on a USB stick kept in a safe place)."
+msgstr ""
+
+#: src/gpabackupop.c:236
+msgid "An error ocurred during the backup operation."
+msgstr ""
+
+#: src/gpabackupop.c:259
+msgid "Backup key to file"
+msgstr ""
+
+#: src/gpabackupop.c:271
+#, c-format
+msgid "Generating backup of key: 0x%s"
+msgstr ""
+
+#: src/gpaexportclipop.c:147
+msgid "The private key has been copied to the clipboard."
+msgstr ""
+
+#: src/gpaexportclipop.c:148
+msgid "The key has bees copied to the clipboard."
+msgstr ""
+
+#: src/gpaexportclipop.c:149
+msgid "The keys have been copied to the clipboard."
+msgstr ""
+
+#: src/gpaexportfileop.c:139
+msgid "Export public keys to file"
+msgstr ""
+
+#: src/gpaexportfileop.c:148
+msgid "_armor"
+msgstr ""
+
+#: src/gpaexportfileop.c:180
+#, c-format
+msgid "The keys have been exported to %s."
+msgstr ""
+
+#: src/gpaexportop.c:234
+msgid "Only keys of the same procotol may be exported as a collection."
+msgstr ""
+
+#: src/gpaexportserverop.c:146
+#, c-format
+msgid ""
+"The selected key(s) will be sent to a public key\n"
+"server (\"%s\")."
+msgstr ""
+
+#: src/gpaexportserverop.c:154
+msgid "Are you sure you want to distribute this key?"
+msgstr ""
+
+#: src/gpaexportserverop.c:233
+msgid "Error sending key(s) to the server."
+msgstr ""
+
+#: src/gpaexportserverop.c:268
+msgid "The keys have been sent to the server."
+msgstr ""
+
+#: src/gpafiledecryptop.c:155
+msgid "Decrypting..."
+msgstr ""
+
+#: src/gpafiledecryptop.c:515 src/gpafileverifyop.c:482
+#, c-format
+msgid "\"%s\" contained no OpenPGP data."
+msgstr ""
+
+#: src/gpafiledecryptop.c:516 src/gpafileverifyop.c:483
+#, c-format
+msgid "The file \"%s\" contained no OpenPGPdata."
+msgstr ""
+
+#: src/gpafiledecryptop.c:525
+#, c-format
+msgid "\"%s\" contained no valid encrypted data."
+msgstr ""
+
+#: src/gpafiledecryptop.c:527
+#, c-format
+msgid "The file \"%s\" contained no valid encrypted data."
+msgstr ""
+
+#: src/gpafiledecryptop.c:535 src/gpafileencryptop.c:776
+#: src/gpafilesignop.c:529 src/gpafileverifyop.c:491 src/gpakeyexpireop.c:241
+#: src/gpakeypasswdop.c:210 src/gpakeysignop.c:241 src/gpastreamsignop.c:426
+msgid "Wrong passphrase!"
+msgstr ""
+
+#: src/gpafileencryptop.c:155
+msgid "Encrypting..."
+msgstr ""
+
+#: src/gpafileencryptop.c:480 src/verifydlg.c:225
+msgid "Unknown Key"
+msgstr ""
+
+#: src/gpafileencryptop.c:496
+msgid "You are going to encrypt a document using the following key:"
+msgstr ""
+
+#: src/gpafileencryptop.c:502
+msgid "However, it is not certain that the key belongs to that person."
+msgstr ""
+
+#: src/gpafileencryptop.c:508
+msgid "Do you <b>really</b> want to use this key?"
+msgstr ""
+
+#: src/gpafileencryptop.c:529 src/gpafileencryptop.c:569 src/verifydlg.c:230
+msgid "Revoked Key"
+msgstr ""
+
+#: src/gpafileencryptop.c:531 src/gpafileencryptop.c:571 src/keyeditdlg.c:150
+#: src/verifydlg.c:115
+msgid "_Close"
+msgstr ""
+
+#: src/gpafileencryptop.c:544
+msgid "The following key has been revoked by its owner:"
+msgstr ""
+
+#: src/gpafileencryptop.c:549 src/gpafileencryptop.c:593
+msgid "And can not be used for encryption."
+msgstr ""
+
+#: src/gpafileencryptop.c:585
+#, c-format
+msgid "The following key expired on %s:"
+msgstr ""
+
+#: src/gpafileencryptop.c:624 src/gpafilesignop.c:451
+#: src/gpastreamsignop.c:278
+msgid ""
+"The selected certificates are not all of the same type. That is, you mixed "
+"OpenPGP and X.509 certificates. Please make sure to select only certificates "
+"of the same type."
+msgstr ""
+
+#: src/gpafileencryptop.c:699 src/gpafilesignop.c:437
+#: src/gpastreamsignop.c:264
+msgid "You didn't select any key for signing"
+msgstr ""
+
+#: src/gpafilesignop.c:156
+msgid "Signing..."
+msgstr ""
+
+#: src/gpafileverifyop.c:104
+msgid "Verifying..."
+msgstr ""
+
+#: src/gpafileverifyop.c:177
+#, c-format
+msgid ""
+"GPA found a file that could be a signature of %s. Would you like to verify "
+"it instead?\n"
+"\n"
+"The file found is: %s"
+msgstr ""
+
+#: src/gpagenkeyadvop.c:80
+msgid "Generating Key..."
+msgstr ""
+
+#: src/gpaimportfileop.c:130
+msgid "Import keys from file"
+msgstr ""
+
+#: src/gpaimportserverop.c:172
+#, c-format
+msgid ""
+"More than %d keys match your search pattern.\n"
+"Use the long keyid or a fingerprint for a better match"
+msgstr ""
+
+#: src/gpaimportserverop.c:188 src/gpgmetools.c:1311
+msgid "No keys were found."
+msgstr ""
+
+#: src/gpakeyexpireop.c:245
+msgid ""
+"Invalid time given.\n"
+"(you may not set the expiration time to the past.)"
+msgstr ""
+
+#: src/gpakeyselector.c:91 src/gpasubkeylist.c:105 src/keylist.c:631
+msgid "Created"
+msgstr ""
+
+#: src/gpakeyselector.c:92 src/keylist.c:632
+msgid "The Creation Date is the date the certificate was created."
+msgstr ""
+
+#: src/gpakeyselector.c:99 src/keylist.c:682 src/siglist.c:129
+#: src/siglist.c:172 src/verifydlg.c:348
+msgid "User Name"
+msgstr ""
+
+#: src/gpakeysignop.c:193
+msgid "No private key for signing."
+msgstr ""
+
+#: src/gpakeysignop.c:246
+msgid "This key has expired! Unable to sign."
+msgstr ""
+
+#: src/gpakeysignop.c:250
+msgid "This key has already been signed with your own!"
+msgstr ""
+
+#: src/gpakeysignop.c:255
+msgid "You haven't selected a default key to sign with!"
+msgstr ""
+
+#: src/gparecvkeydlg.c:107
+msgid "Which key do you want to import?"
+msgstr ""
+
+#: src/gparecvkeydlg.c:108
+msgid "Which key do you want to import? (The key must be specified by key ID)."
+msgstr ""
+
+#: src/gparecvkeydlg.c:126
+msgid "Key _ID:"
+msgstr ""
+
+#: src/gpastreamdecryptop.c:155
+msgid "Decrypting message ..."
+msgstr ""
+
+#: src/gpastreamdecryptop.c:344 src/gpastreamverifyop.c:356
+msgid "Document"
+msgstr ""
+
+#: src/gpastreamencryptop.c:229
+msgid "Encrypting message ..."
+msgstr ""
+
+#: src/gpastreamencryptop.c:385
+msgid "Message encryption"
+msgstr ""
+
+#: src/gpastreamsignop.c:176
+msgid "Signing message ..."
+msgstr ""
+
+#: src/gpastreamsignop.c:363
+msgid "Message signing"
+msgstr ""
+
+#: src/gpastreamverifyop.c:156
+msgid "Verifying message ..."
+msgstr ""
+
+#: src/gpasubkeylist.c:86
+msgid "Subkey ID"
+msgstr ""
+
+#: src/gpasubkeylist.c:92 src/siglist.c:149 src/verifydlg.c:342
+msgid "Status"
+msgstr ""
+
+#: src/gpasubkeylist.c:98
+msgid "Algo"
+msgstr ""
+
+#: src/gpasubkeylist.c:112
+msgid "Expires"
+msgstr ""
+
+#: src/gpasubkeylist.c:121
+msgid "S"
+msgstr ""
+
+#: src/gpasubkeylist.c:121
+msgid "Can sign"
+msgstr ""
+
+#: src/gpasubkeylist.c:127
+msgid "C"
+msgstr ""
+
+#: src/gpasubkeylist.c:127
+msgid "Can certify"
+msgstr ""
+
+#: src/gpasubkeylist.c:133
+msgid "E"
+msgstr ""
+
+#: src/gpasubkeylist.c:133
+msgid "Can encrypt"
+msgstr ""
+
+#: src/gpasubkeylist.c:139
+msgid "A"
+msgstr ""
+
+#: src/gpasubkeylist.c:139
+msgid "Can authenticate"
+msgstr ""
+
+#: src/gpasubkeylist.c:145
+msgid "T"
+msgstr ""
+
+#: src/gpasubkeylist.c:146
+msgid "Secret key stored on a smartcard."
+msgstr ""
+
+#: src/gpasubkeylist.c:152
+msgid "Card S/N"
+msgstr ""
+
+#: src/gpasubkeylist.c:153
+msgid "Serial number of the smart card."
+msgstr ""
+
+#: src/gpasubkeylist.c:169 src/gpgmetools.c:736 src/gpgmetools.c:758
+#: src/gpgmetools.c:975 src/gpgmetools.c:1094
+msgid "Revoked"
+msgstr ""
+
+#: src/gpasubkeylist.c:173 src/gpgmetools.c:738 src/gpgmetools.c:1090
+msgid "Expired"
+msgstr ""
+
+#: src/gpasubkeylist.c:177 src/gpgmetools.c:740
+msgid "Disabled"
+msgstr ""
+
+#: src/gpasubkeylist.c:181
+msgid "Unsigned"
+msgstr ""
+
+#: src/gpasubkeylist.c:185 src/gpgmetools.c:1081 src/verifydlg.c:215
+msgid "Valid"
+msgstr ""
+
+#: src/gpawidgets.c:75 src/gpgmetools.c:806 src/gpgmetools.c:813
+#: src/keysigndlg.c:103
+msgid "User Name:"
+msgstr ""
+
+#: src/gpawidgets.c:75 src/keysigndlg.c:103
+msgid "User Names:"
+msgstr ""
+
+#: src/gpawidgets.c:81 src/gpgmetools.c:807 src/gpgmetools.c:814
+#: src/gpa-key-details.c:321
+msgid "Key ID:"
+msgstr ""
+
+#: src/gpawidgets.c:91 src/gpa-key-details.c:319 src/keysigndlg.c:109
+msgid "Fingerprint:"
+msgstr ""
+
+#: src/gpawidgets.c:195
+msgid "Expiration"
+msgstr ""
+
+#: src/gpawidgets.c:202
+msgid "_indefinitely valid"
+msgstr ""
+
+#: src/gpawidgets.c:210
+msgid "expire _after"
+msgstr ""
+
+#: src/gpawidgets.c:230
+msgid "expire o_n:"
+msgstr ""
+
+#: src/gpawidgets.c:304
+msgid ""
+"!FATAL ERROR!\n"
+"Invalid insert mode for expiry date."
+msgstr ""
+
+#: src/gpadatebutton.c:87
+msgid "(not set)"
+msgstr ""
+
+#: src/gpgmeedit.c:1249
+msgid ""
+"Keys are already stored on the card.\n"
+"Really replace existing keys?"
+msgstr ""
+
+#: src/gpgmetools.c:72
+#, c-format
+msgid ""
+"Fatal Error in GPGME library\n"
+"(invoked from file %s, line %i):\n"
+"\n"
+"\t%s\n"
+"\n"
+"The application will be terminated"
+msgstr ""
+
+#: src/gpgmetools.c:103
+#, c-format
+msgid ""
+"The GPGME library returned an unexpected\n"
+"error at %s:%d. The error was:\n"
+"\n"
+"\t%s\n"
+"\n"
+"This is either an installation problem or a bug in %s.\n"
+"%s will now try to recover from this error."
+msgstr ""
+
+#: src/gpgmetools.c:177
+#, c-format
+msgid ""
+"The file %s already exists.\n"
+"Do you want to overwrite it?"
+msgstr ""
+
+#: src/gpgmetools.c:182
+msgid "_Use a different filename"
+msgstr ""
+
+#: src/gpgmetools.c:199
+msgid "_Open"
+msgstr ""
+
+#: src/gpgmetools.c:611
+msgid ""
+"************************************************************************\n"
+"* WARNING: This file is a backup of your secret key. Please keep it in *\n"
+"* a safe place.                                                        *\n"
+"************************************************************************\n"
+"\n"
+msgstr ""
+
+#: src/gpgmetools.c:617
+msgid ""
+"The key backed up in this file is:\n"
+"\n"
+msgstr ""
+
+#: src/gpgmetools.c:707
+msgid "Never"
+msgstr ""
+
+#: src/gpgmetools.c:710 src/gpgmetools.c:767
+msgid "Marginal"
+msgstr ""
+
+#: src/gpgmetools.c:713
+msgid "Full"
+msgstr ""
+
+#: src/gpgmetools.c:716 src/gpgmetools.c:769
+msgid "Ultimate"
+msgstr ""
+
+#: src/gpgmetools.c:742
+msgid "Incomplete"
+msgstr ""
+
+#: src/gpgmetools.c:748
+msgid "Fully Valid"
+msgstr ""
+
+#: src/gpgmetools.c:760
+msgid "Invalid"
+msgstr ""
+
+#: src/gpgmetools.c:766
+msgid "Faked"
+msgstr ""
+
+#: src/gpgmetools.c:768
+msgid "Fully"
+msgstr ""
+
+#: src/gpgmetools.c:804
+msgid "Please enter the passphrase for the following key:"
+msgstr ""
+
+#: src/gpgmetools.c:812
+msgid "Wrong passphrase, please try again:"
+msgstr ""
+
+#: src/gpgmetools.c:837
+msgid "Enter Passphrase"
+msgstr ""
+
+#: src/gpgmetools.c:964
+msgid "[None]"
+msgstr ""
+
+#: src/gpgmetools.c:1058 src/verifydlg.c:279
+msgid "[Unknown user ID]"
+msgstr ""
+
+#: src/gpgmetools.c:1084 src/verifydlg.c:220
+msgid "Bad"
+msgstr ""
+
+#: src/gpgmetools.c:1107
+msgid "Generic"
+msgstr ""
+
+#: src/gpgmetools.c:1110
+msgid "Persona"
+msgstr ""
+
+#: src/gpgmetools.c:1113
+msgid "Casual"
+msgstr ""
+
+#: src/gpgmetools.c:1116
+msgid "Positive"
+msgstr ""
+
+#: src/gpgmetools.c:1153
+#, c-format
+msgid "Bad signature by %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1156
+#, c-format
+msgid "Bad signature by %s"
+msgstr ""
+
+#: src/gpgmetools.c:1159
+#, c-format
+msgid "Bad signature by unknown key %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1162
+#, c-format
+msgid "Bad signature by unknown key %s"
+msgstr ""
+
+#: src/gpgmetools.c:1165
+#, c-format
+msgid "Bad signature by unknown key: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1168
+msgid "Bad signature by unknown key"
+msgstr ""
+
+#: src/gpgmetools.c:1173
+#, c-format
+msgid "Good signature by %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1176
+#, c-format
+msgid "Good signature by %s"
+msgstr ""
+
+#: src/gpgmetools.c:1179
+#, c-format
+msgid "Good signature by unknown key %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1182
+#, c-format
+msgid "Good signature by unknown key %s"
+msgstr ""
+
+#: src/gpgmetools.c:1185
+#, c-format
+msgid "Good signature by unknown key: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1188
+msgid "Good signature by unknown key"
+msgstr ""
+
+#: src/gpgmetools.c:1193
+#, c-format
+msgid "Uncertain signature by %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1196
+#, c-format
+msgid "Uncertain signature by %s"
+msgstr ""
+
+#: src/gpgmetools.c:1199
+#, c-format
+msgid "Uncertain signature by unknown key %s: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1202
+#, c-format
+msgid "Uncertain signature by unknown key %s"
+msgstr ""
+
+#: src/gpgmetools.c:1205
+#, c-format
+msgid "Uncertain signature by unknown key: %s"
+msgstr ""
+
+#: src/gpgmetools.c:1208
+msgid "Uncertain signature by unknown key"
+msgstr ""
+
+#: src/gpgmetools.c:1237
+msgid "The key can be used for certification, signing and encryption."
+msgstr ""
+
+#: src/gpgmetools.c:1240
+msgid ""
+"The key can be used for certification and signing, but not for encryption."
+msgstr ""
+
+#: src/gpgmetools.c:1246
+msgid "The key can be used for certification and encryption."
+msgstr ""
+
+#: src/gpgmetools.c:1249
+msgid "The key can be used only for certification."
+msgstr ""
+
+#: src/gpgmetools.c:1257
+msgid ""
+"The key can be used only for signing and encryption, but not for "
+"certification."
+msgstr ""
+
+#: src/gpgmetools.c:1260
+msgid "The key can be used only for signing."
+msgstr ""
+
+#: src/gpgmetools.c:1265
+msgid "The key can be used only for encryption."
+msgstr ""
+
+#: src/gpgmetools.c:1268
+msgid "This key is useless."
+msgstr ""
+
+#: src/gpgmetools.c:1301
+#, c-format
+msgid ""
+"%u file(s) read\n"
+"%u file(s) with errors"
+msgstr ""
+
+#: src/gpgmetools.c:1316
+#, c-format
+msgid ""
+"%i public keys read\n"
+"%i public keys imported\n"
+"%i public keys unchanged\n"
+"%i secret keys read\n"
+"%i secret keys imported\n"
+"%i secret keys unchanged"
+msgstr ""
+
+#: src/gpgmetools.c:1631
+msgid "A required engine component is not installed."
+msgstr ""
+
+#: src/gpgmetools.c:1675
+msgid "Calling the crypto engine program failed."
+msgstr ""
+
+#: src/gpgmetools.c:1746
+msgid "You must enter a name."
+msgstr ""
+
+#: src/gpgmetools.c:1748
+msgid "Invalid character in name."
+msgstr ""
+
+#: src/gpgmetools.c:1750
+msgid "Name may not start with a digit."
+msgstr ""
+
+#: src/gpgmetools.c:1752
+msgid "Name is too short."
+msgstr ""
+
+#: src/gpgmetools.c:1824
+msgid "Email address is not valid."
+msgstr ""
+
+#: src/gpgmetools.c:1838
+msgid "Invalid character in comments."
+msgstr ""
+
+#: src/gtktools.c:115
+msgid "_Details"
+msgstr ""
+
+#: src/helpmenu.c:90
+msgid "GPA is the GNU Privacy Assistant."
+msgstr ""
+
+#: src/helpmenu.c:95
+msgid "About GPA"
+msgstr ""
+
+#. TRANSLATORS: The translation of this string should
+#. be your name and mail
+#: src/helpmenu.c:108
+msgid "translator-credits"
+msgstr ""
+
+#: src/helpmenu.h:29
+msgid "_Help"
+msgstr ""
+
+#: src/helpmenu.h:32
+msgid "Open the GPA manual"
+msgstr ""
+
+#: src/helpmenu.h:35
+msgid "About this application"
+msgstr ""
+
+#: src/icons.c:167
+msgid "_Verify"
+msgstr ""
+
+#: src/icons.c:168
+msgid "_Encrypt"
+msgstr ""
+
+#: src/icons.c:169
+msgid "_Decrypt"
+msgstr ""
+
+#: src/icons.c:170
+msgid "_Brief"
+msgstr ""
+
+#: src/icons.c:171
+msgid "_Detailed"
+msgstr ""
+
+#: src/icons.c:172
+msgid "_Keyring Manager"
+msgstr ""
+
+#: src/icons.c:173
+msgid "_Clipboard"
+msgstr ""
+
+#: src/icons.c:174
+msgid "_File Manager"
+msgstr ""
+
+#: src/icons.c:175
+msgid "_Card Manager"
+msgstr ""
+
+#: src/keydeletedlg.c:41
+msgid "Removing Secret Key"
+msgstr ""
+
+#: src/keydeletedlg.c:55
+msgid ""
+"If you delete this key, you won't be able to\n"
+"read messages encrypted with it.\n"
+"\n"
+"Are you really sure you want to delete it?"
+msgstr ""
+
+#: src/keydeletedlg.c:91
+msgid "Remove Key"
+msgstr ""
+
+#: src/keydeletedlg.c:104
+msgid "You have selected the following key for removal:"
+msgstr ""
+
+#: src/keydeletedlg.c:114
+msgid ""
+"This key has a secret key. Deleting this key cannot be undone, unless you "
+"have a backup copy."
+msgstr ""
+
+#: src/keydeletedlg.c:123
+msgid ""
+"This key is a public key. Deleting this key cannot be undone easily, "
+"although you may be able to get a new copy  from the owner or from a key "
+"server."
+msgstr ""
+
+#: src/keydeletedlg.c:132
+msgid "Are you sure you want to delete this key?"
+msgstr ""
+
+#: src/keyeditdlg.c:148
+msgid "Edit Key"
+msgstr ""
+
+#: src/keyeditdlg.c:163
+msgid "Change _passphrase"
+msgstr ""
+
+#: src/keyeditdlg.c:169 src/keylist.c:644
+msgid "Expiry Date"
+msgstr ""
+
+#: src/keyeditdlg.c:183
+msgid "Change _expiration"
+msgstr ""
+
+#: src/keygendlg.c:40
+msgid "RSA"
+msgstr ""
+
+#: src/keygendlg.c:41
+msgid "RSA (sign only)"
+msgstr ""
+
+#: src/keygendlg.c:42
+msgid "DSA"
+msgstr ""
+
+#: src/keygendlg.c:43
+msgid "DSA (sign only)"
+msgstr ""
+
+#: src/keygendlg.c:134
+msgid "You must enter a key size."
+msgstr ""
+
+#: src/keygendlg.c:188
+msgid "Generate card key"
+msgstr ""
+
+#: src/keygendlg.c:188 src/keygenwizard.c:387 src/keygenwizard.c:400
+#: src/keygenwizard.c:410 src/keygenwizard.c:421 src/keygenwizard.c:438
+#: src/keygenwizard.c:450 src/cardman.c:662
+msgid "Generate key"
+msgstr ""
+
+#: src/keygendlg.c:209
+msgid "_Algorithm: "
+msgstr ""
+
+#: src/keygendlg.c:235
+msgid "_Key size (bits): "
+msgstr ""
+
+#: src/keygendlg.c:260
+msgid "User ID: "
+msgstr ""
+
+#: src/keygendlg.c:276
+msgid "_Name: "
+msgstr ""
+
+#: src/keygendlg.c:289
+msgid "_Email: "
+msgstr ""
+
+#: src/keygendlg.c:302
+msgid "_Comment: "
+msgstr ""
+
+#: src/keygendlg.c:315
+msgid "_Expires: "
+msgstr ""
+
+#: src/keygendlg.c:327
+msgid "Backup: "
+msgstr ""
+
+#: src/keygendlg.c:339
+msgid ""
+"If checked the encryption key will be created and stored to a backup file "
+"and then loaded into the card.  This is recommended so that encrypted "
+"messages can be decrypted even if the card has a malfunction."
+msgstr ""
+
+#: src/keygenwizard.c:175
+msgid ""
+"Please insert your full name.\n"
+"\n"
+"Your name will be part of the new key to make it easier for others to "
+"identify keys."
+msgstr ""
+
+#: src/keygenwizard.c:178
+msgid "Your Name:"
+msgstr ""
+
+#: src/keygenwizard.c:212
+msgid ""
+"Please insert your email address.\n"
+"\n"
+"Your email address will be part of the new key to make it easier for others "
+"to identify keys. If you have several email addresses, you can add further "
+"email addresses later."
+msgstr ""
+
+#: src/keygenwizard.c:216
+msgid "Your Email Address:"
+msgstr ""
+
+#: src/keygenwizard.c:235
+msgid ""
+"It is recommended that you create a backup copy of your new key, once it has "
+"been generated.\n"
+"\n"
+"Do you want to create a backup copy?"
+msgstr ""
+
+#: src/keygenwizard.c:243
+msgid "Create _backup copy"
+msgstr ""
+
+#: src/keygenwizard.c:248 src/keymanager.c:782 src/keymanager.c:808
+msgid "Do it _later"
+msgstr ""
+
+#: src/keygenwizard.c:277
+msgid ""
+"Your key is being generated.\n"
+"\n"
+"Even on fast computers this may take a while. Please be patient."
+msgstr ""
+
+#: src/keygenwizard.c:289
+#, c-format
+msgid ""
+"Congratulations!\n"
+"\n"
+"You have successfully generated a key. The key is indefinitely valid and has "
+"a length of %d bits."
+msgstr ""
+
+#: src/keylist.c:371
+msgid ""
+"GnuPG is rebuilding the trust database.\n"
+"This might take a few seconds."
+msgstr ""
+
+#: src/keylist.c:623
+msgid ""
+"This columns lists the type of the certificate.  A 'P' denotes OpenPGP and a "
+"'X' denotes X.509 (S/MIME)."
+msgstr ""
+
+#: src/keylist.c:645
+msgid "The Expiry Date is the date until the certificate is valid."
+msgstr ""
+
+#: src/keylist.c:655 src/ownertrustdlg.c:122
+msgid "Owner Trust"
+msgstr ""
+
+#: src/keylist.c:656
+msgid ""
+"The Owner Trust has been set by you and describes how far you trust the "
+"holder of the certificate to correctly sign (certify) other certificates.  "
+"It is only meaningful for OpenPGP."
+msgstr ""
+
+#: src/keylist.c:668
+msgid "Validity"
+msgstr ""
+
+#: src/keylist.c:669
+msgid ""
+"The Validity describes the trust level the system has in this certificate.  "
+"That is how sure it is that the named user is actually that user."
+msgstr ""
+
+#: src/keylist.c:683
+msgid ""
+"The User Name is the name and often also the email address  of the "
+"certificate."
+msgstr ""
+
+#: src/keymanager.c:451
+msgid "No keys selected for signing."
+msgstr ""
+
+#: src/keymanager.c:777
+msgid ""
+"You do not have a private key yet. Do you want to generate one now "
+"(recommended) or do it later?"
+msgstr ""
+
+#: src/keymanager.c:781
+msgid "_Generate key now"
+msgstr ""
+
+#: src/keymanager.c:802
+msgid ""
+"You do not have a backup copy of your private key yet. Do you want to backup "
+"your key now (recommended) or do it later?"
+msgstr ""
+
+#: src/keymanager.c:807
+msgid "_Backup key now"
+msgstr ""
+
+#: src/keymanager.c:925
+msgid "Only keys of the same procotol may be copied."
+msgstr ""
+
+#: src/keymanager.c:1002
+msgid "_Keys"
+msgstr ""
+
+#: src/keymanager.c:1004
+msgid "_Server"
+msgstr ""
+
+#: src/keymanager.c:1016
+msgid "Copy _Fingerprint"
+msgstr ""
+
+#: src/keymanager.c:1017
+msgid "Copy the fingerprints"
+msgstr ""
+
+#: src/keymanager.c:1018
+msgid "Copy Private Key"
+msgstr ""
+
+#: src/keymanager.c:1019
+msgid "Copy a single private key"
+msgstr ""
+
+#: src/keymanager.c:1023
+msgid "Select all certificates"
+msgstr ""
+
+#: src/keymanager.c:1028
+msgid "Refresh the keyring"
+msgstr ""
+
+#: src/keymanager.c:1029
+msgid "_New key..."
+msgstr ""
+
+#: src/keymanager.c:1030
+msgid "Generate a new key"
+msgstr ""
+
+#: src/keymanager.c:1031
+msgid "_Delete keys"
+msgstr ""
+
+#: src/keymanager.c:1032
+msgid "Remove the selected key"
+msgstr ""
+
+#: src/keymanager.c:1033
+msgid "_Sign Keys..."
+msgstr ""
+
+#: src/keymanager.c:1034
+msgid "Sign the selected key"
+msgstr ""
+
+#: src/keymanager.c:1035
+msgid "Set _Owner Trust..."
+msgstr ""
+
+#: src/keymanager.c:1036
+msgid "Set owner trust of the selected key"
+msgstr ""
+
+#: src/keymanager.c:1038
+msgid "_Edit Private Key..."
+msgstr ""
+
+#: src/keymanager.c:1039
+msgid "Edit the selected private key"
+msgstr ""
+
+#: src/keymanager.c:1041
+msgid "_Import Keys..."
+msgstr ""
+
+#: src/keymanager.c:1042
+msgid "Import Keys"
+msgstr ""
+
+#: src/keymanager.c:1043
+msgid "E_xport Keys..."
+msgstr ""
+
+#: src/keymanager.c:1044
+msgid "Export Keys"
+msgstr ""
+
+#: src/keymanager.c:1045
+msgid "_Backup..."
+msgstr ""
+
+#: src/keymanager.c:1046
+msgid "Backup key"
+msgstr ""
+
+#: src/keymanager.c:1050
+msgid "_Retrieve Keys..."
+msgstr ""
+
+#: src/keymanager.c:1051
+msgid "Retrieve keys from server"
+msgstr ""
+
+#: src/keymanager.c:1053
+msgid "Re_fresh Keys"
+msgstr ""
+
+#: src/keymanager.c:1054
+msgid "Refresh keys from server"
+msgstr ""
+
+#: src/keymanager.c:1056
+msgid "_Send Keys..."
+msgstr ""
+
+#: src/keymanager.c:1057
+msgid "Send keys to server"
+msgstr ""
+
+#: src/keymanager.c:1064
+msgid "Show Brief Keylist"
+msgstr ""
+
+#: src/keymanager.c:1066
+msgid "Show Key Details"
+msgstr ""
+
+#: src/keymanager.c:1204
+msgid "Edit"
+msgstr ""
+
+#: src/keymanager.c:1206
+msgid "Delete"
+msgstr ""
+
+#: src/keymanager.c:1208
+msgid "Sign"
+msgstr ""
+
+#: src/keymanager.c:1210
+msgid "Export"
+msgstr ""
+
+#: src/keymanager.c:1212
+msgid "Import"
+msgstr ""
+
+#: src/keymanager.c:1360
+msgid "Selected default key:"
+msgstr ""
+
+#: src/keymanager.c:1370
+msgid "No default key selected in the preferences."
+msgstr ""
+
+#: src/keymanager.c:1460 src/keymanager.c:1488
+msgid "Key Manager"
+msgstr ""
+
+#: src/gpa-key-details.c:143
+msgid "The key has both a smartcard based private part and a public part"
+msgstr ""
+
+#: src/gpa-key-details.c:147
+msgid "The key has both a private and a public part"
+msgstr ""
+
+#: src/gpa-key-details.c:151
+msgid "The key has only a public part"
+msgstr ""
+
+#: src/gpa-key-details.c:191
+#, c-format
+msgid "%s %u bits"
+msgstr ""
+
+#: src/gpa-key-details.c:232
+msgid "No keys selected"
+msgstr ""
+
+#: src/gpa-key-details.c:235
+#, c-format
+msgid "%d key selected"
+msgid_plural "%d keys selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/gpa-key-details.c:317
+msgid "User name:"
+msgstr ""
+
+#: src/gpa-key-details.c:323
+msgid "Expires at:"
+msgstr ""
+
+#: src/gpa-key-details.c:325
+msgid "Owner Trust:"
+msgstr ""
+
+#: src/gpa-key-details.c:327
+msgid "Key validity:"
+msgstr ""
+
+#: src/gpa-key-details.c:329
+msgid "Key type:"
+msgstr ""
+
+#: src/gpa-key-details.c:331
+msgid "Created at:"
+msgstr ""
+
+#: src/gpa-key-details.c:333
+msgid "Last update:"
+msgstr ""
+
+#: src/gpa-key-details.c:336
+msgid "Details"
+msgstr ""
+
+#: src/gpa-key-details.c:382
+msgid "User IDs"
+msgstr ""
+
+#: src/gpa-key-details.c:431
+msgid "Show signatures on user name:"
+msgstr ""
+
+#: src/gpa-key-details.c:467
+msgid "Chain"
+msgstr ""
+
+#: src/gpa-key-details.c:467
+msgid "Signatures"
+msgstr ""
+
+#: src/gpa-key-details.c:489
+msgid "All signatures"
+msgstr ""
+
+#: src/gpa-key-details.c:551
+msgid "Subkeys"
+msgstr ""
+
+#: src/gpa-key-details.c:551
+msgid "Key"
+msgstr ""
+
+#: src/gpa-key-details.c:603
+msgid "Tofu"
+msgstr ""
+
+#: src/keysigndlg.c:59
+msgid "Sign Key"
+msgstr ""
+
+#: src/keysigndlg.c:72
+msgid "Do you want to sign the following key?"
+msgstr ""
+
+#: src/keysigndlg.c:119
+msgid ""
+"Check the name and fingerprint carefully to be sure that it really is the "
+"key you want to sign."
+msgstr ""
+
+#: src/keysigndlg.c:127
+msgid "All user names in this key will be signed."
+msgstr ""
+
+#: src/keysigndlg.c:133
+msgid "The key will be signed with your default private key."
+msgstr ""
+
+#: src/keysigndlg.c:140
+msgid "Sign only _locally"
+msgstr ""
+
+#: src/keytable.c:221
+msgid ""
+"It seems that no CMS engine is installed.\n"
+"\n"
+"Temporary disabling support for X.509.\n"
+"\n"
+"Please install a CMS engine or invoke this program\n"
+"with the option --disable-x509 ."
+msgstr ""
+
+#: src/options.c:340
+msgid ""
+"The private key you selected as default is no longer available.\n"
+"GPA will try to choose a new default key automatically."
+msgstr ""
+
+#: src/ownertrustdlg.c:106
+msgid "Change key ownertrust"
+msgstr ""
+
+#: src/ownertrustdlg.c:130
+msgid "_Unknown"
+msgstr ""
+
+#: src/ownertrustdlg.c:135
+msgid ""
+"You don't know how much to trust this user to verify other people's keys.\n"
+msgstr ""
+
+#: src/ownertrustdlg.c:145
+msgid "_Never"
+msgstr ""
+
+#: src/ownertrustdlg.c:150
+msgid ""
+"You don't trust this user at all to verify the validity of other people's "
+"keys at all.\n"
+msgstr ""
+
+#: src/ownertrustdlg.c:160
+msgid "_Marginal"
+msgstr ""
+
+#: src/ownertrustdlg.c:165
+msgid ""
+"You don't trust this user's ability to verify the validity of other people's "
+"keys enough to consider keys valid based on his/her sole word.\n"
+"However, provided this user's key is valid, you will consider a key signed "
+"by this user valid if it is also signed by at least other two marginally "
+"trusted users with valid keys\n"
+msgstr ""
+
+#: src/ownertrustdlg.c:182
+msgid "_Full"
+msgstr ""
+
+#: src/ownertrustdlg.c:187
+msgid ""
+"You trust this user's ability to verify the validity of other people's keys "
+"so much, that you'll consider valid any key signed by him/her, provided this "
+"user's key is valid.\n"
+msgstr ""
+
+#: src/ownertrustdlg.c:200
+msgid "U_ltimate"
+msgstr ""
+
+#: src/ownertrustdlg.c:205
+msgid ""
+"You consider this key valid, and trust the user so much that you will "
+"consider any key signed by him/her fully valid.\n"
+"\n"
+"(Warning: This is intended to be used for keys you own. Don't use it with "
+"other people's keys unless you really know what you are doing)\n"
+msgstr ""
+
+#: src/passwddlg.c:45
+msgid ""
+"In \"Passphrase\" and \"Repeat passphrase\",\n"
+"you must enter the same passphrase."
+msgstr ""
+
+#: src/passwddlg.c:52
+msgid ""
+"You did not enter a passphrase.\n"
+"It is needed to protect your private key."
+msgstr ""
+
+#: src/passwddlg.c:65
+msgid ""
+"Warning: You have entered a passphrase\n"
+"that is obviously not secure.\n"
+"\n"
+"Please enter a new passphrase."
+msgstr ""
+
+#: src/passwddlg.c:70
+msgid "_Enter new passphrase"
+msgstr ""
+
+#: src/passwddlg.c:71
+msgid "Take this one _anyway"
+msgstr ""
+
+#: src/passwddlg.c:96
+msgid "Choose new passphrase"
+msgstr ""
+
+#: src/passwddlg.c:111
+msgid "Passphrase: "
+msgstr ""
+
+#: src/passwddlg.c:120
+msgid "Repeat Passphrase: "
+msgstr ""
+
+#: src/recipientdlg.c:165
+msgid "Recipient"
+msgstr ""
+
+#: src/recipientdlg.c:166
+msgid ""
+"Shows the recipients of the message. A key needs to be assigned to each "
+"recipient."
+msgstr ""
+
+#: src/recipientdlg.c:174
+msgid "Checked if at least one matching OpenPGP certificate has been found."
+msgstr ""
+
+#: src/recipientdlg.c:182
+msgid ""
+"Checked if at least one matching X.509 certificate for use with S/MIME has "
+"been found."
+msgstr ""
+
+#: src/recipientdlg.c:191 src/siglist.c:123 src/siglist.c:143
+#: src/verifydlg.c:336
+msgid "Key ID"
+msgstr ""
+
+#: src/recipientdlg.c:192
+msgid ""
+"Shows the key ID of the selected key or an indication that a key needs to be "
+"selected."
+msgstr ""
+
+#: src/recipientdlg.c:306
+msgid ""
+"You need to select a key for each recipient.\n"
+"To select a key right-click on the respective line."
+msgstr ""
+
+#: src/recipientdlg.c:314
+msgid ""
+"You need to select exactly one key for each recipient.\n"
+"To select a key right-click on the respective line."
+msgstr ""
+
+#: src/recipientdlg.c:321
+msgid ""
+"Although you selected keys for all recipients a common encryption protocol "
+"can't be used. Please decide on one protocol by clicking one of the above "
+"radio buttons."
+msgstr ""
+
+#: src/recipientdlg.c:327
+msgid "Using OpenPGP for encryption."
+msgstr ""
+
+#: src/recipientdlg.c:332
+msgid "Using S/MIME for encryption."
+msgstr ""
+
+#: src/recipientdlg.c:336
+msgid "No recipients - encryption is not possible"
+msgstr ""
+
+#: src/recipientdlg.c:422
+msgid "[Ambiguous keys. Right-click to select]"
+msgstr ""
+
+#: src/recipientdlg.c:424
+msgid "[Ambiguous PGP key.  Right-click to select]"
+msgstr ""
+
+#: src/recipientdlg.c:426
+msgid "[Ambiguous X.509 key. Right-click to select]"
+msgstr ""
+
+#: src/recipientdlg.c:439
+msgid "[Right-click to select]"
+msgstr ""
+
+#: src/recipientdlg.c:824
+msgid "Select _PGP key..."
+msgstr ""
+
+#: src/recipientdlg.c:826
+msgid "Select _S\\/MIME key..."
+msgstr ""
+
+#: src/recipientdlg.c:828
+msgid "Toggle _Ignore flag"
+msgstr ""
+
+#: src/recipientdlg.c:941
+msgid "Select keys for recipients"
+msgstr ""
+
+#: src/recipientdlg.c:958
+msgid "_Recipient list"
+msgstr ""
+
+#: src/recipientdlg.c:981
+msgid "Use _PGP"
+msgstr ""
+
+#: src/recipientdlg.c:984
+msgid "Use _X.509"
+msgstr ""
+
+#: src/recipientdlg.c:987
+msgid "_Auto selection"
+msgstr ""
+
+#: src/selectkeydlg.c:178
+msgid "Select a key"
+msgstr ""
+
+#: src/server-access.c:298
+msgid "No error"
+msgstr ""
+
+#: src/server-access.c:301
+msgid "Internal error"
+msgstr ""
+
+#: src/server-access.c:304
+msgid "Operation not supported"
+msgstr ""
+
+#: src/server-access.c:307
+msgid "Version mismatch"
+msgstr ""
+
+#: src/server-access.c:310
+msgid "Internal keyserver error"
+msgstr ""
+
+#: src/server-access.c:313
+msgid "Out of memory"
+msgstr ""
+
+#: src/server-access.c:316
+msgid "Key not found"
+msgstr ""
+
+#: src/server-access.c:319
+msgid "Key already exists on server"
+msgstr ""
+
+#: src/server-access.c:322
+msgid "Key incomplete"
+msgstr ""
+
+#: src/server-access.c:325
+msgid "Could not contact keyserver"
+msgstr ""
+
+#: src/server-access.c:328
+msgid "Unknown Error"
+msgstr ""
+
+#: src/server-access.c:364
+#, c-format
+msgid ""
+"Connecting to server \"%s\".\n"
+"Please wait."
+msgstr ""
+
+#: src/server-access.c:387 src/server-access.c:407
+#, c-format
+msgid ""
+"An error ocurred while contacting the server:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: src/server-access.c:473
+msgid ""
+"There is no plugin available for the keyserver\n"
+"protocol you specified."
+msgstr ""
+
+#: src/server-access.c:546 src/server-access.c:590
+msgid "The keyserver you specified is not valid"
+msgstr ""
+
+#: src/settingsdlg.c:134 src/siglist.c:164
+msgid "Local"
+msgstr ""
+
+#: src/settingsdlg.c:136
+msgid "Local, Keyserver"
+msgstr ""
+
+#: src/settingsdlg.c:138
+msgid "Local, PKA"
+msgstr ""
+
+#: src/settingsdlg.c:140
+msgid "Local, PKA, Keyserver"
+msgstr ""
+
+#: src/settingsdlg.c:141
+msgid "Local, Keyserver, PKA"
+msgstr ""
+
+#: src/settingsdlg.c:143
+msgid "Local, kDNS"
+msgstr ""
+
+#: src/settingsdlg.c:145
+msgid "Local, kDNS, Keyserver"
+msgstr ""
+
+#: src/settingsdlg.c:147
+msgid "PKA"
+msgstr ""
+
+#: src/settingsdlg.c:148
+msgid "kDNS"
+msgstr ""
+
+#: src/settingsdlg.c:149
+msgid "Custom"
+msgstr ""
+
+#: src/settingsdlg.c:221
+msgid "<b>User interface</b>"
+msgstr ""
+
+#: src/settingsdlg.c:228
+msgid "Use _advanced mode"
+msgstr ""
+
+#: src/settingsdlg.c:234
+msgid "Show advanced _options"
+msgstr ""
+
+#: src/settingsdlg.c:285
+msgid ""
+"No default key has been selected.  This may lead to problems when signing or "
+"encrypting.  For example you might later not be able to read a mail written "
+"by you and encrypted to someone else.\n"
+"\n"
+"Please consider creating your own key and select it then."
+msgstr ""
+
+#: src/settingsdlg.c:291
+msgid "Continue without a default key"
+msgstr ""
+
+#: src/settingsdlg.c:293
+msgid "Let me select a default key"
+msgstr ""
+
+#: src/settingsdlg.c:318
+msgid "<b>Default _key</b>"
+msgstr ""
+
+#: src/settingsdlg.c:432
+msgid "<b>Default key_server</b>"
+msgstr ""
+
+#: src/settingsdlg.c:630
+msgid "<b>Auto key _locate</b>"
+msgstr ""
+
+#: src/settingsdlg.c:640
+msgid ""
+"The list of methods to locate keys via an email address.\n"
+"All given methods are used in turn until a matching key is found.  The "
+"supported methods are:\n"
+" Local\n"
+"   - Use the local keyring.\n"
+" Keyserver\n"
+"   - Use the default keyserver.\n"
+" PKA\n"
+"   - Use the Public Key Association.\n"
+" kDNS\n"
+"   - Use kDNS with the nameserver below.\n"
+" Custom\n"
+"   - Configured in the backend dialog.\n"
+msgstr ""
+
+#: src/settingsdlg.c:657
+msgid "Method:"
+msgstr ""
+
+#: src/settingsdlg.c:674
+msgid "The IP address of the nameserver used for the kDNS method."
+msgstr ""
+
+#: src/settingsdlg.c:676
+msgid "kDNS Server:"
+msgstr ""
+
+#: src/settingsdlg.c:779
+msgid "The URL given for the keyserver is not valid."
+msgstr ""
+
+#: src/settingsdlg.c:790
+msgid "The data given for \"Auto key locate\" is not valid."
+msgstr ""
+
+#: src/settingsdlg.c:929
+msgid "Settings"
+msgstr ""
+
+#: src/siglist.c:157
+msgid "Level"
+msgstr ""
+
+#: src/verifydlg.c:116
+msgid "Verify documents"
+msgstr ""
+
+#: src/verifydlg.c:235
+msgid "Expired Key"
+msgstr ""
+
+#: src/verifydlg.c:243
+msgid "Key NOT valid"
+msgstr ""
+
+#: src/verifydlg.c:354
+msgid "Description"
+msgstr ""
+
+#: src/verifydlg.c:378
+#, c-format
+msgid "Verified data in file: %s"
+msgstr ""
+
+#: src/verifydlg.c:383
+#, c-format
+msgid "Signature: %s"
+msgstr ""
+
+#: src/verifydlg.c:389
+msgid "Signatures:"
+msgstr ""
+
+#: src/cardman.c:167 src/cardman.c:929
+msgid "Card Manager"
+msgstr ""
+
+#: src/cardman.c:188
+#, c-format
+msgid "%s card detected."
+msgstr ""
+
+#: src/cardman.c:195
+msgid "Checking for card..."
+msgstr ""
+
+#: src/cardman.c:369
+msgid "No card found."
+msgstr ""
+
+#: src/cardman.c:375
+msgid "The selected card application is currently not available."
+msgstr ""
+
+#: src/cardman.c:376
+msgid ""
+"Another process is using a different card application than the selected "
+"one.\n"
+"\n"
+"You may change the application selection mode to \"Auto\" to select the "
+"active application."
+msgstr ""
+
+#: src/cardman.c:386
+msgid "The selected card application is not available."
+msgstr ""
+
+#: src/cardman.c:399
+msgid "Error accessing the card."
+msgstr ""
+
+#: src/cardman.c:400 src/cardman.c:434
+msgid "Error accessing card"
+msgstr ""
+
+#: src/cardman.c:429
+msgid "No card"
+msgstr ""
+
+#: src/cardman.c:651
+msgid "_Card"
+msgstr ""
+
+#: src/cardman.c:661
+msgid "Reload card information"
+msgstr ""
+
+#: src/cardman.c:663
+msgid "Generate new key on card"
+msgstr ""
+
+#: src/cardman.c:793
+msgid "This card application is not yet supported."
+msgstr ""
+
+#: src/cardman.c:937
+msgid "Application selection:"
+msgstr ""
+
+#: src/cardman.c:941
+msgid "Auto"
+msgstr ""
+
+#: src/cardman.c:1018
+msgid "The GPGME library is too old to support smartcards."
+msgstr ""
+
+#: src/cm-openpgp.c:180
+msgid ""
+"<b>Admin-PIN Required</b>\n"
+"\n"
+"Depending on the previous operations you may now be asked for the Admin-"
+"PIN.  Entering a wrong value for the Admin-PIN decrements the corresponding "
+"retry counter. If the retry counter is down to zero, the Admin-PIN can't be "
+"restored anymore and thus the data on the card can't be modified.\n"
+"\n"
+"Unless changed, a fresh standard card has set the Admin-PIN to the value "
+"<i>12345678</i>.  However, the issuer of your card might have initialized "
+"the card with a different Admin-PIN and that Admin-PIN might only be known "
+"to the issuer.  Please check the instructions of your issuer.\n"
+"\n"
+"This notice will be shown only once per session."
+msgstr ""
+
+#: src/cm-openpgp.c:299 src/cm-netkey.c:983
+msgid "PUK retry counter:"
+msgstr ""
+
+#: src/cm-openpgp.c:300
+msgid "CHV2 retry counter: "
+msgstr ""
+
+#: src/cm-openpgp.c:412 src/cm-netkey.c:166
+msgid "Reset PIN"
+msgstr ""
+
+#: src/cm-openpgp.c:412 src/cm-openpgp.c:434 src/cm-netkey.c:167
+msgid "Change PIN"
+msgstr ""
+
+#: src/cm-openpgp.c:422 src/cm-netkey.c:167
+msgid "Change PUK"
+msgstr ""
+
+#: src/cm-openpgp.c:422 src/cm-netkey.c:166
+msgid "Reset PUK"
+msgstr ""
+
+#: src/cm-openpgp.c:695
+#, c-format
+msgid ""
+"Error saving the changed values.\n"
+"(%s <%s>)"
+msgstr ""
+
+#: src/cm-openpgp.c:718
+msgid "Only plain ASCII is currently allowed."
+msgstr ""
+
+#: src/cm-openpgp.c:720
+msgid "The \"<\" character may not be used."
+msgstr ""
+
+#: src/cm-openpgp.c:722
+msgid "Double spaces are not allowed."
+msgstr ""
+
+#: src/cm-openpgp.c:754
+msgid ""
+"Total length of first and last name may not be longer than 39 characters."
+msgstr ""
+
+#: src/cm-openpgp.c:757 src/cm-openpgp.c:795 src/cm-openpgp.c:822
+#: src/cm-openpgp.c:846 src/cm-openpgp.c:871 src/cm-openpgp.c:892
+msgid "Saving the field failed."
+msgstr ""
+
+#: src/cm-openpgp.c:781
+msgid "Invalid length of the language preference."
+msgstr ""
+
+#: src/cm-openpgp.c:789
+msgid "The language preference may only contain the letters 'a' through 'z'."
+msgstr ""
+
+#: src/cm-openpgp.c:841 src/cm-openpgp.c:866
+msgid "The field may not be longer than 254 characters."
+msgstr ""
+
+#: src/cm-openpgp.c:1092
+msgid ""
+"<b>Unblocking the PIN</b>\n"
+"\n"
+"The retry counter of the PIN is down to zero but a Reset Code has been set.\n"
+"\n"
+"The Reset Code is similar to a PUK (PIN Unblocking Code)and used to unblock "
+"a PIN without the need to know the Admin-PIN.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Reset "
+"Code</b> and then to enter a new value for the PIN and repeat that new value "
+"at another prompt."
+msgstr ""
+
+#: src/cm-openpgp.c:1106
+msgid ""
+"<b>Changing the PIN</b>\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value and repeat that value at another prompt.\n"
+"\n"
+"Entering a wrong value for the PIN decrements the retry counter.  If the "
+"retry counters of the PIN and of the Reset Code are both down to zero, the "
+"PIN can still be reset by using the Admin-PIN.\n"
+"\n"
+"A fresh standard card has set the PIN to the value <i>123456</i>.  However, "
+"the issuer of your card might have initialized the card with a different "
+"PIN.  Please check the instructions of your issuer."
+msgstr ""
+
+#: src/cm-openpgp.c:1123
+msgid ""
+"<b>Changing the Reset Code</b>\n"
+"\n"
+"The Reset Code is similar to a PUK (PIN Unblocking Code) and used to unblock "
+"a PIN without the need to know the Admin-PIN.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value for the Reset Code and repeat that new value at "
+"another prompt."
+msgstr ""
+
+#: src/cm-openpgp.c:1133
+msgid ""
+"<b>Resetting the PIN or the Reset Code</b>\n"
+"\n"
+"If the retry counters of the PIN and of the Reset Code are both down to "
+"zero, it is only possible to reset them if you have access to the Admin-"
+"PIN.\n"
+"\n"
+"A fresh standard card has set the Admin-PIN to the value <i>12345678</i>.  "
+"However, the issuer of your card might have initialized the card with a "
+"different Admin-PIN and that Admin-PIN might only be known to the issuer.  "
+"Please check the instructions of your issuer.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Admin-"
+"PIN</b> and then to enter a new value for the PIN or the Reset Code and "
+"repeat that new value at another prompt."
+msgstr ""
+
+#: src/cm-openpgp.c:1150
+msgid ""
+"<b>Changing the Admin-PIN</b>\n"
+"\n"
+"If you know the Admin-PIN you may change the Admin-PIN.\n"
+"\n"
+"The Admin-PIN is required to create keys on the card and to change other "
+"data.  You may or may not know the Admin-PIN.  A fresh standard card has set "
+"the Admin-PIN to the value <i>12345678</i>.  However, the issuer of your "
+"card might have initialized the card with a different Admin-PIN and that "
+"Admin-PIN might only be known to the issuer.  Please check the instructions "
+"of your issuer.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Admin-"
+"PIN</b> and then to enter a new value for that Admin-PIN and repeat that new "
+"value at another prompt."
+msgstr ""
+
+#: src/cm-openpgp.c:1195 src/cm-netkey.c:808
+#, c-format
+msgid ""
+"Error changing or resetting the PIN/PUK.\n"
+"(%s <%s>)"
+msgstr ""
+
+#: src/cm-openpgp.c:1309
+#, c-format
+msgid ""
+"Error fetching the key.\n"
+"(%s <%s>)"
+msgstr ""
+
+#: src/cm-openpgp.c:1322
+#, c-format
+msgid "Keys found: %d, imported: %d, unchanged: %d"
+msgstr ""
+
+#: src/cm-openpgp.c:1344
+msgid "Fetch Key"
+msgstr ""
+
+#: src/cm-openpgp.c:1421 src/cm-netkey.c:904 src/cm-dinsig.c:265
+msgid "<b>General</b>"
+msgstr ""
+
+#: src/cm-openpgp.c:1431 src/cm-netkey.c:913 src/cm-dinsig.c:274
+msgid "Serial number:"
+msgstr ""
+
+#: src/cm-openpgp.c:1435 src/cm-netkey.c:917
+msgid "Card version:"
+msgstr ""
+
+#: src/cm-openpgp.c:1439
+msgid "Manufacturer:"
+msgstr ""
+
+#: src/cm-openpgp.c:1448
+msgid "<b>Personal</b>"
+msgstr ""
+
+#: src/cm-openpgp.c:1462
+msgid "Salutation:"
+msgstr ""
+
+#: src/cm-openpgp.c:1467
+msgid "First name:"
+msgstr ""
+
+#: src/cm-openpgp.c:1472
+msgid "Last name:"
+msgstr ""
+
+#: src/cm-openpgp.c:1477
+msgid "Language:"
+msgstr ""
+
+#: src/cm-openpgp.c:1482
+msgid "Login data:"
+msgstr ""
+
+#: src/cm-openpgp.c:1487
+msgid "Public key URL:"
+msgstr ""
+
+#: src/cm-openpgp.c:1495 src/cm-netkey.c:949
+msgid "<b>Keys</b>"
+msgstr ""
+
+#: src/cm-openpgp.c:1512
+msgid "Signature key:"
+msgstr ""
+
+#: src/cm-openpgp.c:1516
+msgid "Encryption key:"
+msgstr ""
+
+#: src/cm-openpgp.c:1520
+msgid "Authentication key:"
+msgstr ""
+
+#: src/cm-openpgp.c:1524
+msgid "Signature counter:"
+msgstr ""
+
+#: src/cm-openpgp.c:1532 src/cm-netkey.c:965
+msgid "<b>PIN</b>"
+msgstr ""
+
+#: src/cm-openpgp.c:1544
+msgid "Force signature PIN:"
+msgstr ""
+
+#: src/cm-openpgp.c:1548 src/cm-netkey.c:975
+msgid "PIN retry counter:"
+msgstr ""
+
+#: src/cm-openpgp.c:1562
+msgid "Admin-PIN retry counter:"
+msgstr ""
+
+#: src/cm-netkey.c:152
+msgid "blocked"
+msgstr ""
+
+#: src/cm-netkey.c:384
+msgid "Learn keys"
+msgstr ""
+
+#: src/cm-netkey.c:386
+msgid ""
+"For some or all of the keys available on the card, the GnuPG crypto engine "
+"does not yet know the corresponding certificates.\n"
+"\n"
+"If you click this button, GnuPG will be asked to \"learn\" this card and "
+"import all certificates stored on the card into its own certificate store.  "
+"This is not done automatically because it may take several seconds to read "
+"all certificates from the card.\n"
+"\n"
+"If you are unsure what to do, just click the button."
+msgstr ""
+
+#: src/cm-netkey.c:606
+msgid "Learning keys ..."
+msgstr ""
+
+#: src/cm-netkey.c:649
+#, c-format
+msgid ""
+"<b>Setting the Initial PIN</b> (%s)\n"
+"\n"
+"You selected to set the initial PIN of your card.  The PIN is currently set "
+"to the NullPIN.  Setting an initial PIN is <b>required but can't be "
+"reverted</b>.\n"
+"\n"
+"Please check the documentation of your card to learn for what the NullPIN is "
+"good.\n"
+"\n"
+"If you proceed you will be asked to enter a new PIN and later to repeat that "
+"PIN.  Make sure that you will remember that PIN - it will not be possible to "
+"recover the PIN if it has been entered wrongly more than %d times.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: src/cm-netkey.c:663
+msgid ""
+"You are now setting the PIN for the SigG key used to create <b>qualified "
+"signatures</b>.  You may want to set the PIN to the same value as used for "
+"the NKS keys."
+msgstr ""
+
+#: src/cm-netkey.c:666
+msgid ""
+"You are now setting the PIN for the NKS keys used for standard signatures, "
+"encryption and authentication."
+msgstr ""
+
+#: src/cm-netkey.c:696
+#, c-format
+msgid ""
+"Error changing the NullPIN.\n"
+"(%s <%s>)"
+msgstr ""
+
+#: src/cm-netkey.c:746
+msgid ""
+"<b>Changing a PIN or PUK</b>\n"
+"\n"
+"If you proceed you will be asked to enter the current value and then to "
+"enter a new value and repeat that value at another prompt.\n"
+"\n"
+"Entering a wrong value for the current value decrements the retry counter.  "
+"If the retry counters of the PIN and the corresponding PUK are both down to "
+"zero, the keys controlled by the PIN are not anymore usable and there is no "
+"way to unblock them!"
+msgstr ""
+
+#: src/cm-netkey.c:758
+msgid ""
+"<b>Resetting a PUK</b>\n"
+"\n"
+"Although <i>PUK</i> stands for <i>PIN Unblocking Code</i> the TCOS operating "
+"system of the NetKey card implements it as an alternative PIN and thus it is "
+"possible to use the PIN to unblock the PUK.\n"
+"\n"
+"If the PUK is blocked (the retry counter is down to zero), you may unblock "
+"it by using the non-blocked PIN.  The retry counter is then set back to its "
+"initial value.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value for the blocked PUK and repeat that new value at "
+"another prompt."
+msgstr ""
+
+#: src/cm-netkey.c:772
+msgid ""
+"<b>Resetting a PIN</b>\n"
+"\n"
+"If the PIN is blocked (the retry counter is down to zero), you may unblock "
+"it by using the non-blocked PUK.  The retry counter is then set back to its "
+"initial value.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PUK and "
+"then to enter a new value for the blocked PIN and repeat that new value at "
+"another prompt."
+msgstr ""
+
+#: src/cm-netkey.c:928
+msgid ""
+"<b>A NullPIN is still active on this card</b>.\n"
+"You need to set a real PIN before you can make use of the card."
+msgstr ""
+
+#: src/cm-netkey.c:934
+msgid "Set initial PIN"
+msgstr ""
+
+#: src/cm-netkey.c:955
+msgid "scanning ..."
+msgstr ""
+
+#: src/cm-netkey.c:991
+msgid "SigG PIN retry counter:"
+msgstr ""
+
+#: src/cm-netkey.c:999
+msgid "SigG PUK retry counter:"
+msgstr ""
+
+#: src/cm-dinsig.c:284
+#, c-format
+msgid ""
+"There is not much information to display for a %s card.  You may want to use "
+"the application selector button to switch to another application available "
+"on this card."
+msgstr ""

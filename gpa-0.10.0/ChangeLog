@@ -1,0 +1,1026 @@
+2018-10-16  Werner Koch  <wk@gnupg.org>
+
+	Release 0.10.0.
+	* configure.ac: Modernize version number stuff.
+
+	po: Auto update.
+
+	Require more modern versions of libraries.
+	* configure.ac: Require gpg-error 1.27, assuan 2.4.2, gpgme 1.9.0.
+	Remove all conditional gpgme code for older versions.
+	* src/gpgmeedit.c (USE_GPGME_INTERACT): Remove and always use the
+	modern interact functions.
+
+2018-10-16  Ineiev  <ineiev@gnu.org>
+
+	po: Update Russian translation.
+
+2018-10-16  Werner Koch  <wk@gnupg.org>
+
+	Make sure valid utf-8 is passed to GtkTextView.
+	* src/gpacontext.c (gpa_context_get_diag): Change and convert if
+	needed.
+
+	po: Update German translation.
+
+	In --locate-key mode ley Retrieve_Key not search in Local.
+	* src/gpaimportserverop.c (search_keys): Do not search in local
+	keyring.
+	* src/gparecvkeydlg.c (gpa_receive_key_dialog_init): Make Enter work
+	in the input field.
+
+	Add more details buttons to error dialogs.
+
+	Make diagnostic dialog scrollable.
+	* src/gpacontext.c (gpa_context_get_diag): Prepend version info.
+	* src/gtktools.c (create_diagnostics_dialog): New.
+	(show_gtk_message): Use new dialog.
+
+2018-10-15  Werner Koch  <wk@gnupg.org>
+
+	po: Update Swedish translation.
+
+	Add context menu to copy a private key to the clipboard.
+	* src/gpaexportop.c (PROP_SECRET): New.
+	(gpa_export_operation_get_property): Add new property.
+	(gpa_export_operation_set_property): Add new property.
+	(gpa_export_operation_class_init): Install property.
+	(gpa_export_operation_idle_cb): USe Secret export mode.
+	* src/gpaexportclipop.c
+	(gpa_export_clipboard_operation_complete_export): Improve message.
+	* src/gpaexportclipop.c (gpa_export_clipboard_operation_new): Add arg
+	'secret' and change caller.
+	* src/keymanager.c (key_manager_copy_sec): New.
+	(key_manager_action_new): Register function.
+
+	Add diagnostic button to some error report dialogs.
+	* src/gpgmetools.c (_gpa_gpgme_warning): Rename to _gpa_gpgme_warn and
+	add arg CTX.
+	* src/gpgmetools.h (gpa_gpgme_warn): New macro
+	(gpa_gpgme_warning, gpa_gpgme_warning_ext): Adjust macros.
+	* src/gtktools.h: Include gpacontext.h.
+	* src/gtktools.c (show_gtk_message): Add arg CTX and add button to
+	show details.
+	(gpa_show_info): Adjust to provide NULL for new arg.
+	(gpa_show_warning): Renamed to ...
+	(gpa_show_warn): this and add arg CTX.  Change all callers to use new
+	name and to pass NULL for CTX.
+	* src/gpacontext.h (_GpaContext): Add field inhibit_gpgme_events.
+	* src/gpacontext.c (gpa_context_get_diag): New.
+	(gpa_context_event_cb): Inhibit events as needed.
+	* src/gpafiledecryptop.c (gpa_file_decrypt_operation_done_error_cb):
+	Pass the gpgme contextto gpa_show_warn or gpa_gpgme_warn.
+
+	Let Server->Retrieve_Key use --locate-key for a mail address.
+	* src/gpaimportserverop.c (search_keys): Detect mbox style keyids and
+	use --locate-key.
+
+	Add context menu to copy the fingerprint(s).
+	* src/keymanager.c (key_manager_copy_fpr): New.
+	(key_manager_action_new): Add popup item
+
+	Show GPGME version in the about dialog.
+	* src/helpmenu.c (gpa_help_about): Include GPGME version.
+
+2018-06-05  Werner Koch  <wk@gnupg.org>
+
+	Simplify a xmalloc+snprintf use.
+	* src/confdialog.c (create_dialog_tabs_2): Use g_strdup_printf.
+
+2018-06-05  Ineiev  <ineiev@gnu.org>
+
+	Unescape description texts.
+	* src/confdialog.c (create_dialog_tabs_2): Strdup and unescape
+	option->description and comp->description before using as labels.
+
+	Fix percent unescaping.
+	* src/utils.c (percent_unescape): Fix output string length.
+
+	Eliminate arbitrary length limit on labels.
+	* src/confdialog.c (create_dialog_tabs_2): Allocate memory
+	for labels with xmalloc.
+
+2018-04-16  Werner Koch  <wk@gnupg.org>
+
+	Add a User ID notebook page.
+	* src/gpa-uid-list.c, src/gpa-uid-list.h: New.
+	* src/Makefile.am (gpa_SOURCES): Add them.
+	* src/convert.c (keyorg_string): New.
+	(gpa_update_origin_string): New.
+	* src/gpgmetools.c (gpa_uid_validity_string): new.
+	* src/gpa-key-details.c: Include gpa-uid-list.h.
+	(_GpaKeyDetails): Add fields uid_page and uid_list.
+	(construct_details_page): Add "Last Update" line.
+	(build_uid_page): New.
+	(ui_mode_changed): Call that function.
+	(gpa_key_details_finalize): Free the uid_list.
+	(gpa_key_details_update): Inset a new notepad page.
+
+2018-04-16  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+
+	Load the secret keyring before the public one.
+	* src/keylist.c (gpa_keylist_init): Forcefully load the secret
+	keyring before attempting to load the public keys.
+
+2017-09-13  Werner Koch  <wk@gnupg.org>
+
+	Use the new gpgme_op_interact interface.
+	* src/gpgmeedit.c (CMP_STATUS): New macro.  Use this instead of the
+	direct integer compares.
+	(status_type_t): New type alias.  Use it instead of
+	gpgme_status_code_t.
+	(edit_fnc) [USE_GPGME_INTERACT]: Compare a against a string list.
+	(gpa_gpgme_edit_trust_start) [USE_GPGME_INTERACT]: Use the new API.
+	(gpa_gpgme_edit_expire_start) [USE_GPGME_INTERACT]: Ditto.
+	(gpa_gpgme_edit_sign_start) [USE_GPGME_INTERACT]: Ditto.
+	(gpa_gpgme_edit_passwd_start) [USE_GPGME_INTERACT]: Ditto.
+	(gpa_gpgme_card_edit_genkey_start) [USE_GPGME_INTERACT]: Ditto.
+
+	Fix listing of algorithm/keysize in the subkey window.
+	* src/gpasubkeylist.c (gpa_subkey_list_set_key): Use the current
+	subkey.
+
+2017-07-13  Zdeněk Hataš  <zdenek.hatas@gmail.com>
+
+	po: czech translation update.
+
+2017-05-14  Andre Heinecke  <aheinecke@intevation.de>
+
+	Fix crash on filename conversion error.
+	* src/fileman.c (add_file): Handle conversion errors.
+
+2017-04-13  Andre Heinecke  <aheinecke@intevation.de>
+
+	w32: Make location of locale dir more flexible.
+	* src/gpa.c (get_locale_dir): If installed under a bin subdirectory
+	strip this out of the locale path.
+
+2017-02-24  Werner Koch  <wk@gnupg.org>
+
+	Change license of card application modules to LGPLv3+/GPLv2+.
+	All code was written by me and Moritz Schulte who was at that time an
+	employee of g10 Code GmbH.  I am CEO of that company.
+
+2017-02-09  Werner Koch  <wk@gnupg.org>
+
+	Add mimetimes to gpa.desktop.
+
+2016-12-01  Werner Koch  <wk@gnupg.org>
+
+	Typo fix in NEWS.
+
+2016-12-01  Zdeněk Hataš  <zdenek.hatas@gmail.com>
+
+	po: czech translation update.
+
+2016-11-29  Andreas Rönnquist  <gusnan@openmailbox.org>
+
+	Fix typo.
+
+2016-11-19  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Release 0.9.10.
+
+	po: Auto update.
+
+	po: Update German translation.
+
+	po: Add zh_CN translation.
+
+2016-11-19  Andreas Rönnquist  <gusnan@gusnan.se>
+
+	Fix some minor problems in original English strings.
+
+2016-11-05  Werner Koch  <wk@gnupg.org>
+
+	Fix make distcheck broken by last commit.
+
+	Add new tab to the key details with TOFU information.
+	* src/gpa-tofu-list.c: New.
+	* src/gpa-tofu-list.h: New.
+	* src/Makefile.am (gpa_SOURCES): Add new files.
+	* src/gpa.h (ENABLE_TOFU_INFO): Define depending on GPGME version.
+	* src/keymanager.c (key_manager_selection_changed): List with tofu
+	info.
+	* src/convert.c (gpa_expiry_date_string): Factor code out to ...
+	(gpa_date_string): new.
+	* src/gpa-key-details.c: Include gpa-tofu-list.h.
+	(struct _GpaKeyDetails): Add fields tofu_list and tofu_page.
+	(gpa_key_details_finalize): Release tofu objects.
+	(build_tofu_page): New.
+	(ui_mode_changed): Call that.
+	(gpa_key_details_update): Add TOFU notebook page.
+
+	* src/gpa-key-details.c (details_page_fill_key): Move KeyID after the
+	fingerprint.
+
+2016-09-16  Werner Koch  <wk@gnupg.org>
+
+	Remove the keyid column from two lists.
+	* src/keylist.c (GPA_KEYLIST_COLUMN_KEYID): Remove.
+	(gpa_keylist_init): Remove corresponding entry.
+	(gpa_keylist_next): Remove keyid setting.
+	(search_keylist_function): Remove keyid searching.
+	(setup_columns): Don't fill keyid column.
+	* src/gpakeyselector.c: Include gtktools.h and convert.h.
+	(GPA_KEY_SELECTOR_COLUMN_KEYID): Renamed to
+	GPA_KEY_SELECTOR_COLUMN_CREATED.
+	(gpa_key_selector_init): Show Creation date instead of Keyid.
+
+2016-07-18  Justus Winter  <justus@g10code.com>
+
+	Fix drag-and-drop.
+	* src/fileman.c (dnd_drop_handler): Instead of hard-coding the
+	position of the expected target (which may crash if the list is
+	shorter), look for the expected target in the list supplied by the
+	source window.
+
+	GnuPG-bug-id: 2413
+
+2016-05-20  Werner Koch  <wk@gnupg.org>
+
+	Make the gpgme edito FSM more robust.
+	* src/gpgmeedit.c (edit_fnc): Whitelist instead of blacklisting needed
+	status codes.
+
+2015-11-03  Neal H. Walfield  <neal@gnu.org>
+
+	Provide an option to choose an alternate name for files that exist.
+	* src/gpgmetools.c (check_overwriting): Change return type from a
+	boolean to a char *.  If the file exists, offer the user the option to
+	select a different file.  Return the file that is actually used.
+	(gpa_fopen): Take an additional parameter, FILENAME_USED.  Save the
+	filename returned by check_overwriting there.  Update users.
+	(gpa_open_output): Likewise.
+
+2015-09-11  Werner Koch  <wk@gnupg.org>
+
+	Fix segv when if build against gpgme 1.6.1.
+	* src/gpasubkeylist.c (gpa_subkey_list_new): Remove one STRING column
+	for gpgme >= 1.6.1.
+
+	Allow deletion of X.509 keys.
+	* src/gpakeydeleteop.c (gpa_key_delete_operation_start): Set the
+	protocol before calling the delete function.
+
+2015-09-09  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Release 0.9.9.
+
+	Fix build problem for gpgme < 1.6.1.
+	* src/gpasubkeylist.c (SubkeyListColumn): Fix macro condition.
+
+	Post release updates.
+
+	Release 0.9.8.
+
+	po: Auto-update.
+
+	build: Use AC_PROG_MKDIR_P to silence autoconf warning.
+	* m4/po.m4: Use modern macro.
+
+	build: Update config.guess et al.
+
+2015-09-08  Werner Koch  <wk@gnupg.org>
+
+	Do not mention the now closed gpa-dev list.
+
+2015-08-31  Werner Koch  <wk@gnupg.org>
+
+	Use GnuPG 2.1 style pubkey algo format also for subkey lists.
+	* src/gpasubkeylist.c (SUBKEY_SIZE): Define only for old gpgme
+	versions.
+	(gpa_subkey_list_new): Ditto for "Size".
+	(gpa_subkey_list_set_key): Use new algostr if possble.
+
+2015-08-30  Werner Koch  <wk@gnupg.org>
+
+	Print the GnuPP 2.1 style pubkey algo string in key details.
+	* src/gpa-key-details.c (details_page_fill_key): Use new gpgme
+	function if available to print that string.
+
+	Truncate user ids in some dialogs.
+	* src/gpa.h (GPA_MAX_UID_WIDTH): New.
+	* src/gpawidgets.c (gpa_key_info_new): Truncate user ids and put the
+	full user id into a tooltip.  Add a fingerprint line.
+	* src/keysigndlg.c (gpa_key_sign_run_dialog): Ditto.
+
+	Start off with the clipboard instead of the file manager.
+	* src/gpa.c (main): Move default action setting after options
+	reading.  Set default action to clipboard unless we are in simple mode
+	and no key has yet been created.
+	* src/options.c (gpa_options_have_default_key): New.
+	* src/keymanager.c (key_manager_maybe_firsttime): New.
+	(key_manager_mapped): Use gpa_options_have_default_key.
+
+2015-08-25  Werner Koch  <wk@gnupg.org>
+
+	Improve error handling for the sign key command.
+	* src/gpgmeedit.c (parse_status_error): New.
+	(edit_fnc): Add method to send the default answer.
+	(edit_sign_fnc_transit): Send default answer for unknown prompts.
+	Take care of ERROR status in the SIGN_CONFIRM state.
+
+2015-01-22  Werner Koch  <wk@gnupg.org>
+
+	Fix handling of the windows close button in confirmation dialogs.
+	* src/gpaexportserverop.c (confirm_send): Only act upon the Yes button.
+	* src/confdialog.c (gpa_configure_keyserver): Ditto.
+	* src/gpgmetools.c (check_overwriting): Ditto.
+
+2014-12-12  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Release 0.9.7.
+
+	po: Auto update.
+
+2014-12-11  Werner Koch  <wk@gnupg.org>
+
+	Replace deprecated gpgme API for card access.
+	* src/cardman.c: Use gpgme_op_assuan_transact_ext.
+	* src/cm-dinsig.c: Ditto.
+	* src/cm-geldkarte.c: Ditto.
+	* src/cm-netkey.c: Ditto.
+	* src/cm-openpgp.c: Ditto.
+	* src/cm-unknown.c: Ditto.
+
+2014-12-08  Werner Koch  <wk@gnupg.org>
+
+	po: Use the term "USB stick" for the backup message.
+
+	Add another OpenPGP card vendor.
+
+	Floppy drives are pretty rare these days advice to use flash.
+
+	po: Update the German translation.
+
+	Support sending keys with GnuPG 2.1.
+	* src/confdialog.c (gpa_configure_keyserver): New.
+	* src/gpa.c (main): Do no get a default keyserver for GnuPG 2.1.
+	* src/options.c (gpa_options_read_settings): Ditto.
+	* src/settingsdlg.c (save_settings): Do not set a default keyserver
+	for GnuPG 2.1
+	* src/gpaexportserverop.c (confirm_send): Ask to configure keyserver.
+	Support GnuPG 2.1.
+	(send_keys): New.
+	(gpa_export_server_operation_complete_export): Support GnuPG 2.1.
+
+2014-12-05  Werner Koch  <wk@gnupg.org>
+
+	Update card vendor list and fix one typo.
+
+2014-11-21  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Release 0.9.6.
+
+	Do not create gzipped tarball.
+	* Makefile.am (AUTOMAKE_OPTIONS): Remove.
+	* configure.ac (AM_INIT_AUTOMAKE): Add options here.
+
+	po: Auto-update.
+
+	Get rid of Gtk+ warning.
+	* src/server-access.c (wait_dialog): Remove GTK_DIALOG_NO_SEPARATOR.
+
+	Add a Refresh Key function to the key manager's context menu.
+	* src/gpaimportbykeyidop.c: New.
+	* src/gpaimportbykeyidop.h: New.
+	* src/keymanager.c (key_manager_refresh_keys): New.
+	(key_manager_action_new): Add ServerRefresh Action top the popup.
+
+2014-11-21  Zdeněk Hataš  <zdenek.hatas@gmail.com>
+
+	po: Update Czech translation.
+
+2014-11-20  Werner Koch  <wk@gnupg.org>
+
+	po: Update German translation.
+
+	Implement the IMPORT_FILES server command.
+	* src/server.c (cmd_file): Remove --continued stuff and add --clear.
+	(conn_ctrl_s): Remove field files_finished.
+	(impl_encrypt_sign_files): Adjust for this.
+	(impl_decrypt_verify_files): Ditto.
+
+	* src/server.c (impl_encrypt_sign_files): Add import feature.
+	(cmd_import_files): Implement.
+	* src/gpgmetools.h (gpa_import_result_s): New.
+	* src/gpgmetools.c (gpa_gpgme_update_import_results): New.
+	(gpa_gpgme_show_import_results): New.
+	* src/gpaimportop.c (key_import_results_dialog_run): Remove.
+	(gpa_import_operation_done_cb): Use new functions.
+	* src/gpafileimportop.c, src/gpafileimportop.h: New.
+
+2014-11-18  Werner Koch  <wk@gnupg.org>
+
+	Make receiving keys from a keyserver work with GnuPG 2.1.
+	* src/gpaimportop.h (_GpaImportOperation): Add field source2.
+	(_GpaImportOperationClass): Change prototype of get_source and all
+	callers.
+	* src/gpaimportop.c (gpa_import_operation_finalize): Release source2
+	var.
+	(gpa_import_operation_idle_cb): Use import_keys if source2 is set.
+	(key_import_results_dialog_run): Use modern info functions.
+	* src/gpaimportserverop.c (MAX_KEYSEARCH_RESULTS): New.
+	(search_keys): New.
+	(gpa_import_server_operation_get_source): Make use of source2.
+
+	* src/gparecvkeydlg.c (gpa_receive_key_dialog_init): Change prompt for
+	gnupg 2.1.0.
+
+	Add functions gpa_show_info and gpa_show_warning.
+	* src/gtktools.c (gpa_show_info): New.
+	(gpa_show_warning): New.
+	(gpa_window_message, gpa_window_error): Make them wrappers fro the new
+	functions.
+
+	Do not show the keyserver setting with gnupg 2.1.0.
+	* src/settingsdlg.c (_SettingsDlg): Add field gnupg21.
+	(settings_dlg_init): Init new field.
+	(settings_dlg_constructor): Do not show the keyserver option with
+	gnupg 2.1.
+	(update_show_advanced_options): Skip the keyserver option with 2.1
+	(keyserver_selected_from_list_cb): Ditto.
+	(check_default_keyserver): Ditto.
+	(load_settings, save_settings): Ditto.
+
+2014-09-02  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	Add a File/Close option to the card manager.
+	* src/cardman.c (file_close): New.
+	(cardman_action_new): Add menu item.
+
+2014-09-01  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Release 0.9.5.
+
+2014-07-01  Zdeněk Hataš  <zdenek.hatas@gmail.com>
+
+	po: Update Czech translation.
+
+2014-07-01  Werner Koch  <wk@gnupg.org>
+
+	Fix warnings if build without card manager support.
+	* src/clipboard.c (clipboard_action_new) [ENABLE_CARD_MANAGER]:
+	Exclude WindowsCardManager item.
+	* src/fileman.c (fileman_action_new): Ditto.
+	* src/keymanager.c (key_manager_action_new): Ditto.
+
+	Add option --verbose and silence some diagnostics.
+	* src/gpa.c (verbose): New.
+	(option_entries): Add option --verbose.
+	* src/server.c (gpa_check_server): Print some diagnostics only in
+	verbose mode.
+
+2014-06-26  Werner Koch  <wk@gnupg.org>
+
+	Use the gpgme spawn protocol to backup a key.
+	* src/gpgmetools.c (gpa_backup_key): Rewrite.
+
+	Make sure that a new secret key is shown without a restart.
+	* src/keymanager.c (key_manager_refresh): Hack to show a new secret
+	key.
+
+2014-05-14  Werner Koch  <wk@gnupg.org>
+
+	Let OpenPGP specific commands only use OpenPGP keys.
+	* src/gpakeysignop.c (gpa_key_sign_operation_start): Skip non OpenPGP
+	keys.
+	* src/keylist.c (gpa_keylist_get_selected_keys): Add arg optional arg
+	PROTOCOL.  Adjust all callers.
+	* src/keymanager.c (key_manager_can_sign): Cehck for OpenPGP.
+	(key_manager_sign, key_manager_trust, key_manager_send): Act only on
+	OpenPGP keys.
+
+	w32: Fix directory separator in backup dialog.
+	* src/gpabackupop.c (gpa_backup_operation_dialog_run): Use correct
+	directory separator.
+
+	Add command line option --stop-server.
+	* src/gpa.c (main): Implement option.
+	* src/server.c (cmd_kill_uiserver): New.
+	(register_commands): Register new command.
+
+	Fix regression in edit dialogs due to new status lines.
+	* src/gpgmeedit.c (edit_fnc): Ignore pinentry launched status.
+
+	Implement backup of X.509 keys.
+	* src/gpgmetools.c (gpa_backup_key): Add arg is_x509 and support X.509
+	backups.
+	* src/gpabackupop.c (PROP_PROTOCOL): New.
+	(gpa_backup_operation_get_property): Add it.
+	(gpa_backup_operation_set_property): Add it.
+	(gpa_backup_operation_class_init): Install new property
+	(gpa_backup_operation_finalize): Remove surplus NULL check.
+	(gpa_backup_operation_do_backup): Pass x509 flag to gpa_backup_key.
+	(gpa_backup_operation_dialog_run): Add arg is_x509.  Move extra label
+	generation out of the static dialog generation.  Use ".p12" for X.509
+	keys.
+	(gpa_backup_operation_idle_cb): Pass x509 flag to the dialog run call.
+	(gpa_backup_operation_new): Create protocol property from KEY.
+	(gpa_backup_operation_new_from_fpr): Add arg protocol.
+	* src/gpabackupop.h (_GpaBackupOperation): Add field protocol.
+	* src/gpagenkeysimpleop.c (gpa_gen_key_simple_operation_done_cb): Pass
+	PROTOCOL to gpa_backup_operation_new_from_fpr.
+	* src/keymanager.c (key_manager_mapped): Assure that
+	gpa_backup_oepration_new is never called with a NULL key.
+
+	In the subkey view show tooltips for the entire check box columns.
+	* src/gpasubkeylist.c (query_tooltip_cb): New.
+	(gpa_subkey_list_new): Connect handler.
+
+2014-05-12  Werner Koch  <wk@gnupg.org>
+
+	Decorate expire date popup window in key generation.
+	* src/gpadatebutton.c (gpa_date_button_clicked): Pass parent window
+	to gtk_dialog_new.  Add close button to the dialog.
+
+2014-05-09  Werner Koch  <wk@gnupg.org>
+
+	Use ".asc" for armored detached OpenPGP signatures.
+	* src/gpafilesignop.c (destination_filename): Take care of ARMOR.
+
+	Improve detection of detached signature files.
+	* src/gpafileverifyop.c (is_detached_sig): Rewrite and add test for
+	file.
+
+2014-05-08  Werner Koch  <wk@gnupg.org>
+
+	Show the name of the curve and the creation date in the subkey list.
+	* src/gpa-key-details.c (details_page_fill_key): Add curve info.
+	* src/gpasubkeylist.c (SUBKEY_CREATED): Add new column.
+	(gpa_subkey_list_new): Abbreviate some column titles.  Print creation
+	date.
+	(gpa_subkey_list_set_key): Set creation date and curve name.
+
+2014-04-11  Werner Koch  <wk@gnupg.org>
+
+	Use the gnupg homedir as default backup directory.
+	* src/gpabackupop.c (gpa_backup_operation_dialog_run): Apply
+	gnupg_homedir.
+
+	Add creation date column to allow sorting keys by age.
+	* src/keylist.c (GPA_KEYLIST_COLUMN_CREATED): New.
+	(GPA_KEYLIST_COLUMN_CREATED_TS): New.
+	(gpa_keylist_init): Add columns.
+	(setup_columns): Setup new columns.
+	(gpa_keylist_next): Fill new columns.
+
+	Fix segv due to wrong signal handler args.
+	* src/gpagenkeysimpleop.c
+	(gpa_gen_key_simple_operation_backup_complete): Add missing arg ERR.
+
+	Make use of a running GPA server.
+	* src/server.c (cmd_start_clipboard): New.
+	(cmd_start_filemanager): New.
+	(register_commands): Add new commands.
+	(cmd_getinfo): Add sub-command "name".
+	(check_name_cb, gpa_check_server, gpa_send_to_server): New.
+	* src/gpa.c (option_entries): Add option --no-remote.  Remove
+	options --gpg-binary and --gpgsm-binary.
+	(struct gpa_args_t): Add no_remote.  Remove gpg_binary and
+	gpgsm_binary.
+	(dummy_arg): New.
+	(main): Check for running server and start if desired.  Factor some
+	code out to ...
+	(open_requested_window): new.  Add code to connect to a running server.
+
+2014-04-10  Werner Koch  <wk@gnupg.org>
+
+	w32: Inhibit console window while trying to start the agent.
+	* src/gpgmetools.c (gpa_start_agent): Use gpgme_op_spawn to start the
+	agent.
+
+2014-04-09  Werner Koch  <wk@gnupg.org>
+
+	Use gpgme to get the standard home directory.
+	* src/get-path.c (homedir_from_gpgconf_parser): Remove.
+	(homedir_from_gpgconf): Remove.
+	(default_homedir): Use gpgme_get_dirinfo.
+
+2014-04-08  Werner Koch  <wk@gnupg.org>
+
+	w32: Add launch-gpa tool.
+	* src/launch-gpa.c: New.
+	* src/Makefile.am (bin_PROGRAMS) [W32]: Add launch-gpa
+	(launch_gpa_LDFLAGS): New.
+
+2014-03-06  Werner Koch  <wk@gnupg.org>
+
+	Fix double window bug with ENCRYPT_SIGN_FILES.
+	* src/server.c (impl_encrypt_sign_files): s/if/else if/.
+
+2014-01-10  Werner Koch  <wk@gnupg.org>
+
+	Use the generic autogen.sh script.
+	* autogen.rc: New.
+	* Makefile.am (EXTRA_DIST): Add it.
+	* autogen.sh: Update from GnuPG.
+
+	Move helper scripts to build-aux/.
+	* config.guess, config.rpath, config.sub, depcomp
+	* install-sh, mdate-sh, missing: Move to build-aux/.
+	* configure.ac (AC_CONFIG_AUX_DIR): New.
+	(AM_SILENT_RULES): New.
+	* Makefile.am (EXTRA_DIST): Remove config.rpath.
+
+2014-01-07  Werner Koch  <wk@gnupg.org>
+
+	Auto po file updates.
+
+	Add a customized set window title function.
+	* configure.ac (GPA_LONG_NAME): New.
+	* src/gtktools.c (gpa_window_set_title): New.  Use it instead of most
+	calls to gtk_window_set_title.
+	(make_box_title): New.
+	(gpa_window_error, gpa_window_message): Use it.
+
+	Add option --disable-keyserver-support and some cleanups.
+	* configure.ac: Remove unused test for GPG.
+	(ENABLE_KEYSERVER_SUPPORT): New ac_define and am_conditional.
+	(GPA_NAME): New.
+	* src/Makefile.am (keyserver_support_sources): New.  Move keyserver
+	related source files to here.
+	* src/confdialog.c (gpa_load_configured_keyserver)
+	(gpa_store_configured_keyserver): Take care of ENABLE_KEYSERVER_SUPPORT.
+	* src/gpaexportserverop.h, src/gpaimportserverop.h: Ditto.
+	* src/server-access.h: Ditto.
+	* src/gpgmetools.h (gpa_gpgme_warning_ext, gpa_gpgme_warning): New
+	macros.
+	* src/gpgmetools.c (gpa_gpgme_warning_ext): Rename to
+	(_gpa_gpgme_warning): this.  Add args FILE and LINE.
+	(gpa_gpgme_warning): Remove.
+	(gpa_start_simple_gpg_command): Improve error message.
+	* src/keymanager.c (key_manager_retrieve) [!ENABLE_KEYSERVER_SUPPORT]:
+	Disable.
+	(key_manager_send): Ditto.
+	(key_manager_action_new) [!ENABLE_KEYSERVER_SUPPORT]: Disable
+	keyserver stuff.
+
+	Require gpg-error 1.12 and gpgme 1.5.0.
+	* configure.ac (NEED_GPG_ERROR_VERSION): Set to 1.12.
+	(NEED_GPGME_VERSION): Set to 1.5.0.
+
+	Add configure option --disable-card-manager and remove switch to gpg2.
+	* configure.ac: Add option --disable-card-manager.
+	* src/cardman.h [!ENABLE_CARD_MANAGER]: Do not define anything.
+	* src/clipboard.c (file_open): Cast off_t.
+	* src/gpa.c (option_entries) [!ENABLE_CARD_MANAGER]: Remove option
+	"--card".
+	(quit_if_no_window) [!ENABLE_CARD_MANAGER]: Do not check for open card
+	manager.
+	(gpa_open_cardmanager) [!ENABLE_CARD_MANAGER]: Disable.
+	(main): Do not call gpa_switch_to_gpg2; this is now done by gpgme.  Do
+	not call gpa_open_cardmanager.
+	* src/gpa.h (gpa_windows_menu_action_entries) [!ENABLE_CARD_MANAGER]:
+	Remove card manger entry.
+	* src/gpgmetools.c (gpa_switch_to_gpg2): Remove.
+	* src/keytable.c (first_half_done_cb): Change wording of notice for
+	missing gpgsm.
+	* src/server.c (cmd_start_cardmanager) [!ENABLE_CARD_MANAGER]:
+	Disable.
+	(register_commands) [!ENABLE_CARD_MANAGER]: Do not register.
+
+2013-08-19  Werner Koch  <wk@gnupg.org>
+
+	Fix wrong use of GPGME_EVENT_DONE.
+	* src/gpacontext.c (gpa_context_event_cb): Fix use of TYPE_DATA.  Add
+	debug output.
+
+2013-08-16  Werner Koch  <wk@gnupg.org>
+
+	w32: Fix crash due to bad conversions of utf-8 in the clipboard.
+	* src/gpgmetools.c (dos_to_unix): Remove.  Remove all calls.
+	(dump_data_to_clipboard): Return an error code instead of calling
+	exit.
+	* src/gpaexportclipop.c
+	(gpa_export_clipboard_operation_complete_export): Print success
+	message only on success.
+
+	Improve code readability.
+	* src/server-access.c (server_get_key): Make error checking better
+	readable.
+
+	Add noreturn attribute to gpa_gpgme_error.
+	* src/gpgmetools.h (_gpa_gpgme_error): Add attribute.
+	* src/gpa-key-details.c (gpa_key_details_find): Remove dead code.
+
+	Remove unused function.
+	* src/server.c (hextobyte): Remove.
+
+2013-08-12  Werner Koch  <wk@gnupg.org>
+
+	Detect default homedir via gpgconf.
+	* src/server.c (decode_percent_string): Move to ..
+	* src/utils.c (decode_percent_string): here.
+	* src/gpgmetools.c (gpa_start_simple_gpg_command): Add arg use_stderr
+	and change all callers.
+	(gpg_simple_stdio_cb): Implement the !use_stderr case.
+	* src/get-path.c: Include string.h and gpa.h.
+	(struct homedir_from_gpgconf_s): New.
+	(homedir_from_gpgconf_parser): New.
+	(homedir_from_gpgconf): New.
+	(default_homedir): First try to detect via gpgconf.
+
+2013-08-10  Werner Koch  <wk@gnupg.org>
+
+	Allow import and export of X.509 certificates.
+	* src/filetype.c (is_cms_data_ext): New.
+	* src/gpaimportop.c (gpa_import_operation_idle_cb): Set the
+	appropriate protocol.
+	* src/gpaexportop.c (gpa_export_operation_idle_cb): Ditto.
+
+2013-08-09  Werner Koch  <wk@gnupg.org>
+
+	Improve detection of CMS objects.
+	* configure.ac: Detect gpgme_data_identify.
+	* src/filetype.c (is_cms_data, is_cms_file): Use gpgme_data_identify
+	is available.
+
+2013-07-31  Werner Koch  <wk@gnupg.org>
+
+	Implement the binary option for server based encrypt and sign.
+	* src/server.c (conn_ctrl_s): Add field OUTPUT_BINARY.
+	(prepare_io_streams): Set data encoding to binary if requested.
+	(output_notify): New.
+	(connection_startup): Register new callback.
+	* src/gpastreamencryptop.c (start_encryption): Use a provided encoding.
+	* src/gpastreamsignop.c (start_signing): Ditto.
+
+2013-07-10  Werner Koch  <wk@gnupg.org>
+
+	Change the license of some files to LGPLv2.1.
+	* src/filetype.c: Change license notice
+	* src/filetype.h: Ditto.
+	* src/parsetlv.c: Ditto.
+	* src/parsetlv.h: Ditto.
+
+2013-05-01  Werner Koch  <wk@gnupg.org>
+
+	Post release version bump.
+
+	Release 0.9.4.
+
+	Replace defunct blackhole keyserver by the mayfirst keyserver.
+	* src/keyserver.c (keyserver_read_list): Update list.
+
+	Update the man page.
+
+	Update helper scripts.
+	* config.guess, config.sub, config.rpath, depcomp, install-sh: Update
+	to Feb 25 version of gnulib.
+	* mdate-sh, mkinstalldirs: New.
+
+	* README.W32: Update.
+
+	Switch to the new beta numbering scheme.
+	* configure.ac: Remove svn code and add the usual git version
+	numbering code.  Build versioninfo.rc.
+	* src/versioninfo.rc.in: New.
+	* src/gpa-resource.rc: Include versioninfo.rc.
+	* src/Makefile.am (EXTRA_DIST): Add versioninfo.rc.in.
+	* src/helpmenu.c (gpa_help_about): Show the GIT commit id.
+
+2013-04-30  Werner Koch  <wk@gnupg.org>
+
+	po: Auto updates by new gettext version.
+
+	Update autogen.sh to use i686-w64-mingw32 as default toolchain.
+
+	Update list of authors and copyright notices.
+	* src/helpmenu.c (gpa_help_about): Add more names to the list.
+
+	Update to gettext 0.18.1.
+	* configure.ac (AM_GNU_GETTEXT_VERSION): Update.
+	* m4/gettext.m4, m4/iconv.m4, m4/lib-ld.m4, m4/lib-link.m4
+	* m4/lib-prefix.m4, m4/nls.m4, m4/po.m4, m4/progtest.m4: New.
+	* m4/Makefile.am (EXTRA_DIST): Add new M4 files.
+	* po/Makevars.template, po/Rules-quot, po/boldquot.sed
+	* po/en@boldquot.header, po/en@quot.header, po/insert-header.sin
+	* po/quot.sed: New.
+	* po/Makefile.in.in, config.rpath, ABOUT-NLS: Update.
+
+	Add scrollbars to the verification result window.
+	* src/verifydlg.c (verify_file_page): Put the list into a scrollbox.
+
+2013-04-11  Werner Koch  <wk@gnupg.org>
+
+	Do not bail out if libgpgme has no support for GPGSM.
+	* src/keytable.c (first_half_done_cb): Also check for a gpgme without
+	support for GPGSM.
+
+2012-11-16  Werner Koch  <wk@gnupg.org>
+
+	Improve parsing of the GIT revision number.
+	* configure.ac (git_revision): Use git rev-parse.
+
+	Fix non-portable use of chmod in autogen.sh.
+	* autogen.sh: Remove option -c from chmod.
+
+2012-11-15  Werner Koch  <wk@gnupg.org>
+
+	Use native theme under Windows.
+	* src/gpa.c (main) [WIN32]: Set Theme to MS-Windows.  Suggested by
+	Colin Leroy.
+
+2012-10-25  Andreas Rönnquist  <gusnan@gusnan.se>
+
+	Make siglist search both key and name.
+	* siglist.c (search_siglist_function): New.
+	(gpa_siglist_new): Enable searching via the new function.
+
+2012-08-16  Michael Petzold  <michael.petzold@gmx.net>
+
+	Update gpa.spec file.
+	* gpa.spec: Update version, tags, directives, source paths, files, etc.
+
+2012-08-08  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.3.
+
+2012-08-08  Andreas Rönnquist  <gusnan@gusnan.se>
+
+	Make keylist search search both key and name.
+
+2012-08-07  Werner Koch  <wk@gnupg.org>
+
+	Try to figure the keyserver helper directory using gpg2keys.
+	* configure.ac: Check for gpg2keys_ldap.  Check in directory
+	/usr/lib/gnupg2.
+
+	Allow searching in the keylist.
+	* src/keylist.c (setup_columns): Add a search column.  Patch by
+	Andreas Rönnquist.
+
+2012-07-18  Werner Koch  <wk@gnupg.org>
+
+	Fix uninitialized variable (bug#1416)
+	* src/server.c (prepare_io_streams): Set ERR to 0 on success.
+	Reported by Daniel Leidert.
+
+2012-07-13  Werner Koch  <wk@gnupg.org>
+
+	Fix minor gpa.desktop bugs (bug#1132)
+	* gpa.desktop: Remove Encoding line and remove suffix from icon name.
+
+	Update man page from Debian (bug#1412)
+	* doc/gpa.1: Update.
+
+	Fix segv in option setting.
+	* src/confdialog.c (arg_to_str, args_are_equal): Take care of the
+	NO_ARG field to using the values if it has been set.
+
+2012-07-13  Daniel Leidert  <dleidert@debian.org>
+
+	Fix a segmentation fault opening file-manager mode.
+	* src/fileman.c (file_list_new): s/select/sel, which is undefined.
+
+2012-05-02  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.2.
+
+	Add option --debug-edit-fsm.
+	* src/gpa.c (debug_edit_fsm): New.
+	(option_entries): Add --debug-edit-fsm.
+	* src/gpgmeedit.c (DEBUG_FSM): Remove macro and replace all uses by a
+	condition on debug_edit_fsm.
+
+	Delete README-alpha.
+
+	Fix name of zh_TW translation.
+	* po/zh_TW.Big5.po: Rename to po/zh_TW.po.
+	* po/LINGUAS: Adjust accordingly.
+
+	Fix a couple of shadowing warnings.
+
+	Fix possible problem with gsize and pointer.
+	* src/clipboard.c (file_created_cb): Pass address of LEN and not
+	of *LEN.
+
+	Improve use of gcc warning options.
+	* configure.ac: Test for gcc options.
+
+	po file updates triggered by msgmerge.
+
+	Use "Uncertain" instead of "Invalid" signature.
+	* src/gpgmetools.c (gpa_gpgme_get_signature_desc): s/Invalid/Uncertain/.
+	* src/gpastreamdecryptop.c (done_cb): Use gpa_gpgme_get_signature_desc.
+	* src/gpastreamverifyop.c (done_cb): Remove unused variable.
+
+2012-04-30  Werner Koch  <wk@gnupg.org>
+
+	Update NEWS and set version to development.
+
+	Fix and extend verify dialog for CMS file signatures.
+	* src/gpastreamverifyop.c (done_cb): Factor sigdesc code out to ...
+	* src/gpgmetools.c (gpa_gpgme_get_signature_desc): New.
+	* src/verifydlg.c (fill_sig_model): Use new function.
+	(add_signature_to_model): Simplify by using new function and fix bug
+	with X.509 keys.
+	(SignatureListColumn, signature_list): Add column SIG_DESC_COLUMN.
+
+	Remove trailing white space.
+
+	Add options --gpg-binary and --gpgsm-binary.
+	* src/gpgmetools.c (gpa_switch_to_gpg2): Add args GPG_BINARY and
+	GPGSM_BINARY.
+	* src/gpa.c (struct gpa_args_t): Add fields gpg_binary and
+	gpgsm_binary.
+	(option_entries): Add options --gpg-binary and --gpgsm-binaries.
+	(main): Pass option values to gpa_switch_to_gpg2.
+
+	Show a marker for year 2038 timestamps we can't show.
+	* src/convert.c (gpa_expiry_date_string): Handle special gpgme date.
+
+2012-04-26  Werner Koch  <wk@gnupg.org>
+
+	Automagically choose gpgme protocol based on file type.
+	* src/filetype.c, src/filetype.h: New.
+	* src/parsetlv.c, src/parsetlv.h: New.  Based on my code from GpgOL.
+	* src/gpafiledecryptop.c (gpa_file_decrypt_operation_start): Set
+	protocol depending on type of data.
+	* src/gpafileverifyop.c (gpa_file_verify_operation_start): Ditto.
+
+	Add Option --enable-logging.
+	* src/gpa.c: Add option --enable-logging.
+	(main) [!W32]:  Enable option by default.
+	(main): Set dummy handler if option is not active.
+
+2012-04-24  Werner Koch  <wk@gnupg.org>
+
+	Modernize autogen.sh.
+
+	Initialize assuan socket wrapper in server mode.
+	* src/server.c (gpa_start_server): Call assuan_sock_init.
+
+	Comment typo fix.
+
+2012-04-18  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.1.
+
+	i18n: Line number update of zh_TW.
+
+2012-04-17  Werner Koch  <wk@gnupg.org>
+
+	Remove unused pixmap functions.
+	* src/icons.c (pixmap_for_icon, gpa_create_icon_pixmap): Remove.
+
+2011-12-15  Werner Koch  <wk@gnupg.org>
+
+	Show the ATR for an unknown card.
+	* src/cm-unknown.c, src/cm-unknown.h: New files.
+	* src/Makefile.am: Add them.
+	* NEWS: Update.
+
+2011-12-12  Werner Koch  <wk@gnupg.org>
+
+	po: auto update of po files.
+
+	Fix indentation.
+	* src/keytable.c: Fix function name indentation.
+
+	Fix wrong setting of the expire date.
+	* src/gpadatebutton.c (update_widgets): Fix month base.
+	(day_selected_cb): Ditto.  Fixes Debian#625513.
+
+	Bug#1131: Grammar and typo fixes.
+	* src/gpafileencryptop.c (revoked_key): Grammar fix.
+	* src/keygenwizard.c (keygen_wizard_email_page): Typo fix.
+
+	Generate the ChangeLog from commit logs.
+	* build-aux/gitlog-to-changelog: New script.  Taken from gnulib.
+	* build-aux/git-log-fix: New file.
+	* build-aux/git-log-footer: New file.
+	* doc/HACKING: New file.
+	* ChangeLog: New file.
+	* Makefile.am (EXTRA_DIST): Add new files.
+	(gen-ChangeLog): New.
+	(dist-hook): Run gen-ChangeLog.
+	* autogen.sh: Install commit-msg hook for git.
+
+	Rename all ChangeLog files to ChangeLog-2011.
+
+2011-12-01  Werner Koch  <wk@gnupg.org>
+
+	NB: Changes done before December 12st, 2011 are described in
+	per directory files named ChangeLog-2011.  See doc/HACKING for
+	details.
+
+        -----
+	Copyright (C) 2011 g10 Code GmbH
+
+	Copying and distribution of this file and/or the original GIT
+	commit log messages, with or without modification, are
+	permitted provided the copyright notice and this notice are
+	preserved.

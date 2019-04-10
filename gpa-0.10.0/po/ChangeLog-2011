@@ -1,0 +1,465 @@
+2011-12-01  Werner Koch  <wk@g10code.com>
+
+	NB: ChangeLog files are no longer manually maintained.  Starting
+	on December 12st, 2011 we put change information only in the GIT
+	commit log, and generate a top-level ChangeLog file from logs at
+	"make dist".  See doc/HACKING for details.
+
+2010-05-06  Werner Koch  <wk@g10code.com>
+
+	* POTFILES.in: Add gpadatebutton.c
+
+2009-05-07  Werner Koch  <wk@g10code.com>
+
+	* POTFILES.in: s/keyring.c/keymanager.c/.
+
+2009-04-10  Moritz  <moritz@gnu.org>
+
+	* de.po: Added translations for days/weeks/months/years.
+	Fixed two typos.
+
+	* POTFILES.in: Added src/convert.c.
+
+2009-03-22  Moritz  <moritz@gnu.org>
+
+	* de.po: Be more consistent in respect to <b>...</b>-formatting.
+
+2009-03-20  Moritz  <moritz@gnu.org>
+
+	* de.po: Simplify a translation.
+
+2009-03-20  Moritz  <moritz@gnu.org>
+
+	* de.po: Removed a couple of ugly "/" prefixes in translation.
+
+2008-12-15  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Rules-quot: Upgrade to gettext-0.17.
+
+2008-12-04  Marcus Brinkmann  <marcus@g10code.com>
+
+	* fr.po: New version by gozer@progrock.com.
+
+2008-10-31  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.17.
+
+2008-09-16  Marcus Brinkmann  <marcus@g10code.de>
+
+	* POTFILES.in: Update list of files.
+
+	* sv.po: Update from Daniel Nylander.
+
+2008-07-02  Werner Koch  <wk@g10code.com>
+
+	* de.po: Fix translation markup.
+
+2008-05-08  Werner Koch  <wk@g10code.com>
+
+	* de.po: Update.
+
+	* POTFILES.in: Remove gpawizard.c.
+
+2008-03-20  Marcus Brinkmann  <marcus@g10code.de>
+
+	* ar.po, es.po, fr.po, ru.po: Updates from Alberto
+	Escudero-Pascual.
+	* POTFILES.in: Remove src/gpa_license.c.
+
+2008-03-12  Werner Koch  <wk@g10code.com>
+
+	* ru.po, fr.po, ar.po, es.po: Fixed fuzzies for command line options.
+	* de.po: Fixed fuzzies and translated new strings.
+
+2008-03-11  Marcus Brinkmann  <marcus@g10code.de>
+
+	* es.po: New version by Alberto Escudero-Pascual.
+
+2008-03-10  Marcus Brinkmann  <marcus@g10code.de>
+
+	* ar.po, fr.po, es.po, ru.po: New versions, coordinated by Alberto
+	Escudero-Pascual.
+
+2008-02-16  Marcus Brinkmann  <marcus@g10code.de>
+
+	* de.po: Some updates.
+
+2008-02-12  Marcus Brinkmann  <marcus@g10code.de>
+
+	* ar.po: New file by Khaled Hosny.
+	* LINGUAS: Add ar.
+
+2008-02-04  Marcus Brinkmann  <marcus@g10code.de>
+
+	* POTFILES.in: Add clipboard.h and clipboard.c.
+
+	* POTFILES.in: Add confdialog.c.
+
+2007-06-05  Marcus Brinkmann  <marcus@g10code.de>
+
+	* remove-potcdate.sed: Add missing file.
+
+2007-05-24  Werner Koch  <wk@g10code.com>
+
+	* cs.po: Add Plural-Forms header.
+
+2007-04-25  Werner Koch  <wk@g10code.com>
+
+	* ru.po: New.  By Maxim Britov.
+
+2007-02-26  Werner Koch  <wk@g10code.com>
+
+	* cs.po: Updated.
+
+2007-02-26  Zdenek Hatas  <zdenek.hatas@gmail.com>  (wk)
+
+	* cs.po: Add new Czech translation.
+	* LINGUAS: Add cs
+
+2007-02-26  Werner Koch  <wk@g10code.com>
+
+	* sv.po: Update from Daniel Nylander.
+
+2006-12-22  Werner Koch  <wk@g10code.com>
+
+	* sv.po: Installed revised translation.
+
+2006-03-21  Werner Koch  <wk@g10code.com>
+
+	* Makevars: Set bug report address and set copyright string to PD.
+
+2006-02-23  Marcus Brinkmann  <marcus@g10code.de>
+
+	* de.po: Remove dangling '_' in toolbox item name.
+
+2006-02-21  Werner Koch  <wk@g10code.com>
+
+	* de.po: Wording fix.
+
+2006-01-13  Werner Koch  <wk@g10code.com>
+
+	* de.po: Updated.
+
+2006-01-11  Werner Koch  <wk@g10code.com>
+
+	* de.po: Updated.
+
+2005-11-17  Marcus Brinkmann  <marcus@g10code.de>
+
+	* POTFILES.in: Removed src/simple-gettext.c.
+
+2004-08-22  Miguel Coca  <mcoca@gnu.org>
+
+	* pl.po: Updated.
+
+2004-08-21  Miguel Coca  <mcoca@gnu.org>
+
+	* pl.po: Add polish translation, by Emilian Nowak.
+
+	* tr.po: New turkish translation, provided by Can Berk Güder.
+
+	* LINGUAS: Add tr and pl.
+
+2003-11-03  Miguel Coca  <mcoca@gnu.org>
+
+	* ja.po: Updated by TAKAHASHI Tamotsu.
+
+2003-10-22  Miguel Coca  <mcoca@gnu.org>
+
+	* de.po: Updated by Steffen Michalek.
+
+2003-10-20  Miguel Coca  <mcoca@gnu.org>
+
+	* zh_TW.Big5.po: Updated by Shell Hung.
+
+2003-10-19  Miguel Coca  <mcoca@gnu.org>
+
+	* nl.po: Updated by Michael Anckaert.
+
+2003-10-18  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Add missing string.
+
+2003-10-13  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.12.1.
+	* boldquot.sed: New file, from gettext-0.12.1.
+	* en@boldquot.header: New file, from gettext-0.12.1.
+	* en@quot.header: New file, from gettext-0.12.1.
+	* insert-header.sin: New file, from gettext-0.12.1.
+	* quot.sed: New file, from gettext-0.12.1.
+	* remove-potcdate.sin: New file, from gettext-0.12.1.
+	* Rules-quot: New file, from gettext-0.12.1.
+
+2003-10-12  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Update for 0.7.0.
+
+2003-10-12  Miguel Coca  <mcoca@gnu.org>
+
+	* POTFILES.in: Updated.
+
+2003-04-27  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Updated.
+
+2003-02-12  Miguel Coca  <mcoca@gnu.org>
+
+	* de.po: Updated by Steffen Michalek.
+
+	* es.po: Fix bugs.
+
+2003-01-29  Miguel Coca  <mcoca@gnu.org>
+
+	* se.po, sv.po: Swedish is sv, not se! Move se.po to sv.po. Update
+	for 0.6.1.
+
+2003-01-24  Miguel Coca  <mcoca@gnu.org>
+
+	* se.po: New, contributed by Mick Ohrberg.
+
+2003-01-21  Miguel Coca  <mcoca@gnu.org>
+
+	* ja.po: Fix some menu entries, by TAKAHASHI Tamotsu.
+
+	* nl.po: Updated by Michael Anckaert.
+
+2003-01-20  Miguel Coca  <mcoca@gnu.org>
+
+	* pt_BR.po: Updated by Renato Martini.
+
+	* ja.po: Updated by TAKAHASHI Tamotsu.
+
+	* POTFILES.in: Updated.
+
+2003-01-19  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Updated for 0.6.1.
+
+2003-01-15  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Fix bug in translation.
+
+2003-01-08  Miguel Coca  <mcoca@gnu.org>
+
+	* fr.po: Updated by pplf.
+
+2002-12-30  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Updated.
+
+	* POTFILES.in: Add passwddlg.c.
+
+2002-12-24  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: Fix bad translation.
+
+2002-12-23  Miguel Coca  <mcoca@gnu.org>
+
+	* nl.po: Updated by Michael Anckaert.
+
+	* de.po: Updated by Steffen Michalek.
+
+2002-12-21  Miguel Coca  <mcoca@gnu.org>
+
+	* pt_BR.po: Updated by Renato Martini.
+
+2002-12-18  Miguel Coca  <mcoca@gnu.org>
+
+	* fr.po: Some quick and dirty fixes to the menus.
+
+	* de.po: Updated by Bernhard Reiter.
+
+	* zh_TW.Big5.po: Bugfixes by Shell Hung.
+
+2002-12-17  Miguel Coca  <mcoca@gnu.org>
+
+	* es.po: New.
+
+	* zh_TW.Big5.po: Updated by Shell Hung.
+
+	* ja.po: Updated by TAKAHASHI Tamotsu.
+
+	* nl.po: Updated by Michael Anckaert.
+
+2002-12-14  Miguel Coca  <mcoca@gnu.org>
+
+	* POTFILES.in: Updated.
+
+2002-12-07  Miguel Coca  <e970095@zipi.fi.upm.es>
+
+	* nl.po: New. Contributed by Michael Anckaert.
+
+2002-12-02  Miguel Coca  <e970095@zipi.fi.upm.es>
+
+	* POTFILES.in: Remove keyreceivedlg.c
+
+2002-11-22  Miguel Coca  <e970095@zipi.fi.upm.es>
+
+	* POTFILES.in: Update to reflect the removal of GPAPA and the
+	inclusion of new files.
+
+2002-09-06  Miguel Coca  <e970095@zipi.fi.upm.es>
+
+	* ja.po: Updated by TAKAHASHI Tamotsu.
+
+2002-08-29  Werner Koch  <wk@gnupg.org>
+
+	* ja.po: New.  Contributed by Yasunari Imado.
+
+2002-07-29  Werner Koch  <wk@gnupg.org>
+
+	* de.po: Changed encodind back to latin-1, fixed charset
+	inconsistencies.
+
+2002-07-29  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2002-06-15  Werner Koch  <wk@gnupg.org>
+
+	* de.po: Merged changed version in, however a few translations are
+	dropped due to patch conflicts.  IT will be easier to fix this
+	using the Emacs' PO mode.
+
+2002-03-15  Werner Koch  <wk@gnupg.org>
+
+	* pt_BR.po: New. Contributed by Renato Martini.
+
+2002-02-24  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+	* POTFILES.in: Added all new files, as well as all of gpapa.
+
+2002-02-22  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-21  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-19  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-15  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-14  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-13  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-11  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated again.
+
+2002-02-10  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* de.po: Updated.
+
+2002-02-05  Peter Gerwinski <peter.gerwinski@g-n-u.de>
+
+	* POTFILES.in: Added src/gpafilesel.c to the list.
+	* de.po: Updated and transcoded to UTF-8.
+	* de.po.lat1: German translation in Latin-1 encoding.
+
+2002-01-29  Werner Koch  <wk@gnupg.org>
+
+	* de.po: Fixed the fuzzy marked translations
+
+2002-01-14  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2002-01-14  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2002-01-14  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2002-01-14  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.40.
+
+2001-06-07  Werner Koch  <wk@gnupg.org>
+
+	* zh_TW.Big5.po: New by Shell Hung.
+
+2001-06-03  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.38.
+
+2001-05-28  Werner Koch  <wk@gnupg.org>
+
+	* fr.po: Fixed the header entry.
+
+2001-05-28  gettextize  <bug-gnu-utils@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.10.38.
+	* cat-id-tbl.c: Remove file.
+	* stamp-cat-id: Remove file.
+
+2001-03-12	Jan-Oliver Wagner <jan@intevation.de>
+
+	* fr.po: several typos and some language improvements
+			 (work done by <pplf@geocities.com>)
+
+2001-03-09	Jan-Oliver Wagner <jan@intevation.de>
+
+	* fr.po: three bugs fixed (double menu Fenetre(s), GTK warnings)
+
+2001-02-27	Jan-Oliver Wagner <jan@intevation.de>
+
+	* de.po: updated
+	* fr.po: new
+
+2001-02-15  Bernhard Herzog  <bh@intevation.de>
+
+	* de.po: Update translations
+
+2001-02-13  Bernhard Herzog  <bh@intevation.de>
+
+	* de.po: Update translations and remove the junk
+
+2001-02-08  Bernhard Herzog  <bh@intevation.de>
+
+	* POTFILES.in: Add the key delete dialog
+
+2001-02-07  Bernhard Herzog  <bh@intevation.de>
+
+	* POTFILES.in: Remove the no longer used keyreceivedlg.c and add
+	the new files in src
+
+2001-02-01  Bernhard Herzog  <bh@intevation.de>
+
+	* POTFILES.in: Remove the files deleted in ../src
+
+2001-01-26  Bernhard Herzog  <bh@intevation.de>
+
+	* de.po: Make sure the menu entries are translated correctly to
+	avoid strange additional pulldown menus
+
+2001-01-25  Bernhard Herzog  <bh@intevation.de>
+
+	* POTFILES.in: Added the new files
+
+2001-01-15  Bernhard Herzog  <bh@intevation.de>
+
+	* POTFILES.in: Added all the new files
+
+2000-05-17 10:25:38  Werner Koch  (wk@habibti.openit.de)
+
+	* POTFILES.in: Fixed the list of files.
+
+2000-05-16 20:07:52  Werner Koch  (wk@habibti.openit.de)
+
+	* de.po: Added

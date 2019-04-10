@@ -1,0 +1,3137 @@
+# Swedish translation for GNU Privacy Assistant.
+# Copyright (C) 2006, 2008 Free Software Foundation
+# This file is distributed under the same license as the gpa package.
+# Andreas Rönnquist <andreas@ronnquist.net>, 2014, 2017.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2008.
+# Mick Ohrberg <mick.ohrberg@umb.com>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gpa\n"
+"Report-Msgid-Bugs-To: translations@gnupg.org\n"
+"POT-Creation-Date: 2018-10-16 23:44+0200\n"
+"PO-Revision-Date: 2017-08-29 01:46+0200\n"
+"Last-Translator: Andreas Rönnquist <andreas@ronnquist.net>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: src/clipboard.c:385 src/fileman.c:403
+msgid "Open File"
+msgstr "Öppna fil"
+
+#: src/clipboard.c:413 src/confdialog.c:1299
+msgid "GPA Message"
+msgstr "GPA-meddelande"
+
+#. TRANSLATORS: The arguments are the filename, the integer size
+#. and the unit (such as KB or MB).
+#: src/clipboard.c:430
+#, c-format
+msgid "The file %s is %llu%s large.  Do you really  want to open it?"
+msgstr "Filen %s är %llu%s stor.  Vill du verkligen öppna den?"
+
+#: src/clipboard.c:548
+msgid "Save As..."
+msgstr "Spara som..."
+
+#: src/clipboard.c:589 src/clipboard.c:619 src/clipboard.c:649
+#: src/clipboard.c:679 src/clipboard.c:1020 src/clipboard.c:1050
+msgid "Clipboard"
+msgstr "Urklipp"
+
+#: src/clipboard.c:761 src/fileman.c:526 src/keymanager.c:1000
+#: src/cardman.c:649
+msgid "_File"
+msgstr "_Arkiv"
+
+#: src/clipboard.c:762 src/fileman.c:527 src/keymanager.c:1001
+#: src/cardman.c:650
+msgid "_Edit"
+msgstr "R_edigera"
+
+#: src/clipboard.c:766
+msgid "Clear buffer"
+msgstr "Töm buffert"
+
+#: src/clipboard.c:768 src/fileman.c:531
+msgid "Open a file"
+msgstr "Öppna en fil"
+
+#: src/clipboard.c:770
+msgid "Save to a file"
+msgstr "Spara till en fil"
+
+#: src/clipboard.c:772
+msgid "Sign buffer text"
+msgstr "Signera bufferttexten"
+
+#: src/clipboard.c:774
+msgid "Check signatures of buffer text"
+msgstr "Kontrollera signaturer för bufferttext"
+
+#: src/clipboard.c:776
+msgid "Encrypt the buffer text"
+msgstr "Kryptera bufferttexten"
+
+#: src/clipboard.c:778
+msgid "Decrypt the buffer text"
+msgstr "Dekryptera bufferttexten"
+
+#: src/clipboard.c:780
+msgid "Close the buffer"
+msgstr "Stäng bufferten"
+
+#: src/clipboard.c:782 src/fileman.c:545 src/keymanager.c:1011
+#: src/cardman.c:657
+msgid "Quit the program"
+msgstr "Avsluta programmet"
+
+#: src/clipboard.c:788
+msgid "Undo the last action"
+msgstr "Ångra senaste åtgärden"
+
+#: src/clipboard.c:790
+msgid "Redo the last undone action"
+msgstr "Gör om senaste ångrade åtgärden"
+
+#: src/clipboard.c:793
+msgid "Cut the selection"
+msgstr "Klipp ut markeringen"
+
+#: src/clipboard.c:795 src/keymanager.c:1015
+msgid "Copy the selection"
+msgstr "Kopiera markeringen"
+
+#: src/clipboard.c:797 src/keymanager.c:1021
+msgid "Paste the clipboard"
+msgstr "Klistra in urklipp"
+
+#: src/clipboard.c:799
+msgid "Delete the selected text"
+msgstr "Ta bort markerad text"
+
+#: src/clipboard.c:801
+msgid "Select the entire document"
+msgstr "Välj hela dokumentet"
+
+#: src/clipboard.c:915 src/fileman.c:643 src/cardman.c:743
+msgid "Keyring"
+msgstr "Nyckelring"
+
+#: src/clipboard.c:917 src/keymanager.c:1214 src/cardman.c:745
+msgid "Files"
+msgstr "Filer"
+
+#: src/clipboard.c:920 src/fileman.c:646 src/keymanager.c:1217
+msgid "Card"
+msgstr "Kort"
+
+#: src/confdialog.c:1008
+msgid "<b>Main</b>"
+msgstr "<b>Allmänt</b>"
+
+#: src/confdialog.c:1167
+msgid "Use default values"
+msgstr "Använd standardvärden"
+
+#: src/confdialog.c:1167
+msgid "Use default value"
+msgstr "Använd standardvärde"
+
+#: src/confdialog.c:1170
+msgid "Do not use option"
+msgstr "Använd inte flaggan"
+
+#: src/confdialog.c:1175
+msgid "Use custom values"
+msgstr "Använd anpassade värden"
+
+#: src/confdialog.c:1175
+msgid "Use custom value"
+msgstr "Använd anpassat värde"
+
+#: src/confdialog.c:1179
+msgid "Use default argument"
+msgstr "Använd standardargument"
+
+#: src/confdialog.c:1313
+msgid ""
+"There are unapplied changes by you. Changing the expert setting will apply "
+"those changes.  Do you want to continue?"
+msgstr ""
+"Det finns ändringar som inte verkställts. Ändring av expertinställningen "
+"kommer att verkställa dessa ändringar. Vill du fortsätta?"
+
+#: src/confdialog.c:1358
+msgid "Crypto Backend Configuration"
+msgstr "Konfiguration av krypteringsbakände"
+
+#: src/confdialog.c:1364
+msgid "Reset"
+msgstr "Återställ"
+
+#: src/confdialog.c:1383
+msgid "Configure the tools of the GnuPG system."
+msgstr "Konfigurera verktygen för GnuPG-systemet."
+
+#: src/confdialog.c:1387
+msgid "Level:"
+msgstr "Nivå:"
+
+#: src/confdialog.c:1396
+msgid "Basic"
+msgstr "Enkel"
+
+#: src/confdialog.c:1397
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: src/confdialog.c:1398
+msgid "Expert"
+msgstr "Expert"
+
+#: src/confdialog.c:1602
+msgid "A keyserver has not been configured."
+msgstr "En nyckelserver har inte konfigurerats."
+
+#: src/confdialog.c:1603
+msgid "Configure backend to use a keyserver?"
+msgstr "Konfigurera bakändesprogram för att använda en nyckelserver?"
+
+#: src/confdialog.c:1605 src/gpaexportserverop.c:158
+#: src/gpafileencryptop.c:482 src/gpafileverifyop.c:183 src/gpgmetools.c:180
+#: src/keydeletedlg.c:44 src/keydeletedlg.c:93 src/keysigndlg.c:61
+msgid "_Yes"
+msgstr "_Ja"
+
+#: src/confdialog.c:1606 src/gpaexportserverop.c:159
+#: src/gpafileencryptop.c:483 src/gpafileverifyop.c:184 src/gpgmetools.c:181
+#: src/keydeletedlg.c:46 src/keydeletedlg.c:95 src/keysigndlg.c:63
+msgid "_No"
+msgstr "_Nej"
+
+#: src/confdialog.c:1618
+msgid "Configuring the backend to use a keyserver failed"
+msgstr ""
+"Misslyckades att konfigurera bakändesprogram för att använda en nyckelserver"
+
+#: src/convert.c:29
+msgid "days"
+msgstr "dagar"
+
+#: src/convert.c:30
+msgid "weeks"
+msgstr "veckor"
+
+#: src/convert.c:31
+msgid "months"
+msgstr "månader"
+
+#: src/convert.c:32
+msgid "years"
+msgstr "år"
+
+#: src/convert.c:107
+msgid "never expires"
+msgstr "går aldrig ut"
+
+#: src/convert.c:128 src/convert.c:139 src/cm-netkey.c:148 src/cm-netkey.c:526
+msgid "unknown"
+msgstr "okänt"
+
+#: src/convert.c:140
+#, fuzzy
+msgid "keyserver"
+msgstr "Skicka nycklar till server"
+
+#: src/convert.c:141
+msgid "DANE"
+msgstr ""
+
+#: src/convert.c:142
+msgid "Web Key Directory"
+msgstr ""
+
+#: src/convert.c:143
+msgid "URL"
+msgstr ""
+
+#: src/convert.c:144
+msgid "file"
+msgstr ""
+
+#: src/convert.c:145
+msgid "self"
+msgstr ""
+
+#: src/convert.c:146
+msgid "other"
+msgstr ""
+
+#: src/convert.c:168 src/gpgmetools.c:704 src/gpgmetools.c:727
+#: src/gpgmetools.c:744 src/gpgmetools.c:765 src/gpgmetools.c:1086
+#: src/gpgmetools.c:1119
+msgid "Unknown"
+msgstr "Okänd"
+
+#: src/convert.c:178
+msgid "Mr."
+msgstr "Herr"
+
+#: src/convert.c:180
+msgid "Ms."
+msgstr "Fru"
+
+#: src/convert.c:184
+msgid "(unknown)"
+msgstr "(okänd)"
+
+#: src/encryptdlg.c:152
+msgid "Encrypt documents"
+msgstr "Kryptera dokument"
+
+#: src/encryptdlg.c:169
+msgid "_Public Keys"
+msgstr "Ö_ppna nycklar"
+
+#: src/encryptdlg.c:192 src/icons.c:166
+msgid "_Sign"
+msgstr "_Signera"
+
+#: src/encryptdlg.c:198
+msgid "Sign _as "
+msgstr "Signera s_om"
+
+#: src/encryptdlg.c:228 src/filesigndlg.c:241
+msgid "A_rmor"
+msgstr "ASCII-s_kal"
+
+#: src/expirydlg.c:64
+msgid "Please provide a correct date."
+msgstr "Ange ett korrekt datum."
+
+#: src/expirydlg.c:108
+msgid "Change expiry date"
+msgstr "Ändra utgångsdatum"
+
+#: src/expirydlg.c:113 src/gpaprogressdlg.c:138 src/gpgmetools.c:198
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: src/expirydlg.c:124
+msgid "_never expire"
+msgstr "_går aldrig ut"
+
+#: src/expirydlg.c:129
+msgid "_expire on:"
+msgstr "går _ut den:"
+
+#: src/fileman.c:533
+msgid "Close all files"
+msgstr "Stäng alla filer"
+
+#: src/fileman.c:535
+msgid "Sign the selected file"
+msgstr "Signera markerad fil"
+
+#: src/fileman.c:537
+msgid "Check signatures of selected file"
+msgstr "Kontrollera signatur på markerad fil"
+
+#: src/fileman.c:539
+msgid "Encrypt the selected file"
+msgstr "Kryptera markerad fil"
+
+#: src/fileman.c:541
+msgid "Decrypt the selected file"
+msgstr "Dekryptera markerad fil"
+
+#: src/fileman.c:543 src/cardman.c:655
+msgid "Close the window"
+msgstr "Stäng fönstret"
+
+#: src/fileman.c:549
+msgid "Select all files"
+msgstr "Markera alla filer"
+
+#: src/fileman.c:752
+msgid "File"
+msgstr "Arkiv"
+
+#: src/fileman.c:816 src/fileman.c:839
+msgid "File Manager"
+msgstr "Filhanterare"
+
+#: src/fileman.c:915
+msgid "The file is already open."
+msgstr "Filen är redan öppnad."
+
+#: src/filesigndlg.c:171
+msgid "Sign documents"
+msgstr "Signera dokument"
+
+#: src/filesigndlg.c:180
+msgid "<b>Sign _as</b>"
+msgstr "<b>Signera s_om</b>"
+
+#: src/filesigndlg.c:201
+msgid "<b>Signing Mode</b>"
+msgstr "<b>Signeringsläge</b>"
+
+#: src/filesigndlg.c:211
+msgid "Si_gn and compress"
+msgstr "Si_gnera och komprimera"
+
+#: src/filesigndlg.c:217
+msgid "Clear_text signature"
+msgstr "Signatur i klar_text"
+
+#: src/filesigndlg.c:232
+msgid "_Detached signature"
+msgstr "_Frikopplad signatur"
+
+#: src/gpa.c:107
+msgid "Output version information and exit"
+msgstr "Skriv ut versionsinformation och avsluta"
+
+#: src/gpa.c:109
+msgid "Open key manager (default)"
+msgstr "Öppna nyckelhanteraren (standard)"
+
+#: src/gpa.c:111
+msgid "Open file manager"
+msgstr "Öppna filhanteraren"
+
+#: src/gpa.c:114 src/gpa.h:93
+msgid "Open the card manager"
+msgstr "Öppna korthanteraren"
+
+#: src/gpa.c:117
+msgid "Open clipboard"
+msgstr "Öppna urklipp"
+
+#: src/gpa.c:119
+msgid "Open the settings dialog"
+msgstr "Öppna inställningsdialogen"
+
+#: src/gpa.c:121
+msgid "Only start the UI server"
+msgstr "Starta endast användargränssnittsservern"
+
+#: src/gpa.c:123
+msgid "Disable support for X.509"
+msgstr "Inaktivera stöd för X.509"
+
+#: src/gpa.c:125
+msgid "Read options from file"
+msgstr "Läs flaggor från fil"
+
+#: src/gpa.c:127
+msgid "Do not connect to a running instance"
+msgstr "Anslut inte till en körande instans"
+
+#: src/gpa.c:446
+msgid "[FILE...]"
+msgstr "[FIL...]"
+
+#: src/gpa.c:448
+msgid "Graphical frontend to GnuPG"
+msgstr "Grafiskt användargränssnitt till GnuPG"
+
+#: src/gpa.c:449
+msgid "Please report bugs to <"
+msgstr "Rapportera fel till <"
+
+#: src/gpa.h:82
+msgid "_Windows"
+msgstr "_Fönster"
+
+#: src/gpa.h:85
+msgid "Open the keyring editor"
+msgstr "Öppna nyckelringsredigeraren"
+
+#: src/gpa.h:87
+msgid "Open the file manager"
+msgstr "Öppna filhanteraren"
+
+#: src/gpa.h:89
+msgid "Open the clipboard"
+msgstr "Öppna urklipp"
+
+#: src/gpa.h:107
+msgid "Configure the application"
+msgstr "Konfigurera programmet"
+
+#: src/gpa.h:110
+msgid "_Backend Preferences"
+msgstr "Inställningar för bakände"
+
+#: src/gpa.h:111
+msgid "Configure the backend programs"
+msgstr "Konfigurera bakändesprogram"
+
+#: src/gpabackupop.c:221
+#, c-format
+msgid ""
+"A copy of your secret key has been made to the file:\n"
+"\n"
+"\t\"%s\"\n"
+"\n"
+"This is sensitive information, and should be stored carefully\n"
+"(for example, on a USB stick kept in a safe place)."
+msgstr ""
+"En kopia av din hemliga nyckel har skapats i filen:\n"
+"\n"
+"\t”%s”\n"
+"\n"
+"Detta är känslig information, och bör förvaras noggrant\n"
+"(exempelvis på ett USB-minne som förvaras på en säker plats)."
+
+#: src/gpabackupop.c:236
+msgid "An error ocurred during the backup operation."
+msgstr "Ett fel inträffade under säkerhetskopieringen."
+
+#: src/gpabackupop.c:259
+msgid "Backup key to file"
+msgstr "Säkerhetskopiera nyckel till fil"
+
+#: src/gpabackupop.c:271
+#, c-format
+msgid "Generating backup of key: 0x%s"
+msgstr "Skapar säkerhetskopia av nyckel: 0x%s"
+
+#: src/gpaexportclipop.c:147
+#, fuzzy
+msgid "The private key has been copied to the clipboard."
+msgstr "Nycklarna har kopierats till urklipp."
+
+#: src/gpaexportclipop.c:148
+#, fuzzy
+msgid "The key has bees copied to the clipboard."
+msgstr "Nycklarna har kopierats till urklipp."
+
+#: src/gpaexportclipop.c:149
+msgid "The keys have been copied to the clipboard."
+msgstr "Nycklarna har kopierats till urklipp."
+
+#: src/gpaexportfileop.c:139
+msgid "Export public keys to file"
+msgstr "Exportera öppna nycklar till fil"
+
+#: src/gpaexportfileop.c:148
+msgid "_armor"
+msgstr "AS_CII-skal"
+
+#: src/gpaexportfileop.c:180
+#, c-format
+msgid "The keys have been exported to %s."
+msgstr "Nycklarna har exporterats till %s."
+
+#: src/gpaexportop.c:234
+msgid "Only keys of the same procotol may be exported as a collection."
+msgstr "Endast nycklar av samma protokoll får exporteras som en samling."
+
+#: src/gpaexportserverop.c:146
+#, c-format
+msgid ""
+"The selected key(s) will be sent to a public key\n"
+"server (\"%s\")."
+msgstr ""
+"Den valda nyckeln kommer att skickas till en\n"
+"öppen nyckelserver (”%s”)."
+
+#: src/gpaexportserverop.c:154
+msgid "Are you sure you want to distribute this key?"
+msgstr "Är du säker på att du vill distribuera denna nyckel?"
+
+#: src/gpaexportserverop.c:233
+msgid "Error sending key(s) to the server."
+msgstr "Fel vid skickande av nycklar till servern."
+
+#: src/gpaexportserverop.c:268
+msgid "The keys have been sent to the server."
+msgstr "Nycklarna har skickats till servern."
+
+#: src/gpafiledecryptop.c:155
+msgid "Decrypting..."
+msgstr "Dekrypterar..."
+
+#: src/gpafiledecryptop.c:515 src/gpafileverifyop.c:482
+#, c-format
+msgid "\"%s\" contained no OpenPGP data."
+msgstr "”%s” innehöll ingen OpenPGP-data."
+
+#: src/gpafiledecryptop.c:516 src/gpafileverifyop.c:483
+#, c-format
+msgid "The file \"%s\" contained no OpenPGPdata."
+msgstr "Filen ”%s” innehöll ingen OpenPGP-data."
+
+#: src/gpafiledecryptop.c:525
+#, c-format
+msgid "\"%s\" contained no valid encrypted data."
+msgstr "”%s” innehöll ingen giltig krypterad data."
+
+#: src/gpafiledecryptop.c:527
+#, c-format
+msgid "The file \"%s\" contained no valid encrypted data."
+msgstr "Filen \"%s\" innehåller ingen giltig krypterad data,"
+
+#: src/gpafiledecryptop.c:535 src/gpafileencryptop.c:776
+#: src/gpafilesignop.c:529 src/gpafileverifyop.c:491 src/gpakeyexpireop.c:241
+#: src/gpakeypasswdop.c:210 src/gpakeysignop.c:241 src/gpastreamsignop.c:426
+msgid "Wrong passphrase!"
+msgstr "Fel lösenfras!"
+
+#: src/gpafileencryptop.c:155
+msgid "Encrypting..."
+msgstr "Krypterar..."
+
+#: src/gpafileencryptop.c:480 src/verifydlg.c:225
+msgid "Unknown Key"
+msgstr "Okänd nyckel"
+
+#: src/gpafileencryptop.c:496
+msgid "You are going to encrypt a document using the following key:"
+msgstr "Du är på väg att kryptera ett dokument med följande nyckel:"
+
+#: src/gpafileencryptop.c:502
+msgid "However, it is not certain that the key belongs to that person."
+msgstr "Det är dock inte säkert om nyckeln verkligen tillhör denna personen."
+
+#: src/gpafileencryptop.c:508
+msgid "Do you <b>really</b> want to use this key?"
+msgstr "Vill du <b>verkligen</b> använda denna nyckel?"
+
+#: src/gpafileencryptop.c:529 src/gpafileencryptop.c:569 src/verifydlg.c:230
+msgid "Revoked Key"
+msgstr "Spärrad nyckel"
+
+#: src/gpafileencryptop.c:531 src/gpafileencryptop.c:571 src/keyeditdlg.c:150
+#: src/verifydlg.c:115
+msgid "_Close"
+msgstr "_Stäng"
+
+#: src/gpafileencryptop.c:544
+msgid "The following key has been revoked by its owner:"
+msgstr "Följande nyckel har spärrats av sin ägare:"
+
+#: src/gpafileencryptop.c:549 src/gpafileencryptop.c:593
+msgid "And can not be used for encryption."
+msgstr "och kan inte användas för kryptering."
+
+#: src/gpafileencryptop.c:585
+#, c-format
+msgid "The following key expired on %s:"
+msgstr "Följande nyckel gick ut den %s:"
+
+#: src/gpafileencryptop.c:624 src/gpafilesignop.c:451
+#: src/gpastreamsignop.c:278
+msgid ""
+"The selected certificates are not all of the same type. That is, you mixed "
+"OpenPGP and X.509 certificates. Please make sure to select only certificates "
+"of the same type."
+msgstr ""
+"De markerade certifikaten är inte av samma typ. Alltså, du har blandat "
+"OpenPGP och X.509-certifikat. Försäkra dig om att endast välja certifikat av "
+"samma typ."
+
+#: src/gpafileencryptop.c:699 src/gpafilesignop.c:437
+#: src/gpastreamsignop.c:264
+msgid "You didn't select any key for signing"
+msgstr "Du valde ingen nyckel för signering"
+
+#: src/gpafilesignop.c:156
+msgid "Signing..."
+msgstr "Signerar..."
+
+#: src/gpafileverifyop.c:104
+msgid "Verifying..."
+msgstr "Validerar..."
+
+#: src/gpafileverifyop.c:177
+#, c-format
+msgid ""
+"GPA found a file that could be a signature of %s. Would you like to verify "
+"it instead?\n"
+"\n"
+"The file found is: %s"
+msgstr ""
+"GPA hittade en fil som skulle kunna vara en signatur av %s. Vill du validera "
+"den istället?\n"
+"\n"
+"Filen som hittades är: %s"
+
+#: src/gpagenkeyadvop.c:80
+msgid "Generating Key..."
+msgstr "Genererar nyckel..."
+
+#: src/gpaimportfileop.c:130
+msgid "Import keys from file"
+msgstr "Importera nycklar från fil"
+
+#: src/gpaimportserverop.c:172
+#, c-format
+msgid ""
+"More than %d keys match your search pattern.\n"
+"Use the long keyid or a fingerprint for a better match"
+msgstr ""
+"Mer än %d nycklar matchar din söksträng.\n"
+"Använd långt nyckelid eller ett fingeravtryck för en bättre matchning"
+
+#: src/gpaimportserverop.c:188 src/gpgmetools.c:1311
+msgid "No keys were found."
+msgstr "Inga nycklar hittades."
+
+#: src/gpakeyexpireop.c:245
+msgid ""
+"Invalid time given.\n"
+"(you may not set the expiration time to the past.)"
+msgstr ""
+"Ogiltig tid angiven.\n"
+"(du kan inte ställa in utgångsdatumet till dåtid.)"
+
+#: src/gpakeyselector.c:91 src/gpasubkeylist.c:105 src/keylist.c:631
+msgid "Created"
+msgstr "Skapad"
+
+#: src/gpakeyselector.c:92 src/keylist.c:632
+msgid "The Creation Date is the date the certificate was created."
+msgstr "”Skapad” är datumet då certifikatet skapades."
+
+#: src/gpakeyselector.c:99 src/keylist.c:682 src/siglist.c:129
+#: src/siglist.c:172 src/verifydlg.c:348
+msgid "User Name"
+msgstr "Användarnamn"
+
+#: src/gpakeysignop.c:193
+msgid "No private key for signing."
+msgstr "Ingen privat nyckel för signering."
+
+#: src/gpakeysignop.c:246
+msgid "This key has expired! Unable to sign."
+msgstr "Den här nyckeln har gått ut! Kan inte signera."
+
+#: src/gpakeysignop.c:250
+msgid "This key has already been signed with your own!"
+msgstr "Den här nyckeln har redan signerats med din egen nyckel!"
+
+#: src/gpakeysignop.c:255
+msgid "You haven't selected a default key to sign with!"
+msgstr "Du har inte valt en standardnyckel att signera med!"
+
+#: src/gparecvkeydlg.c:107
+msgid "Which key do you want to import?"
+msgstr "Vilken nyckel vill du importera?"
+
+#: src/gparecvkeydlg.c:108
+msgid "Which key do you want to import? (The key must be specified by key ID)."
+msgstr ""
+"Vilken nyckel vill du importera? (Nyckeln måste anges med dess "
+"nyckelidentitet)."
+
+#: src/gparecvkeydlg.c:126
+msgid "Key _ID:"
+msgstr "_Nyckelidentitet:"
+
+#: src/gpastreamdecryptop.c:155
+msgid "Decrypting message ..."
+msgstr "Dekrypterar meddelande..."
+
+#: src/gpastreamdecryptop.c:344 src/gpastreamverifyop.c:356
+msgid "Document"
+msgstr "Dokument"
+
+#: src/gpastreamencryptop.c:229
+msgid "Encrypting message ..."
+msgstr "Krypterar meddelande..."
+
+#: src/gpastreamencryptop.c:385
+msgid "Message encryption"
+msgstr "Meddelandekryptering"
+
+#: src/gpastreamsignop.c:176
+msgid "Signing message ..."
+msgstr "Signerar meddelande..."
+
+#: src/gpastreamsignop.c:363
+msgid "Message signing"
+msgstr "Meddelandesignering"
+
+#: src/gpastreamverifyop.c:156
+msgid "Verifying message ..."
+msgstr "Validerar meddelande..."
+
+#: src/gpasubkeylist.c:86
+msgid "Subkey ID"
+msgstr "Undernyckelsidentitet"
+
+#: src/gpasubkeylist.c:92 src/siglist.c:149 src/verifydlg.c:342
+msgid "Status"
+msgstr "Status"
+
+#: src/gpasubkeylist.c:98
+msgid "Algo"
+msgstr "Algo"
+
+#: src/gpasubkeylist.c:112
+msgid "Expires"
+msgstr "Utgår"
+
+#: src/gpasubkeylist.c:121
+msgid "S"
+msgstr "S"
+
+#: src/gpasubkeylist.c:121
+msgid "Can sign"
+msgstr "Kan signera"
+
+#: src/gpasubkeylist.c:127
+msgid "C"
+msgstr "C"
+
+#: src/gpasubkeylist.c:127
+msgid "Can certify"
+msgstr "Kan certifiera"
+
+#: src/gpasubkeylist.c:133
+msgid "E"
+msgstr "K"
+
+#: src/gpasubkeylist.c:133
+msgid "Can encrypt"
+msgstr "Kan kryptera"
+
+#: src/gpasubkeylist.c:139
+msgid "A"
+msgstr "A"
+
+#: src/gpasubkeylist.c:139
+msgid "Can authenticate"
+msgstr "Kan autentisera"
+
+#: src/gpasubkeylist.c:145
+msgid "T"
+msgstr "T"
+
+#: src/gpasubkeylist.c:146
+msgid "Secret key stored on a smartcard."
+msgstr "Hemlig nyckel lagrad på ett smartkort"
+
+#: src/gpasubkeylist.c:152
+msgid "Card S/N"
+msgstr "S/N för Kort"
+
+#: src/gpasubkeylist.c:153
+msgid "Serial number of the smart card."
+msgstr "Smartkortets serienummer."
+
+#: src/gpasubkeylist.c:169 src/gpgmetools.c:736 src/gpgmetools.c:758
+#: src/gpgmetools.c:975 src/gpgmetools.c:1094
+msgid "Revoked"
+msgstr "Spärrad"
+
+#: src/gpasubkeylist.c:173 src/gpgmetools.c:738 src/gpgmetools.c:1090
+msgid "Expired"
+msgstr "Utgången"
+
+#: src/gpasubkeylist.c:177 src/gpgmetools.c:740
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+#: src/gpasubkeylist.c:181
+msgid "Unsigned"
+msgstr "Osignerad"
+
+#: src/gpasubkeylist.c:185 src/gpgmetools.c:1081 src/verifydlg.c:215
+msgid "Valid"
+msgstr "Giltig"
+
+#: src/gpawidgets.c:75 src/gpgmetools.c:806 src/gpgmetools.c:813
+#: src/keysigndlg.c:103
+msgid "User Name:"
+msgstr "Användarnamn:"
+
+#: src/gpawidgets.c:75 src/keysigndlg.c:103
+msgid "User Names:"
+msgstr "Användarnamn:"
+
+#: src/gpawidgets.c:81 src/gpgmetools.c:807 src/gpgmetools.c:814
+#: src/gpa-key-details.c:321
+msgid "Key ID:"
+msgstr "Nyckelidentitet:"
+
+#: src/gpawidgets.c:91 src/gpa-key-details.c:319 src/keysigndlg.c:109
+msgid "Fingerprint:"
+msgstr "Fingeravtryck:"
+
+#: src/gpawidgets.c:195
+msgid "Expiration"
+msgstr "Utgångstid"
+
+#: src/gpawidgets.c:202
+msgid "_indefinitely valid"
+msgstr "_obegränsad giltighet"
+
+#: src/gpawidgets.c:210
+msgid "expire _after"
+msgstr "utgången _efter"
+
+#: src/gpawidgets.c:230
+msgid "expire o_n:"
+msgstr "utgår _den:"
+
+#: src/gpawidgets.c:304
+msgid ""
+"!FATAL ERROR!\n"
+"Invalid insert mode for expiry date."
+msgstr ""
+"!ÖDESDIGERT FEL!\n"
+"Ogiltigt infogande av utgångsdatum."
+
+#: src/gpadatebutton.c:87
+msgid "(not set)"
+msgstr "(ej satt)"
+
+#: src/gpgmeedit.c:1249
+msgid ""
+"Keys are already stored on the card.\n"
+"Really replace existing keys?"
+msgstr ""
+"Nycklar lagras redan på kortet.\n"
+"Vill du verkligen ersätta existerande nycklar?"
+
+#: src/gpgmetools.c:72
+#, c-format
+msgid ""
+"Fatal Error in GPGME library\n"
+"(invoked from file %s, line %i):\n"
+"\n"
+"\t%s\n"
+"\n"
+"The application will be terminated"
+msgstr ""
+"Ödesdigert fel i GPGME-biblioteket\n"
+"(anropad från filen %s, rad %i):\n"
+"\n"
+"\t%s\n"
+"\n"
+"Programmet kommer nu att avslutas."
+
+#: src/gpgmetools.c:103
+#, c-format
+msgid ""
+"The GPGME library returned an unexpected\n"
+"error at %s:%d. The error was:\n"
+"\n"
+"\t%s\n"
+"\n"
+"This is either an installation problem or a bug in %s.\n"
+"%s will now try to recover from this error."
+msgstr ""
+"GPGME-biblioteket returnerade ett oväntat\n"
+"fel vid %s:%d. Felet var:\n"
+"\n"
+"\t%s\n"
+"\n"
+"Detta är antingen ett installationsproblem eller ett fel i %s\n"
+"%s kommer nu att försöka återhämta sig från detta fel."
+
+#: src/gpgmetools.c:177
+#, c-format
+msgid ""
+"The file %s already exists.\n"
+"Do you want to overwrite it?"
+msgstr ""
+"Filen %s finns redan.\n"
+"Vill du skriva över den?"
+
+#: src/gpgmetools.c:182
+msgid "_Use a different filename"
+msgstr "An_vänd ett annat filnamn"
+
+#: src/gpgmetools.c:199
+msgid "_Open"
+msgstr "Ö_ppna"
+
+#: src/gpgmetools.c:611
+msgid ""
+"************************************************************************\n"
+"* WARNING: This file is a backup of your secret key. Please keep it in *\n"
+"* a safe place.                                                        *\n"
+"************************************************************************\n"
+"\n"
+msgstr ""
+"************************************************************************\n"
+"* VARNING: Denna fil är en kopia av din hemliga nyckel. Förvara den    *\n"
+"*                            på ett säkert ställe!                     *\n"
+"************************************************************************\n"
+"\n"
+
+#: src/gpgmetools.c:617
+msgid ""
+"The key backed up in this file is:\n"
+"\n"
+msgstr ""
+"Nyckeln som säkerhetskopierats till denna fil är:\n"
+"\n"
+
+#: src/gpgmetools.c:707
+msgid "Never"
+msgstr "Aldrig"
+
+#: src/gpgmetools.c:710 src/gpgmetools.c:767
+msgid "Marginal"
+msgstr "Marginell"
+
+#: src/gpgmetools.c:713
+msgid "Full"
+msgstr "Fullständig"
+
+#: src/gpgmetools.c:716 src/gpgmetools.c:769
+msgid "Ultimate"
+msgstr "Förbehållslös"
+
+#: src/gpgmetools.c:742
+msgid "Incomplete"
+msgstr "Ofullständigt"
+
+#: src/gpgmetools.c:748
+msgid "Fully Valid"
+msgstr "Fullständigt giltig"
+
+#: src/gpgmetools.c:760
+#, fuzzy
+msgid "Invalid"
+msgstr "Giltig"
+
+#: src/gpgmetools.c:766
+msgid "Faked"
+msgstr ""
+
+#: src/gpgmetools.c:768
+#, fuzzy
+msgid "Fully"
+msgstr "Fullständig"
+
+#: src/gpgmetools.c:804
+msgid "Please enter the passphrase for the following key:"
+msgstr "Ange lösenfrasen för följande nyckel:"
+
+#: src/gpgmetools.c:812
+msgid "Wrong passphrase, please try again:"
+msgstr "Felaktig lösenfras, försök igen:"
+
+#: src/gpgmetools.c:837
+msgid "Enter Passphrase"
+msgstr "Ange lösenfras"
+
+#: src/gpgmetools.c:964
+msgid "[None]"
+msgstr "[Ingen]"
+
+#: src/gpgmetools.c:1058 src/verifydlg.c:279
+msgid "[Unknown user ID]"
+msgstr "[Okänd användaridentitet]"
+
+#: src/gpgmetools.c:1084 src/verifydlg.c:220
+msgid "Bad"
+msgstr "Felaktigt"
+
+#: src/gpgmetools.c:1107
+msgid "Generic"
+msgstr "Allmänt"
+
+#: src/gpgmetools.c:1110
+msgid "Persona"
+msgstr "Personligen"
+
+#: src/gpgmetools.c:1113
+msgid "Casual"
+msgstr "Flyktigt"
+
+#: src/gpgmetools.c:1116
+msgid "Positive"
+msgstr "Helt säkert"
+
+#: src/gpgmetools.c:1153
+#, c-format
+msgid "Bad signature by %s: %s"
+msgstr "Dålig signatur av %s: %s"
+
+#: src/gpgmetools.c:1156
+#, c-format
+msgid "Bad signature by %s"
+msgstr "Dålig signatur av %s"
+
+#: src/gpgmetools.c:1159
+#, c-format
+msgid "Bad signature by unknown key %s: %s"
+msgstr "Dålig signatur av okänd nyckel %s: %s"
+
+#: src/gpgmetools.c:1162
+#, c-format
+msgid "Bad signature by unknown key %s"
+msgstr "Dålig signatur av okänd nyckel %s"
+
+#: src/gpgmetools.c:1165
+#, c-format
+msgid "Bad signature by unknown key: %s"
+msgstr "Dålig signatur av okänd nyckel: %s"
+
+#: src/gpgmetools.c:1168
+msgid "Bad signature by unknown key"
+msgstr "Dålig signatur av okänd nyckel"
+
+#: src/gpgmetools.c:1173
+#, c-format
+msgid "Good signature by %s: %s"
+msgstr "Bra signatur av %s: %s"
+
+#: src/gpgmetools.c:1176
+#, c-format
+msgid "Good signature by %s"
+msgstr "Bra signatur av %s"
+
+#: src/gpgmetools.c:1179
+#, c-format
+msgid "Good signature by unknown key %s: %s"
+msgstr "Bra signatur av okänd nyckel %s: %s"
+
+#: src/gpgmetools.c:1182
+#, c-format
+msgid "Good signature by unknown key %s"
+msgstr "Bra signatur av okänd nyckel %s"
+
+#: src/gpgmetools.c:1185
+#, c-format
+msgid "Good signature by unknown key: %s"
+msgstr "Bra signatur av okänd nyckel: %s"
+
+#: src/gpgmetools.c:1188
+msgid "Good signature by unknown key"
+msgstr "Bra signatur av okänd nyckel"
+
+#: src/gpgmetools.c:1193
+#, c-format
+msgid "Uncertain signature by %s: %s"
+msgstr "Osäker signatur av %s: %s"
+
+#: src/gpgmetools.c:1196
+#, c-format
+msgid "Uncertain signature by %s"
+msgstr "Osäker signatur av %s"
+
+#: src/gpgmetools.c:1199
+#, c-format
+msgid "Uncertain signature by unknown key %s: %s"
+msgstr "Osäker signatur av okänd nyckel %s: %s"
+
+#: src/gpgmetools.c:1202
+#, c-format
+msgid "Uncertain signature by unknown key %s"
+msgstr "Osäker signatur av okänd nyckel %s"
+
+#: src/gpgmetools.c:1205
+#, c-format
+msgid "Uncertain signature by unknown key: %s"
+msgstr "Osäker signatur av okänd nyckel: %s"
+
+#: src/gpgmetools.c:1208
+msgid "Uncertain signature by unknown key"
+msgstr "Osäker signatur av okänd nyckel"
+
+#: src/gpgmetools.c:1237
+msgid "The key can be used for certification, signing and encryption."
+msgstr "Nyckeln kan användas för certifiering, signering och kryptering."
+
+#: src/gpgmetools.c:1240
+msgid ""
+"The key can be used for certification and signing, but not for encryption."
+msgstr ""
+"Nyckeln kan användas för certifiering och signering, men inte för kryptering."
+
+#: src/gpgmetools.c:1246
+msgid "The key can be used for certification and encryption."
+msgstr "Nyckeln kan användas för certifiering och kryptering."
+
+#: src/gpgmetools.c:1249
+msgid "The key can be used only for certification."
+msgstr "Nyckeln kan endast användas för certifiering."
+
+#: src/gpgmetools.c:1257
+msgid ""
+"The key can be used only for signing and encryption, but not for "
+"certification."
+msgstr ""
+"Nyckeln kan användas för signering och kryptering, men inte för certifiering."
+
+#: src/gpgmetools.c:1260
+msgid "The key can be used only for signing."
+msgstr "Nyckeln kan endast användas för signering."
+
+#: src/gpgmetools.c:1265
+msgid "The key can be used only for encryption."
+msgstr "Nyckeln kan endast användas för kryptering."
+
+#: src/gpgmetools.c:1268
+msgid "This key is useless."
+msgstr "Den här nyckeln är oanvändbar."
+
+#: src/gpgmetools.c:1301
+#, c-format
+msgid ""
+"%u file(s) read\n"
+"%u file(s) with errors"
+msgstr ""
+"%u fil(er) lästa\n"
+"%u fil(er) med fel"
+
+#: src/gpgmetools.c:1316
+#, c-format
+msgid ""
+"%i public keys read\n"
+"%i public keys imported\n"
+"%i public keys unchanged\n"
+"%i secret keys read\n"
+"%i secret keys imported\n"
+"%i secret keys unchanged"
+msgstr ""
+"%i öppna nycklar inlästa\n"
+"%i öppna nycklar importerade\n"
+"%i öppna nycklar oförändrade\n"
+"%i hemliga nycklar inlästa\n"
+"%i hemliga nycklar importerade\n"
+"%i hemliga nycklar oförändrade"
+
+#: src/gpgmetools.c:1631
+msgid "A required engine component is not installed."
+msgstr "En motorkomponent som krävs är inte installerad."
+
+#: src/gpgmetools.c:1675
+msgid "Calling the crypto engine program failed."
+msgstr "Misslyckades att anropa programmet för kryptomotorn."
+
+#: src/gpgmetools.c:1746
+msgid "You must enter a name."
+msgstr "Du måste mata in ett namn."
+
+#: src/gpgmetools.c:1748
+msgid "Invalid character in name."
+msgstr "Ogiltigt tecken i namn."
+
+#: src/gpgmetools.c:1750
+msgid "Name may not start with a digit."
+msgstr "Namn får inte börja med en siffra."
+
+#: src/gpgmetools.c:1752
+msgid "Name is too short."
+msgstr "Namnet är för kort."
+
+#: src/gpgmetools.c:1824
+msgid "Email address is not valid."
+msgstr "E-postadressen är inte giltig."
+
+#: src/gpgmetools.c:1838
+msgid "Invalid character in comments."
+msgstr "Ogiltiga tecken i kommentarer."
+
+#: src/gtktools.c:115
+#, fuzzy
+msgid "_Details"
+msgstr "Detaljer"
+
+#: src/helpmenu.c:90
+msgid "GPA is the GNU Privacy Assistant."
+msgstr "GPA är GNU Privacy Assistant."
+
+#: src/helpmenu.c:95
+msgid "About GPA"
+msgstr "Om GPA"
+
+#. TRANSLATORS: The translation of this string should
+#. be your name and mail
+#: src/helpmenu.c:108
+msgid "translator-credits"
+msgstr "Andreas Rönnquist <andreas@ronnquist.net>, © 2017"
+
+#: src/helpmenu.h:29
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: src/helpmenu.h:32
+msgid "Open the GPA manual"
+msgstr "Öppna handboken för GPA"
+
+#: src/helpmenu.h:35
+msgid "About this application"
+msgstr "Om detta program"
+
+#: src/icons.c:167
+msgid "_Verify"
+msgstr "_Validera"
+
+#: src/icons.c:168
+msgid "_Encrypt"
+msgstr "_Kryptera"
+
+#: src/icons.c:169
+msgid "_Decrypt"
+msgstr "_Dekryptera"
+
+#: src/icons.c:170
+msgid "_Brief"
+msgstr "Ko_rtfattat"
+
+#: src/icons.c:171
+msgid "_Detailed"
+msgstr "D_etaljerat"
+
+#: src/icons.c:172
+msgid "_Keyring Manager"
+msgstr "Nyc_kelringshanterare"
+
+#: src/icons.c:173
+msgid "_Clipboard"
+msgstr "_Urklipp"
+
+#: src/icons.c:174
+msgid "_File Manager"
+msgstr "F_ilhanterare"
+
+#: src/icons.c:175
+msgid "_Card Manager"
+msgstr "Korthanterare"
+
+#: src/keydeletedlg.c:41
+msgid "Removing Secret Key"
+msgstr "Tar bort hemlig nyckel"
+
+#: src/keydeletedlg.c:55
+msgid ""
+"If you delete this key, you won't be able to\n"
+"read messages encrypted with it.\n"
+"\n"
+"Are you really sure you want to delete it?"
+msgstr ""
+"Om du tar bort denna nyckel kommer du inte att kunna\n"
+"läsa meddelanden som krypterats med den.\n"
+"\n"
+"Är du verkligen säker på att du vill ta bort den?"
+
+#: src/keydeletedlg.c:91
+msgid "Remove Key"
+msgstr "Ta bort nyckel"
+
+#: src/keydeletedlg.c:104
+msgid "You have selected the following key for removal:"
+msgstr "Du har valt att ta bort följande nyckel:"
+
+#: src/keydeletedlg.c:114
+msgid ""
+"This key has a secret key. Deleting this key cannot be undone, unless you "
+"have a backup copy."
+msgstr ""
+"Denna nyckel har en hemlig nyckel. Tar du bort denna nyckel kan den aldrig "
+"återskapas, såvida inte du har en säkerhetskopia av den."
+
+#: src/keydeletedlg.c:123
+msgid ""
+"This key is a public key. Deleting this key cannot be undone easily, "
+"although you may be able to get a new copy  from the owner or from a key "
+"server."
+msgstr ""
+"Denna nyckel är en öppen nyckel. Tar du bort denna nyckel kan du vara "
+"tvungen att kontakta nyckelägaren för en ny nyckel, eller söka upp den på en "
+"nyckelserver."
+
+#: src/keydeletedlg.c:132
+msgid "Are you sure you want to delete this key?"
+msgstr "Är du säker på att du vill ta bort denna nyckel?"
+
+#: src/keyeditdlg.c:148
+msgid "Edit Key"
+msgstr "Redigera nyckel"
+
+#: src/keyeditdlg.c:163
+msgid "Change _passphrase"
+msgstr "Ändra _lösenfras"
+
+#: src/keyeditdlg.c:169 src/keylist.c:644
+msgid "Expiry Date"
+msgstr "Utgångsdatum"
+
+#: src/keyeditdlg.c:183
+msgid "Change _expiration"
+msgstr "Ändra _utgångsdatum"
+
+#: src/keygendlg.c:40
+msgid "RSA"
+msgstr "RSA"
+
+#: src/keygendlg.c:41
+msgid "RSA (sign only)"
+msgstr "RSA (endast signering)"
+
+#: src/keygendlg.c:42
+msgid "DSA"
+msgstr "DSA"
+
+#: src/keygendlg.c:43
+msgid "DSA (sign only)"
+msgstr "DSA (endast signering)"
+
+#: src/keygendlg.c:134
+msgid "You must enter a key size."
+msgstr "Du måste ange en nyckelstorlek."
+
+#: src/keygendlg.c:188
+msgid "Generate card key"
+msgstr "Skapa kortnyckel"
+
+#: src/keygendlg.c:188 src/keygenwizard.c:387 src/keygenwizard.c:400
+#: src/keygenwizard.c:410 src/keygenwizard.c:421 src/keygenwizard.c:438
+#: src/keygenwizard.c:450 src/cardman.c:662
+msgid "Generate key"
+msgstr "Skapa nyckel"
+
+#: src/keygendlg.c:209
+msgid "_Algorithm: "
+msgstr "_Algoritm:"
+
+#: src/keygendlg.c:235
+msgid "_Key size (bits): "
+msgstr "_Nyckelstorlek (bitar): "
+
+#: src/keygendlg.c:260
+msgid "User ID: "
+msgstr "Användaridentitet: "
+
+#: src/keygendlg.c:276
+msgid "_Name: "
+msgstr "_Namn:"
+
+#: src/keygendlg.c:289
+msgid "_Email: "
+msgstr "_E-postadress: "
+
+#: src/keygendlg.c:302
+msgid "_Comment: "
+msgstr "_Kommentar: "
+
+#: src/keygendlg.c:315
+msgid "_Expires: "
+msgstr "Går ut d_en:"
+
+#: src/keygendlg.c:327
+msgid "Backup: "
+msgstr "Säkerhetskopiera:"
+
+#: src/keygendlg.c:339
+msgid ""
+"If checked the encryption key will be created and stored to a backup file "
+"and then loaded into the card.  This is recommended so that encrypted "
+"messages can be decrypted even if the card has a malfunction."
+msgstr ""
+"Om markerad så kommer krypteringsnyckeln att skapas och lagras till en "
+"säkerhetskopia och sedan laddas till kortet. Detta rekommenderas så att "
+"krypterade meddelanden kan dekrypteras även om kortet är felaktigt."
+
+#: src/keygenwizard.c:175
+msgid ""
+"Please insert your full name.\n"
+"\n"
+"Your name will be part of the new key to make it easier for others to "
+"identify keys."
+msgstr ""
+"Ange ditt fullständiga namn.\n"
+"\n"
+"Ditt namn kommer att vara en del av den nya nyckeln för att göra det enklare "
+"för andra att identifiera nycklarna."
+
+#: src/keygenwizard.c:178
+msgid "Your Name:"
+msgstr "Ditt namn:"
+
+#: src/keygenwizard.c:212
+msgid ""
+"Please insert your email address.\n"
+"\n"
+"Your email address will be part of the new key to make it easier for others "
+"to identify keys. If you have several email addresses, you can add further "
+"email addresses later."
+msgstr ""
+"Ange din e-postadress.\n"
+"\n"
+"Din e-postadress kommer att vara en del av den nya nyckeln för att göra det "
+"enklare för andra att identifiera nycklar. Om du har flera e-postadresser "
+"kan du lägga till dessa adresser senare."
+
+#: src/keygenwizard.c:216
+msgid "Your Email Address:"
+msgstr "Din e-postadress:"
+
+#: src/keygenwizard.c:235
+msgid ""
+"It is recommended that you create a backup copy of your new key, once it has "
+"been generated.\n"
+"\n"
+"Do you want to create a backup copy?"
+msgstr ""
+"Det rekommenderas att du gör en säkerhetskopia av din nya nyckel när den har "
+"genererats.\n"
+"\n"
+"Vill du skapa en säkerhetskopia?"
+
+#: src/keygenwizard.c:243
+msgid "Create _backup copy"
+msgstr "Skapa _säkerhetskopia"
+
+#: src/keygenwizard.c:248 src/keymanager.c:782 src/keymanager.c:808
+msgid "Do it _later"
+msgstr "_Vänta till senare"
+
+#: src/keygenwizard.c:277
+msgid ""
+"Your key is being generated.\n"
+"\n"
+"Even on fast computers this may take a while. Please be patient."
+msgstr ""
+"Din nyckel kommer nu att genereras.\n"
+"\n"
+"Detta kan ta tid även på kraftfulla datorer. Ha tålamod."
+
+#: src/keygenwizard.c:289
+#, c-format
+msgid ""
+"Congratulations!\n"
+"\n"
+"You have successfully generated a key. The key is indefinitely valid and has "
+"a length of %d bits."
+msgstr ""
+"Gratulerar!\n"
+"\n"
+"Du har genererat en nyckel framgångsrikt. Nyckeln har en obegränsad "
+"giltighetstid och är %d bitar lång."
+
+#: src/keylist.c:371
+msgid ""
+"GnuPG is rebuilding the trust database.\n"
+"This might take a few seconds."
+msgstr ""
+"GnuPG bygger om tillitsdatabasen.\n"
+"Det här kan ta några sekunder."
+
+#: src/keylist.c:623
+msgid ""
+"This columns lists the type of the certificate.  A 'P' denotes OpenPGP and a "
+"'X' denotes X.509 (S/MIME)."
+msgstr ""
+"Denna kolumn listar typen för certifikatet.  Ett ”P” betyder OpenPGP och ett "
+"”X” betyder X.509 (S/MIME)."
+
+#: src/keylist.c:645
+msgid "The Expiry Date is the date until the certificate is valid."
+msgstr "Utgångsdatum är det datum som certifikatet är giltigt fram till."
+
+#: src/keylist.c:655 src/ownertrustdlg.c:122
+msgid "Owner Trust"
+msgstr "Ägartillit"
+
+#: src/keylist.c:656
+msgid ""
+"The Owner Trust has been set by you and describes how far you trust the "
+"holder of the certificate to correctly sign (certify) other certificates.  "
+"It is only meaningful for OpenPGP."
+msgstr ""
+"Ägartillit har angivits av dig och beskriver hur mycket du litar på att "
+"ägaren av certifikatet korrekt signerar (certifierar) andra certifikat.  Det "
+"är endast betydelsefullt för OpenPGP."
+
+#: src/keylist.c:668
+msgid "Validity"
+msgstr "Giltighet"
+
+#: src/keylist.c:669
+msgid ""
+"The Validity describes the trust level the system has in this certificate.  "
+"That is how sure it is that the named user is actually that user."
+msgstr ""
+"Giltighet beskriver tillitsnivån systemet har i detta certifikat.  Det är "
+"hur säkert det är att namngiven användare verkligen är den användaren."
+
+#: src/keylist.c:683
+msgid ""
+"The User Name is the name and often also the email address  of the "
+"certificate."
+msgstr "Användarnamn är namnet och ofta även e-postadressen för certifikatet."
+
+#: src/keymanager.c:451
+msgid "No keys selected for signing."
+msgstr "Inga nycklar valda för signering."
+
+#: src/keymanager.c:777
+msgid ""
+"You do not have a private key yet. Do you want to generate one now "
+"(recommended) or do it later?"
+msgstr ""
+"Du har inte skapat en privat nyckel ännu. Vill du skapa en nu "
+"(rekommenderas) eller vänta till senare?"
+
+#: src/keymanager.c:781
+msgid "_Generate key now"
+msgstr "Generera nyckel _nu"
+
+#: src/keymanager.c:802
+msgid ""
+"You do not have a backup copy of your private key yet. Do you want to backup "
+"your key now (recommended) or do it later?"
+msgstr ""
+"Du har inte gjort en säkerhetskopia av din privata nyckel ännu. Vill du göra "
+"en nu (rekommenderas) eller vänta till senare?"
+
+#: src/keymanager.c:807
+msgid "_Backup key now"
+msgstr "Skapa _säkerhetskopia nu"
+
+#: src/keymanager.c:925
+#, fuzzy
+msgid "Only keys of the same procotol may be copied."
+msgstr "Endast nycklar av samma protokoll får exporteras som en samling."
+
+#: src/keymanager.c:1002
+msgid "_Keys"
+msgstr "_Nycklar"
+
+#: src/keymanager.c:1004
+msgid "_Server"
+msgstr "_Server"
+
+#: src/keymanager.c:1016
+#, fuzzy
+msgid "Copy _Fingerprint"
+msgstr "Fingeravtryck:"
+
+#: src/keymanager.c:1017
+#, fuzzy
+msgid "Copy the fingerprints"
+msgstr "Kopiera markeringen"
+
+#: src/keymanager.c:1018
+#, fuzzy
+msgid "Copy Private Key"
+msgstr "Redigera _privat nyckel..."
+
+#: src/keymanager.c:1019
+#, fuzzy
+msgid "Copy a single private key"
+msgstr "Redigera markerad privat nyckel"
+
+#: src/keymanager.c:1023
+msgid "Select all certificates"
+msgstr "Markera alla certifikat"
+
+#: src/keymanager.c:1028
+msgid "Refresh the keyring"
+msgstr "Uppdatera nyckelringen"
+
+#: src/keymanager.c:1029
+msgid "_New key..."
+msgstr "_Ny nyckel..."
+
+#: src/keymanager.c:1030
+msgid "Generate a new key"
+msgstr "Generera en ny nyckel"
+
+#: src/keymanager.c:1031
+msgid "_Delete keys"
+msgstr "_Ta bort nycklar..."
+
+#: src/keymanager.c:1032
+msgid "Remove the selected key"
+msgstr "Ta bort vald nyckel"
+
+#: src/keymanager.c:1033
+msgid "_Sign Keys..."
+msgstr "_Signera nycklar..."
+
+#: src/keymanager.c:1034
+msgid "Sign the selected key"
+msgstr "Signera vald nyckel"
+
+#: src/keymanager.c:1035
+msgid "Set _Owner Trust..."
+msgstr "Ange _ägartillit..."
+
+#: src/keymanager.c:1036
+msgid "Set owner trust of the selected key"
+msgstr "Ange ägartillit för vald nyckel"
+
+#: src/keymanager.c:1038
+msgid "_Edit Private Key..."
+msgstr "Redigera _privat nyckel..."
+
+#: src/keymanager.c:1039
+msgid "Edit the selected private key"
+msgstr "Redigera markerad privat nyckel"
+
+#: src/keymanager.c:1041
+msgid "_Import Keys..."
+msgstr "_Importera nycklar..."
+
+#: src/keymanager.c:1042
+msgid "Import Keys"
+msgstr "Importera nycklar"
+
+#: src/keymanager.c:1043
+msgid "E_xport Keys..."
+msgstr "E_xportera nycklar..."
+
+#: src/keymanager.c:1044
+msgid "Export Keys"
+msgstr "Exportera nycklar"
+
+#: src/keymanager.c:1045
+msgid "_Backup..."
+msgstr "Säkerhetsk_opiera..."
+
+#: src/keymanager.c:1046
+msgid "Backup key"
+msgstr "Säkerhetskopiera nyckel"
+
+#: src/keymanager.c:1050
+msgid "_Retrieve Keys..."
+msgstr "_Hämta nycklar..."
+
+#: src/keymanager.c:1051
+msgid "Retrieve keys from server"
+msgstr "Hämta nycklar från server"
+
+#: src/keymanager.c:1053
+msgid "Re_fresh Keys"
+msgstr "Uppdatera Nycklar"
+
+#: src/keymanager.c:1054
+msgid "Refresh keys from server"
+msgstr "Uppdatera nycklar från server"
+
+#: src/keymanager.c:1056
+msgid "_Send Keys..."
+msgstr "_Skicka nycklar..."
+
+#: src/keymanager.c:1057
+msgid "Send keys to server"
+msgstr "Skicka nycklar till server"
+
+#: src/keymanager.c:1064
+msgid "Show Brief Keylist"
+msgstr "Visa kortfattad nyckellista"
+
+#: src/keymanager.c:1066
+msgid "Show Key Details"
+msgstr "Visa nyckeldetaljer"
+
+#: src/keymanager.c:1204
+msgid "Edit"
+msgstr "Redigera"
+
+#: src/keymanager.c:1206
+msgid "Delete"
+msgstr "Ta bort"
+
+#: src/keymanager.c:1208
+msgid "Sign"
+msgstr "Signera"
+
+#: src/keymanager.c:1210
+msgid "Export"
+msgstr "Exportera"
+
+#: src/keymanager.c:1212
+msgid "Import"
+msgstr "Importera"
+
+#: src/keymanager.c:1360
+msgid "Selected default key:"
+msgstr "Vald standardnyckel:"
+
+#: src/keymanager.c:1370
+msgid "No default key selected in the preferences."
+msgstr "Ingen standardnyckel har valts i inställningarna."
+
+#: src/keymanager.c:1460 src/keymanager.c:1488
+msgid "Key Manager"
+msgstr "Nyckelhanterare"
+
+#: src/gpa-key-details.c:143
+msgid "The key has both a smartcard based private part and a public part"
+msgstr "Nyckeln har både en smartkortsbaserad privat del och en öppen del"
+
+#: src/gpa-key-details.c:147
+msgid "The key has both a private and a public part"
+msgstr "Denna nyckel har både en privat och en öppen del"
+
+#: src/gpa-key-details.c:151
+msgid "The key has only a public part"
+msgstr "Denna nyckel har endast en öppen del"
+
+#: src/gpa-key-details.c:191
+#, c-format
+msgid "%s %u bits"
+msgstr "%s %u bitar"
+
+#: src/gpa-key-details.c:232
+msgid "No keys selected"
+msgstr "Inga nycklar valda"
+
+#: src/gpa-key-details.c:235
+#, c-format
+msgid "%d key selected"
+msgid_plural "%d keys selected"
+msgstr[0] "%d nyckel markerad"
+msgstr[1] "%d nycklar markerade"
+
+#: src/gpa-key-details.c:317
+msgid "User name:"
+msgstr "Användarnamn:"
+
+#: src/gpa-key-details.c:323
+msgid "Expires at:"
+msgstr "Går ut den:"
+
+#: src/gpa-key-details.c:325
+msgid "Owner Trust:"
+msgstr "Ägartillit:"
+
+#: src/gpa-key-details.c:327
+msgid "Key validity:"
+msgstr "Nyckelgiltighet:"
+
+#: src/gpa-key-details.c:329
+msgid "Key type:"
+msgstr "Nyckeltyp:"
+
+#: src/gpa-key-details.c:331
+msgid "Created at:"
+msgstr "Skapad den:"
+
+#: src/gpa-key-details.c:333
+#, fuzzy
+msgid "Last update:"
+msgstr "Efternamn:"
+
+#: src/gpa-key-details.c:336
+msgid "Details"
+msgstr "Detaljer"
+
+#: src/gpa-key-details.c:382
+#, fuzzy
+msgid "User IDs"
+msgstr "Användaridentitet: "
+
+#: src/gpa-key-details.c:431
+msgid "Show signatures on user name:"
+msgstr "Visa signaturer på användarnamn:"
+
+#: src/gpa-key-details.c:467
+msgid "Chain"
+msgstr "Kedja"
+
+#: src/gpa-key-details.c:467
+msgid "Signatures"
+msgstr "Signaturer"
+
+#: src/gpa-key-details.c:489
+msgid "All signatures"
+msgstr "Alla signaturer"
+
+#: src/gpa-key-details.c:551
+msgid "Subkeys"
+msgstr "Undernycklar"
+
+#: src/gpa-key-details.c:551
+msgid "Key"
+msgstr "Nyckel"
+
+#: src/gpa-key-details.c:603
+msgid "Tofu"
+msgstr "Tofu"
+
+#: src/keysigndlg.c:59
+msgid "Sign Key"
+msgstr "Signera nyckel"
+
+#: src/keysigndlg.c:72
+msgid "Do you want to sign the following key?"
+msgstr "Vill du signera följande nyckel?"
+
+#: src/keysigndlg.c:119
+msgid ""
+"Check the name and fingerprint carefully to be sure that it really is the "
+"key you want to sign."
+msgstr ""
+"Kontrollera namnet och fingeravtrycket noggrant. Är du säker på att detta är "
+"nyckeln du vill signera?"
+
+#: src/keysigndlg.c:127
+msgid "All user names in this key will be signed."
+msgstr "Alla användarnamn i denna nyckel kommer att signeras."
+
+#: src/keysigndlg.c:133
+msgid "The key will be signed with your default private key."
+msgstr "Nyckeln kommer att signeras med din privata standardnyckel."
+
+#: src/keysigndlg.c:140
+msgid "Sign only _locally"
+msgstr "Signera endast _lokalt"
+
+#: src/keytable.c:221
+msgid ""
+"It seems that no CMS engine is installed.\n"
+"\n"
+"Temporary disabling support for X.509.\n"
+"\n"
+"Please install a CMS engine or invoke this program\n"
+"with the option --disable-x509 ."
+msgstr ""
+"Det verkar som om ingen CMS-motor är installerad.\n"
+"\n"
+"Inaktiverar temporärt stöd för X.509.\n"
+"\n"
+"Vänligen installera en CMS-motor eller starta detta program\n"
+"med alternativet --disable-x509."
+
+#: src/options.c:340
+msgid ""
+"The private key you selected as default is no longer available.\n"
+"GPA will try to choose a new default key automatically."
+msgstr ""
+"Den privata nyckel du valt som standard finns inte längre tillgänglig.\n"
+"GPA kommer att försöka att välja en ny standardnyckel automatiskt."
+
+#: src/ownertrustdlg.c:106
+msgid "Change key ownertrust"
+msgstr "Ändra nyckelns ägartillit"
+
+#: src/ownertrustdlg.c:130
+msgid "_Unknown"
+msgstr "_Okänd"
+
+#: src/ownertrustdlg.c:135
+msgid ""
+"You don't know how much to trust this user to verify other people's keys.\n"
+msgstr ""
+"Du vet inte hur mycket du litar på denne persons omdöme vid validering\n"
+"av andras nycklar.\n"
+
+#: src/ownertrustdlg.c:145
+msgid "_Never"
+msgstr "_Aldrig"
+
+#: src/ownertrustdlg.c:150
+msgid ""
+"You don't trust this user at all to verify the validity of other people's "
+"keys at all.\n"
+msgstr "Du litar INTE på denne persons förtroende för andra nycklar.\n"
+
+#: src/ownertrustdlg.c:160
+msgid "_Marginal"
+msgstr "_Marginellt"
+
+#: src/ownertrustdlg.c:165
+msgid ""
+"You don't trust this user's ability to verify the validity of other people's "
+"keys enough to consider keys valid based on his/her sole word.\n"
+"However, provided this user's key is valid, you will consider a key signed "
+"by this user valid if it is also signed by at least other two marginally "
+"trusted users with valid keys\n"
+msgstr ""
+"Du litar inte på denna persons förtroende för andra nycklar. En nyckel som "
+"är signerad av denna person och minst två andra marginellt tillitliga "
+"nycklar anses emellertid som tillförlitlig.\n"
+
+#: src/ownertrustdlg.c:182
+msgid "_Full"
+msgstr "_Fullständigt"
+
+#: src/ownertrustdlg.c:187
+msgid ""
+"You trust this user's ability to verify the validity of other people's keys "
+"so much, that you'll consider valid any key signed by him/her, provided this "
+"user's key is valid.\n"
+msgstr ""
+"Du litar på denne persons förtroende för andra nycklar, och alla nycklar "
+"signerade med dennes (giltiga) nyckel anses som tillförlitlig.\n"
+
+#: src/ownertrustdlg.c:200
+msgid "U_ltimate"
+msgstr "_Förbehållslöst"
+
+#: src/ownertrustdlg.c:205
+msgid ""
+"You consider this key valid, and trust the user so much that you will "
+"consider any key signed by him/her fully valid.\n"
+"\n"
+"(Warning: This is intended to be used for keys you own. Don't use it with "
+"other people's keys unless you really know what you are doing)\n"
+msgstr ""
+"Du litar på denne persons förtroende för andra nycklar, och alla nycklar "
+"signerade med dennes nyckel anses som tillförlitlig.\n"
+"(Varning: Detta är tänkt att användas på nycklar du själv äger. Använd det "
+"inte på andra nycklar utan att förstå var det innebär)\n"
+
+#: src/passwddlg.c:45
+msgid ""
+"In \"Passphrase\" and \"Repeat passphrase\",\n"
+"you must enter the same passphrase."
+msgstr ""
+"I rutorna ”Lösenfras” och ”Repetera lösenfras”\n"
+"måste du ange exakt samma lösenfras."
+
+#: src/passwddlg.c:52
+msgid ""
+"You did not enter a passphrase.\n"
+"It is needed to protect your private key."
+msgstr ""
+"Du angav ingen lösenfras. Du behöver en lösenfras\n"
+"för att skydda din privata nyckel."
+
+#: src/passwddlg.c:65
+msgid ""
+"Warning: You have entered a passphrase\n"
+"that is obviously not secure.\n"
+"\n"
+"Please enter a new passphrase."
+msgstr ""
+"Varning: Du har angett en lösenfras som\n"
+"uppenbart inte är säker.\n"
+"\n"
+"Ange en ny lösenfras."
+
+#: src/passwddlg.c:70
+msgid "_Enter new passphrase"
+msgstr "Ange _ny lösenfras"
+
+#: src/passwddlg.c:71
+msgid "Take this one _anyway"
+msgstr "Använd denna lösenfras _ändå"
+
+#: src/passwddlg.c:96
+msgid "Choose new passphrase"
+msgstr "Ange ny lösenfras"
+
+#: src/passwddlg.c:111
+msgid "Passphrase: "
+msgstr "Lösenfras: "
+
+#: src/passwddlg.c:120
+msgid "Repeat Passphrase: "
+msgstr "Repetera lösenfras: "
+
+#: src/recipientdlg.c:165
+msgid "Recipient"
+msgstr "Mottagare"
+
+#: src/recipientdlg.c:166
+msgid ""
+"Shows the recipients of the message. A key needs to be assigned to each "
+"recipient."
+msgstr ""
+"Visar mottagarna för meddelandet. En nyckel behöver vara tilldelad till "
+"varje mottagare."
+
+#: src/recipientdlg.c:174
+msgid "Checked if at least one matching OpenPGP certificate has been found."
+msgstr "Kontrollerade om åtminstone ett matchande OpenPGP-certifikat hittades."
+
+#: src/recipientdlg.c:182
+msgid ""
+"Checked if at least one matching X.509 certificate for use with S/MIME has "
+"been found."
+msgstr ""
+"Kontrollerade om åtminstone ett matchande X.509-certifikat för användning "
+"med S/MIME hittades."
+
+#: src/recipientdlg.c:191 src/siglist.c:123 src/siglist.c:143
+#: src/verifydlg.c:336
+msgid "Key ID"
+msgstr "Nyckelidentitet"
+
+#: src/recipientdlg.c:192
+msgid ""
+"Shows the key ID of the selected key or an indication that a key needs to be "
+"selected."
+msgstr ""
+"Visar nyckelidentiteten för vald nyckel eller en indikation att en nyckel "
+"behöver vara vald."
+
+#: src/recipientdlg.c:306
+msgid ""
+"You need to select a key for each recipient.\n"
+"To select a key right-click on the respective line."
+msgstr ""
+"Du behöver välja en nyckel för varje mottagare.\n"
+"Högerklicka på respektive rad för att välja en nyckel."
+
+#: src/recipientdlg.c:314
+msgid ""
+"You need to select exactly one key for each recipient.\n"
+"To select a key right-click on the respective line."
+msgstr ""
+"Du behöver välja exakt en nyckel för varje mottagare.\n"
+"Högerklicka på respektive rad för att välja en nyckel."
+
+#: src/recipientdlg.c:321
+msgid ""
+"Although you selected keys for all recipients a common encryption protocol "
+"can't be used. Please decide on one protocol by clicking one of the above "
+"radio buttons."
+msgstr ""
+"Även om du valde nycklar för alla mottagare så kan inte ett gemensamt "
+"krypteringsprotokoll användas. Bestäm dig för ett protokoll genom att klicka "
+"på en av ovanstående radioknappar."
+
+#: src/recipientdlg.c:327
+msgid "Using OpenPGP for encryption."
+msgstr "Använder OpenPGP för kryptering."
+
+#: src/recipientdlg.c:332
+msgid "Using S/MIME for encryption."
+msgstr "Använder S/MIME för kryptering."
+
+#: src/recipientdlg.c:336
+msgid "No recipients - encryption is not possible"
+msgstr "Inga mottagare - kryptering är inte möjlig"
+
+#: src/recipientdlg.c:422
+msgid "[Ambiguous keys. Right-click to select]"
+msgstr "[Tvetydiga nycklar. Högerklicka för att välja]"
+
+#: src/recipientdlg.c:424
+msgid "[Ambiguous PGP key.  Right-click to select]"
+msgstr "[Tvetydig PGP-nyckel.  Högerklicka för att välja]"
+
+#: src/recipientdlg.c:426
+msgid "[Ambiguous X.509 key. Right-click to select]"
+msgstr "[Tvetydig X.509-nyckel. Högerklicka för att välja]"
+
+#: src/recipientdlg.c:439
+msgid "[Right-click to select]"
+msgstr "[Högerklicka för att välja]"
+
+#: src/recipientdlg.c:824
+msgid "Select _PGP key..."
+msgstr "Välj _PGP-nyckel..."
+
+#: src/recipientdlg.c:826
+msgid "Select _S\\/MIME key..."
+msgstr "Välj _S\\/MIME-nyckel..."
+
+#: src/recipientdlg.c:828
+msgid "Toggle _Ignore flag"
+msgstr "Växla _Ignorera-flagga"
+
+#: src/recipientdlg.c:941
+msgid "Select keys for recipients"
+msgstr "Välj nycklar för mottagarna"
+
+#: src/recipientdlg.c:958
+msgid "_Recipient list"
+msgstr "_Mottagarlista"
+
+#: src/recipientdlg.c:981
+msgid "Use _PGP"
+msgstr "Använd _PGP"
+
+#: src/recipientdlg.c:984
+msgid "Use _X.509"
+msgstr "Använd _X.509"
+
+#: src/recipientdlg.c:987
+msgid "_Auto selection"
+msgstr "_Automatiskt val"
+
+#: src/selectkeydlg.c:178
+msgid "Select a key"
+msgstr "Välj en nyckel"
+
+#: src/server-access.c:298
+msgid "No error"
+msgstr "Inget fel"
+
+# gpapa.c: Keyserver-Fehlermeldungen
+#: src/server-access.c:301
+msgid "Internal error"
+msgstr "Internt fel"
+
+#: src/server-access.c:304
+msgid "Operation not supported"
+msgstr "Åtgärden stöds inte"
+
+#: src/server-access.c:307
+msgid "Version mismatch"
+msgstr "Felaktig version"
+
+#: src/server-access.c:310
+msgid "Internal keyserver error"
+msgstr "Internt nyckelserverfel"
+
+#: src/server-access.c:313
+msgid "Out of memory"
+msgstr "Slut på minne"
+
+#: src/server-access.c:316
+msgid "Key not found"
+msgstr "Nyckeln hittades inte"
+
+#: src/server-access.c:319
+msgid "Key already exists on server"
+msgstr "Nyckeln fanns redan på nyckelservern"
+
+#: src/server-access.c:322
+msgid "Key incomplete"
+msgstr "Ofullständig nyckel"
+
+#: src/server-access.c:325
+msgid "Could not contact keyserver"
+msgstr "Kunde inte kontakta nyckelservern"
+
+#: src/server-access.c:328
+msgid "Unknown Error"
+msgstr "Okänt fel"
+
+#: src/server-access.c:364
+#, c-format
+msgid ""
+"Connecting to server \"%s\".\n"
+"Please wait."
+msgstr ""
+"Ansluter till servern ”%s”.\n"
+"Vänta."
+
+#: src/server-access.c:387 src/server-access.c:407
+#, c-format
+msgid ""
+"An error ocurred while contacting the server:\n"
+"\n"
+"%s"
+msgstr ""
+"Ett fel uppstod vid uppkoppling till nyckelservern:\n"
+"\n"
+"%s"
+
+#: src/server-access.c:473
+msgid ""
+"There is no plugin available for the keyserver\n"
+"protocol you specified."
+msgstr ""
+"Det finns ingen insticksmodul för nyckelserverprotokollet\n"
+"du angav."
+
+#: src/server-access.c:546 src/server-access.c:590
+msgid "The keyserver you specified is not valid"
+msgstr "Nyckelservern du angav är inte giltig"
+
+#: src/settingsdlg.c:134 src/siglist.c:164
+msgid "Local"
+msgstr "Lokal"
+
+#: src/settingsdlg.c:136
+msgid "Local, Keyserver"
+msgstr "Lokal, Nyckelserver"
+
+#: src/settingsdlg.c:138
+msgid "Local, PKA"
+msgstr "Lokal, PKA"
+
+#: src/settingsdlg.c:140
+msgid "Local, PKA, Keyserver"
+msgstr "Lokal, PKA, Nyckelserver"
+
+#: src/settingsdlg.c:141
+msgid "Local, Keyserver, PKA"
+msgstr "Lokal, Nyckelserver, PKA"
+
+#: src/settingsdlg.c:143
+msgid "Local, kDNS"
+msgstr "Lokal, kDNS"
+
+#: src/settingsdlg.c:145
+msgid "Local, kDNS, Keyserver"
+msgstr "Lokal, kDNS, Nyckelserver"
+
+#: src/settingsdlg.c:147
+msgid "PKA"
+msgstr "PKA"
+
+#: src/settingsdlg.c:148
+msgid "kDNS"
+msgstr "kDNS"
+
+#: src/settingsdlg.c:149
+msgid "Custom"
+msgstr "Anpassad"
+
+#: src/settingsdlg.c:221
+msgid "<b>User interface</b>"
+msgstr "<b>Användargränssnitt</b>"
+
+#: src/settingsdlg.c:228
+msgid "Use _advanced mode"
+msgstr "Använd _avancerat läge"
+
+#: src/settingsdlg.c:234
+msgid "Show advanced _options"
+msgstr "Visa avancerade a_lternativ"
+
+#: src/settingsdlg.c:285
+msgid ""
+"No default key has been selected.  This may lead to problems when signing or "
+"encrypting.  For example you might later not be able to read a mail written "
+"by you and encrypted to someone else.\n"
+"\n"
+"Please consider creating your own key and select it then."
+msgstr ""
+"Ingen standardnyckel har valts.  Detta kan leda till problem vid signering "
+"eller kryptering.  Till exempel kan du stöta på problem vid läsning av e-"
+"post som skrivits av dig och krypterats till någon annan.\n"
+"\n"
+"Överväg att skapa dig en egen nyckel och sedan välja den."
+
+#: src/settingsdlg.c:291
+msgid "Continue without a default key"
+msgstr "Fortsätt utan en standardnyckel"
+
+#: src/settingsdlg.c:293
+msgid "Let me select a default key"
+msgstr "Låt mig välja en standardnyckel"
+
+#: src/settingsdlg.c:318
+msgid "<b>Default _key</b>"
+msgstr "<b>Standardn_yckel</b>"
+
+#: src/settingsdlg.c:432
+msgid "<b>Default key_server</b>"
+msgstr "<b>Standardnyckel_server</b>"
+
+#: src/settingsdlg.c:630
+msgid "<b>Auto key _locate</b>"
+msgstr "<b>Automatisk sö_kning av nyckel</b>"
+
+#: src/settingsdlg.c:640
+msgid ""
+"The list of methods to locate keys via an email address.\n"
+"All given methods are used in turn until a matching key is found.  The "
+"supported methods are:\n"
+" Local\n"
+"   - Use the local keyring.\n"
+" Keyserver\n"
+"   - Use the default keyserver.\n"
+" PKA\n"
+"   - Use the Public Key Association.\n"
+" kDNS\n"
+"   - Use kDNS with the nameserver below.\n"
+" Custom\n"
+"   - Configured in the backend dialog.\n"
+msgstr ""
+"Listan över metoder för att hitta nycklar via en e-postadress.\n"
+"Alla angivna metoder används i turordning tills en matchande nyckel hittas.  "
+"De metoder som stöds är:\n"
+" Lokal\n"
+"   - Använd den lokala nyckelringen.\n"
+" Nyckelserver\n"
+"   - Använd standardnyckelservern.\n"
+" PKA\n"
+"   - Använd Public Key Association.\n"
+" kDNS\n"
+"   - Använd kDNS med namnservern nedan.\n"
+" Anpassad\n"
+"   - Konfigurerad i bakändesdialogrutan.\n"
+
+#: src/settingsdlg.c:657
+msgid "Method:"
+msgstr "Metod:"
+
+#: src/settingsdlg.c:674
+msgid "The IP address of the nameserver used for the kDNS method."
+msgstr "IP-adressen till namnservern som ska användas för kDNS-metoden."
+
+#: src/settingsdlg.c:676
+msgid "kDNS Server:"
+msgstr "kDNS-server:"
+
+#: src/settingsdlg.c:779
+msgid "The URL given for the keyserver is not valid."
+msgstr "URL:en angiven för nyckelservern är inte giltig."
+
+#: src/settingsdlg.c:790
+msgid "The data given for \"Auto key locate\" is not valid."
+msgstr "Angivet data för ”Automatisk sökning av nyckel” är inte giltig."
+
+#: src/settingsdlg.c:929
+msgid "Settings"
+msgstr "Inställningar"
+
+#: src/siglist.c:157
+msgid "Level"
+msgstr "Nivå"
+
+#: src/verifydlg.c:116
+msgid "Verify documents"
+msgstr "Validera dokument"
+
+#: src/verifydlg.c:235
+msgid "Expired Key"
+msgstr "Utgången nyckel"
+
+#: src/verifydlg.c:243
+msgid "Key NOT valid"
+msgstr "Nyckel är INTE giltig"
+
+#: src/verifydlg.c:354
+msgid "Description"
+msgstr "Beskrivning"
+
+#: src/verifydlg.c:378
+#, c-format
+msgid "Verified data in file: %s"
+msgstr "Validerade data i filen: %s"
+
+#: src/verifydlg.c:383
+#, c-format
+msgid "Signature: %s"
+msgstr "Signatur: %s"
+
+#: src/verifydlg.c:389
+msgid "Signatures:"
+msgstr "Signaturer:"
+
+#: src/cardman.c:167 src/cardman.c:929
+msgid "Card Manager"
+msgstr "Korthanterare"
+
+#: src/cardman.c:188
+#, c-format
+msgid "%s card detected."
+msgstr "%s-kort detekterat."
+
+#: src/cardman.c:195
+msgid "Checking for card..."
+msgstr "Söker efter kort..."
+
+#: src/cardman.c:369
+msgid "No card found."
+msgstr "Inget kort hittades."
+
+#: src/cardman.c:375
+msgid "The selected card application is currently not available."
+msgstr "Den valda kortapplikationen är inte tillgänglig för närvarande."
+
+#: src/cardman.c:376
+msgid ""
+"Another process is using a different card application than the selected "
+"one.\n"
+"\n"
+"You may change the application selection mode to \"Auto\" to select the "
+"active application."
+msgstr ""
+"Ytterligare en process kör en annan kortapplikation som skiljer sig från "
+"vald.\n"
+"\n"
+"Du kan ändra applikationsvalsläget till ”Auto” för att välja den aktiva "
+"applikationen."
+
+#: src/cardman.c:386
+msgid "The selected card application is not available."
+msgstr "Den valda kortapplikationen finns inte tillgänglig."
+
+#: src/cardman.c:399
+msgid "Error accessing the card."
+msgstr "Fel vid åtkomst till kortet"
+
+#: src/cardman.c:400 src/cardman.c:434
+msgid "Error accessing card"
+msgstr "Fel vid kortåtkomst"
+
+#: src/cardman.c:429
+msgid "No card"
+msgstr "Inget kort"
+
+#: src/cardman.c:651
+msgid "_Card"
+msgstr "_Kort"
+
+#: src/cardman.c:661
+msgid "Reload card information"
+msgstr "Ladda om kortinformation"
+
+#: src/cardman.c:663
+msgid "Generate new key on card"
+msgstr "Generera en ny nyckel på kort"
+
+#: src/cardman.c:793
+msgid "This card application is not yet supported."
+msgstr "Denna kortapplikation stöds inte än."
+
+#: src/cardman.c:937
+msgid "Application selection:"
+msgstr "Applikationsval:"
+
+#: src/cardman.c:941
+msgid "Auto"
+msgstr "Auto"
+
+#: src/cardman.c:1018
+msgid "The GPGME library is too old to support smartcards."
+msgstr "GPGME-biblioteket är för gammalt för att stödja smartkort."
+
+#: src/cm-openpgp.c:180
+msgid ""
+"<b>Admin-PIN Required</b>\n"
+"\n"
+"Depending on the previous operations you may now be asked for the Admin-"
+"PIN.  Entering a wrong value for the Admin-PIN decrements the corresponding "
+"retry counter. If the retry counter is down to zero, the Admin-PIN can't be "
+"restored anymore and thus the data on the card can't be modified.\n"
+"\n"
+"Unless changed, a fresh standard card has set the Admin-PIN to the value "
+"<i>12345678</i>.  However, the issuer of your card might have initialized "
+"the card with a different Admin-PIN and that Admin-PIN might only be known "
+"to the issuer.  Please check the instructions of your issuer.\n"
+"\n"
+"This notice will be shown only once per session."
+msgstr ""
+"<b>Admin-PIN krävs</b>\n"
+"\n"
+"Beroende på tidigare operationer kan du nu efterfrågas Admin-PIN. Om du "
+"matar in ett felaktigt värde för Admin-PIN minskar motsvarande "
+"försöksräknare. Om försöksräknaren kommer ner till noll kan inte Admin-PIN "
+"återställas mer och därmed kan inte data på kortet förändras.\n"
+"\n"
+"Om den inte har förändras så har en fräscht standardkort Admin-PIN satt till "
+"värdet <i>12345678</i>. Dock så kan utfärdaren av ditt kort ha initierat "
+"kortet med en annan Admin-PIN och denna Admin-PIN kanske endast är känd för "
+"utfärdaren. Vänligen kontrollera instruktionerna från din utfärdare.\n"
+"\n"
+"Detta meddelande kommer endast att visas en gång per session."
+
+#: src/cm-openpgp.c:299 src/cm-netkey.c:983
+msgid "PUK retry counter:"
+msgstr "PUK-försöksräknare:"
+
+#: src/cm-openpgp.c:300
+msgid "CHV2 retry counter: "
+msgstr "CHV2-försöksräknare:"
+
+#: src/cm-openpgp.c:412 src/cm-netkey.c:166
+msgid "Reset PIN"
+msgstr "Återställ PIN"
+
+#: src/cm-openpgp.c:412 src/cm-openpgp.c:434 src/cm-netkey.c:167
+msgid "Change PIN"
+msgstr "Ändra PIN"
+
+#: src/cm-openpgp.c:422 src/cm-netkey.c:167
+msgid "Change PUK"
+msgstr "Ändra PUK"
+
+#: src/cm-openpgp.c:422 src/cm-netkey.c:166
+msgid "Reset PUK"
+msgstr "Återställ PUK"
+
+#: src/cm-openpgp.c:695
+#, c-format
+msgid ""
+"Error saving the changed values.\n"
+"(%s <%s>)"
+msgstr ""
+"Fel vid sparande av de förändrade värdena.\n"
+"(%s <%s>)"
+
+#: src/cm-openpgp.c:718
+msgid "Only plain ASCII is currently allowed."
+msgstr "Endast ren ASCII tillåts för närvarande."
+
+#: src/cm-openpgp.c:720
+msgid "The \"<\" character may not be used."
+msgstr "”<”-tecknet får inte användas."
+
+#: src/cm-openpgp.c:722
+msgid "Double spaces are not allowed."
+msgstr "Dubbla mellanslag är ej tillåtet."
+
+#: src/cm-openpgp.c:754
+msgid ""
+"Total length of first and last name may not be longer than 39 characters."
+msgstr "Total längd av förnamn och efternamn får inte överstiga 39 tecken."
+
+#: src/cm-openpgp.c:757 src/cm-openpgp.c:795 src/cm-openpgp.c:822
+#: src/cm-openpgp.c:846 src/cm-openpgp.c:871 src/cm-openpgp.c:892
+msgid "Saving the field failed."
+msgstr "Misslyckades att spara fältet."
+
+#: src/cm-openpgp.c:781
+msgid "Invalid length of the language preference."
+msgstr "Ogiltig längd på språkinställningen."
+
+#: src/cm-openpgp.c:789
+msgid "The language preference may only contain the letters 'a' through 'z'."
+msgstr "Språkinställningen får endast innehålla tecknen ”a“ till “z“."
+
+#: src/cm-openpgp.c:841 src/cm-openpgp.c:866
+msgid "The field may not be longer than 254 characters."
+msgstr "Fältet får inte vara längre än 254 tecken."
+
+#: src/cm-openpgp.c:1092
+msgid ""
+"<b>Unblocking the PIN</b>\n"
+"\n"
+"The retry counter of the PIN is down to zero but a Reset Code has been set.\n"
+"\n"
+"The Reset Code is similar to a PUK (PIN Unblocking Code)and used to unblock "
+"a PIN without the need to know the Admin-PIN.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Reset "
+"Code</b> and then to enter a new value for the PIN and repeat that new value "
+"at another prompt."
+msgstr ""
+"<b>Avblockera PIN</b>\n"
+"\n"
+"Försöksräknaren i PIN är nere på noll, men en återställningskod är satt.\n"
+"\n"
+"Återställningskoden liknar en PUK (PIN Unblocking Code) och används för att "
+"avblockera en PIN utan att behöva känna till Admin-PIN.\n"
+"\n"
+"Om du fortsätter kommer du att efterfrågas att mata in aktuellt värde för "
+"<b>Återställningskoden</b> och sedan en nytt värde för PIN samt att upprepa "
+"detta värde i ytterligare en inmatning."
+
+#: src/cm-openpgp.c:1106
+msgid ""
+"<b>Changing the PIN</b>\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value and repeat that value at another prompt.\n"
+"\n"
+"Entering a wrong value for the PIN decrements the retry counter.  If the "
+"retry counters of the PIN and of the Reset Code are both down to zero, the "
+"PIN can still be reset by using the Admin-PIN.\n"
+"\n"
+"A fresh standard card has set the PIN to the value <i>123456</i>.  However, "
+"the issuer of your card might have initialized the card with a different "
+"PIN.  Please check the instructions of your issuer."
+msgstr ""
+"<b>Ändra PIN</b>\n"
+"\n"
+"Om du fortsätter kommer du att efterfrågas det aktuella värdet på PIN och "
+"sedan att mata in ett nytt värde och upprepa detta värde i en ny "
+"inmatningsruta.\n"
+"\n"
+"Om du matar in ett felaktigt värde för PIN minskas omförsöksräknaren. Om "
+"omförsöksräknaren för PIN och för Återställningskoden båda är nere på noll, "
+"kan PIN fortfarande återställas genom att använda Admin-PIN.\n"
+"\n"
+"Ett fräscht standardkort har PIN-värdet <i>123456</i>. Dock kan utgivaren av "
+"ditt kort ha initierat kortet med ett annat PIN-värde. Vänligen se din "
+"utgivares instruktioner."
+
+#: src/cm-openpgp.c:1123
+msgid ""
+"<b>Changing the Reset Code</b>\n"
+"\n"
+"The Reset Code is similar to a PUK (PIN Unblocking Code) and used to unblock "
+"a PIN without the need to know the Admin-PIN.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value for the Reset Code and repeat that new value at "
+"another prompt."
+msgstr ""
+"<b>Ändra återställningskod</b>\n"
+"\n"
+"Återställningskoden liknar PUK (PIN Unblocking Code) och används för att "
+"avblockera en PIN utan att behöva en Admin-PIN.\n"
+"\n"
+"Om du fortsätter kommer du efterfrågas om aktuellt värde i PIN-koden och "
+"sedan efter ett nytt värde för Återställningskoden samt upprepa detta nya "
+"värde i ytterligare en inmatning."
+
+#: src/cm-openpgp.c:1133
+msgid ""
+"<b>Resetting the PIN or the Reset Code</b>\n"
+"\n"
+"If the retry counters of the PIN and of the Reset Code are both down to "
+"zero, it is only possible to reset them if you have access to the Admin-"
+"PIN.\n"
+"\n"
+"A fresh standard card has set the Admin-PIN to the value <i>12345678</i>.  "
+"However, the issuer of your card might have initialized the card with a "
+"different Admin-PIN and that Admin-PIN might only be known to the issuer.  "
+"Please check the instructions of your issuer.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Admin-"
+"PIN</b> and then to enter a new value for the PIN or the Reset Code and "
+"repeat that new value at another prompt."
+msgstr ""
+"<b>Återställning av PIN eller Återställningskod<\\b>\n"
+"\n"
+"Om omförsöksräknaren för PIN och Återställningskoden båda är nere på noll, "
+"är det endast möjligt att återställa dem om du har tillgång till Admin-PIN.\n"
+"\n"
+"Ett färskt standardkort har satt Admin-PIN till värdet <i>12345678</i>. Dock "
+"så kan utfärdaren av ditt kort ha initierat ditt kort med en annan Admin-PIN "
+"och denna Admin-PIN kanske endast är känd för utgivaren. Vänligen se "
+"instruktionerna från din utgivare.\n"
+"\n"
+"Om du fortsätter kommer du att efterfrågas att mata in det nuvarande värdet "
+"på <b>Admin-PIN</b> och sedan att mata in ett nytt värde för PIN eller "
+"Återställningskoden och sedan att upprepa detta nya värde i ett nytt "
+"inmatningsfält."
+
+#: src/cm-openpgp.c:1150
+msgid ""
+"<b>Changing the Admin-PIN</b>\n"
+"\n"
+"If you know the Admin-PIN you may change the Admin-PIN.\n"
+"\n"
+"The Admin-PIN is required to create keys on the card and to change other "
+"data.  You may or may not know the Admin-PIN.  A fresh standard card has set "
+"the Admin-PIN to the value <i>12345678</i>.  However, the issuer of your "
+"card might have initialized the card with a different Admin-PIN and that "
+"Admin-PIN might only be known to the issuer.  Please check the instructions "
+"of your issuer.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the <b>Admin-"
+"PIN</b> and then to enter a new value for that Admin-PIN and repeat that new "
+"value at another prompt."
+msgstr ""
+"<b>Ändra Admin-PIN</b>\n"
+"\n"
+"Om du känner till Admin-PIN kan du ändra Admin-PIN.\n"
+"\n"
+"Admin-PIN krävs för att skapa nycklar på kortet samt för att förändra annan "
+"data. Antingen kan du eller så kan du inte Admin-PIN. Ett fräscht "
+"standardkort har satt Admin-PIN till värdet <i>12345678</i>. Dock så kan "
+"utfärdaren av ditt kort ha initierat kortet med en annan Admin-Pin och denna "
+"Admin-PIN kanske bara är känd för utfärdaren. Vänligen kontrollera din "
+"utfärdares instruktioner.\n"
+"\n"
+"Om du fortsätter kommer du efterfrågas aktuellt värde av <b>Admin-PIN</b> "
+"och sedan efter att mata in ett nytt värde för denna Admin-PIN samt "
+"ytterligare en inmatning av detta nya värde i ett nytt inmatningsfält."
+
+#: src/cm-openpgp.c:1195 src/cm-netkey.c:808
+#, c-format
+msgid ""
+"Error changing or resetting the PIN/PUK.\n"
+"(%s <%s>)"
+msgstr ""
+"Fel vid förändring eller återställning av PIN/PUK.\n"
+"(%s <%s>)"
+
+#: src/cm-openpgp.c:1309
+#, c-format
+msgid ""
+"Error fetching the key.\n"
+"(%s <%s>)"
+msgstr ""
+"Fel vid hämtning av nyckeln.\n"
+"(%s <%s>)"
+
+#: src/cm-openpgp.c:1322
+#, c-format
+msgid "Keys found: %d, imported: %d, unchanged: %d"
+msgstr "Hittade nycklar: %d, importerade: %d, oförändrade: %d"
+
+#: src/cm-openpgp.c:1344
+msgid "Fetch Key"
+msgstr "Hämta Nyckel"
+
+#: src/cm-openpgp.c:1421 src/cm-netkey.c:904 src/cm-dinsig.c:265
+msgid "<b>General</b>"
+msgstr "<b>Allmän</b>"
+
+#: src/cm-openpgp.c:1431 src/cm-netkey.c:913 src/cm-dinsig.c:274
+msgid "Serial number:"
+msgstr "Serienummer:"
+
+#: src/cm-openpgp.c:1435 src/cm-netkey.c:917
+msgid "Card version:"
+msgstr "Kortversion:"
+
+#: src/cm-openpgp.c:1439
+msgid "Manufacturer:"
+msgstr "Tillverkare:"
+
+#: src/cm-openpgp.c:1448
+msgid "<b>Personal</b>"
+msgstr "<b>Personlig</b>"
+
+#: src/cm-openpgp.c:1462
+msgid "Salutation:"
+msgstr "Hälsning:"
+
+#: src/cm-openpgp.c:1467
+msgid "First name:"
+msgstr "Förnamn:"
+
+#: src/cm-openpgp.c:1472
+msgid "Last name:"
+msgstr "Efternamn:"
+
+#: src/cm-openpgp.c:1477
+msgid "Language:"
+msgstr "Språk:"
+
+#: src/cm-openpgp.c:1482
+msgid "Login data:"
+msgstr "Logindata:"
+
+#: src/cm-openpgp.c:1487
+msgid "Public key URL:"
+msgstr "URL för öppen nyckel:"
+
+#: src/cm-openpgp.c:1495 src/cm-netkey.c:949
+msgid "<b>Keys</b>"
+msgstr "<b>Nycklar</b>"
+
+#: src/cm-openpgp.c:1512
+msgid "Signature key:"
+msgstr "Signaturnyckel:"
+
+#: src/cm-openpgp.c:1516
+msgid "Encryption key:"
+msgstr "Krypteringsnyckel:"
+
+#: src/cm-openpgp.c:1520
+msgid "Authentication key:"
+msgstr "Autentiseringsnyckel:"
+
+#: src/cm-openpgp.c:1524
+msgid "Signature counter:"
+msgstr "Signaturräknare:"
+
+#: src/cm-openpgp.c:1532 src/cm-netkey.c:965
+msgid "<b>PIN</b>"
+msgstr "<b>PIN</b>"
+
+#: src/cm-openpgp.c:1544
+msgid "Force signature PIN:"
+msgstr "Tvinga signatur-PIN:"
+
+#: src/cm-openpgp.c:1548 src/cm-netkey.c:975
+msgid "PIN retry counter:"
+msgstr "PIN-försöksräknare:"
+
+#: src/cm-openpgp.c:1562
+msgid "Admin-PIN retry counter:"
+msgstr "Admin-PIN-försöksräknare:"
+
+#: src/cm-netkey.c:152
+msgid "blocked"
+msgstr "blockerad"
+
+#: src/cm-netkey.c:384
+msgid "Learn keys"
+msgstr "Lär nycklar"
+
+#: src/cm-netkey.c:386
+msgid ""
+"For some or all of the keys available on the card, the GnuPG crypto engine "
+"does not yet know the corresponding certificates.\n"
+"\n"
+"If you click this button, GnuPG will be asked to \"learn\" this card and "
+"import all certificates stored on the card into its own certificate store.  "
+"This is not done automatically because it may take several seconds to read "
+"all certificates from the card.\n"
+"\n"
+"If you are unsure what to do, just click the button."
+msgstr ""
+"För några eller alla nycklar som finns tillgängliga på kortet, känner inte "
+"GnuPG-kryptomotorn till motsvarande certifikat.\n"
+"\n"
+"Om du klickar på denna knapp kommer GnuPG förfrågas att ”lära” detta kort "
+"och importera alla certifikat som lagras på kortet in i sin egen "
+"certifikatslagring. Detta görs inte automatiskt eftersom det kan ta flera "
+"sekunder att läsa alla certifikat från kortet.\n"
+"\n"
+"Om du är osäker på vad du bör göra, kan du bara klicka på knappen."
+
+#: src/cm-netkey.c:606
+msgid "Learning keys ..."
+msgstr "Lär sig nycklar..."
+
+#: src/cm-netkey.c:649
+#, c-format
+msgid ""
+"<b>Setting the Initial PIN</b> (%s)\n"
+"\n"
+"You selected to set the initial PIN of your card.  The PIN is currently set "
+"to the NullPIN.  Setting an initial PIN is <b>required but can't be "
+"reverted</b>.\n"
+"\n"
+"Please check the documentation of your card to learn for what the NullPIN is "
+"good.\n"
+"\n"
+"If you proceed you will be asked to enter a new PIN and later to repeat that "
+"PIN.  Make sure that you will remember that PIN - it will not be possible to "
+"recover the PIN if it has been entered wrongly more than %d times.\n"
+"\n"
+"%s"
+msgstr ""
+"<b>Sätter en initial PIN<b> (%s)\n"
+"\n"
+"Du valda att sätta initial PIN för ditt kort. PIN är för närvarande satt "
+"till NullPIN.  Att sätta en initial PIN <b>krävs men kan inte ångras</b>.\n"
+"\n"
+"Vänligen se dokumentationen för ditt kort för att lära vad en NullPIN är bra "
+"för.\n"
+"\n"
+"Om du fortsätter kommer du efterfrågas en ny PIN och senare att upprepa "
+"denna PIN.  Säkerställ att du kommer att komma ihåg denna PIN - Det kommer "
+"inte att vara möjligt att återställa PIN om den har matats in felaktigt mer "
+"än %d gånger.\n"
+"\n"
+"%s"
+
+#: src/cm-netkey.c:663
+msgid ""
+"You are now setting the PIN for the SigG key used to create <b>qualified "
+"signatures</b>.  You may want to set the PIN to the same value as used for "
+"the NKS keys."
+msgstr ""
+"Du sätter nu PIN för SigG-nycklarna som används för att skapa "
+"<b>kvalificerade signaturer</b>. Du kan behöva sätta PIN till samma värde "
+"som används för NKS-nycklarna."
+
+#: src/cm-netkey.c:666
+msgid ""
+"You are now setting the PIN for the NKS keys used for standard signatures, "
+"encryption and authentication."
+msgstr ""
+"Du sätter nu PIN för NKS-nycklarna som används för standardsignaturer, "
+"kryptering och autentisering."
+
+#: src/cm-netkey.c:696
+#, c-format
+msgid ""
+"Error changing the NullPIN.\n"
+"(%s <%s>)"
+msgstr ""
+"Fel vid ändring av NullPIN.\n"
+"(%s <%s>)"
+
+#: src/cm-netkey.c:746
+msgid ""
+"<b>Changing a PIN or PUK</b>\n"
+"\n"
+"If you proceed you will be asked to enter the current value and then to "
+"enter a new value and repeat that value at another prompt.\n"
+"\n"
+"Entering a wrong value for the current value decrements the retry counter.  "
+"If the retry counters of the PIN and the corresponding PUK are both down to "
+"zero, the keys controlled by the PIN are not anymore usable and there is no "
+"way to unblock them!"
+msgstr ""
+"<b>Förändra en PIN eller PUK</b>\n"
+"\n"
+"Om du fortsätter kommer du att efterfrågas aktuellt värde och sedan att mata "
+"in ett nytt värde samt att upprepa detta värde vid en ny inmatning.\n"
+"\n"
+"Om du matar in ett felaktigt värde i aktuellt värde minskas "
+"försöksräknaren.  Om försöksräknarna för PIN och motsvarande PUK båda går "
+"ner till noll kommer nycklarna som kontrolleras av denna PIN att inte längre "
+"att kunna användas och det finns inget sätt att avblockera dem!"
+
+#: src/cm-netkey.c:758
+msgid ""
+"<b>Resetting a PUK</b>\n"
+"\n"
+"Although <i>PUK</i> stands for <i>PIN Unblocking Code</i> the TCOS operating "
+"system of the NetKey card implements it as an alternative PIN and thus it is "
+"possible to use the PIN to unblock the PUK.\n"
+"\n"
+"If the PUK is blocked (the retry counter is down to zero), you may unblock "
+"it by using the non-blocked PIN.  The retry counter is then set back to its "
+"initial value.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PIN and "
+"then to enter a new value for the blocked PUK and repeat that new value at "
+"another prompt."
+msgstr ""
+"<b>Återställa en PUK</b>\n"
+"\n"
+"Även om <i>PUK</i> står för <i>PIN Unblocking Code</i> så implementerar "
+"operativsystemet TCOS från NetKey-kortet det som en alternativ PIN och "
+"därför är det möjligt att använda denna PIN för att avblockera PUK.\n"
+"\n"
+"Om PUK är blockerad (försöksräknaren är nere på noll), så kan du avblockera "
+"den genom att använda den ickeblockerade PIN. Försöksräknaren återställs då "
+"till sitt ursprungliga värde.\n"
+"\n"
+"Om du fortsätter kommer du efterfrågas att mata in aktuellt värde av PIN och "
+"sedan att mata in ett nytt värde för den blockerade PUK och upprepa detta "
+"nya värde i ytterligare ett inmatningsfält."
+
+#: src/cm-netkey.c:772
+msgid ""
+"<b>Resetting a PIN</b>\n"
+"\n"
+"If the PIN is blocked (the retry counter is down to zero), you may unblock "
+"it by using the non-blocked PUK.  The retry counter is then set back to its "
+"initial value.\n"
+"\n"
+"If you proceed you will be asked to enter the current value of the PUK and "
+"then to enter a new value for the blocked PIN and repeat that new value at "
+"another prompt."
+msgstr ""
+"<b>Återställa en PIN</b>\n"
+"\n"
+"Om PIN är blockerad (försök-räknaren är nere på noll), så kan du avblockera "
+"den genom att använda den ickeblockerade PUKen. Försöksräknaren återställs "
+"då till sitt ursprungliga värde.\n"
+"\n"
+"Om du fortsätter kommer du att efterfrågas att mata in aktuellt värde i "
+"PUKen och sedan mata in ett nytt värde för den blockerade PIN samt upprepa "
+"detta nya värde i en annan inmatning."
+
+#: src/cm-netkey.c:928
+msgid ""
+"<b>A NullPIN is still active on this card</b>.\n"
+"You need to set a real PIN before you can make use of the card."
+msgstr ""
+"<b>En NullPIN är fortfarande aktiv på detta kort</b>.\n"
+"Du måste sätta en riktig PIN innan du kan använda kortet."
+
+#: src/cm-netkey.c:934
+msgid "Set initial PIN"
+msgstr "Sätt initial PIN"
+
+#: src/cm-netkey.c:955
+msgid "scanning ..."
+msgstr "avsöker ..."
+
+#: src/cm-netkey.c:991
+msgid "SigG PIN retry counter:"
+msgstr "SigG PIN-försöksräknare:"
+
+#: src/cm-netkey.c:999
+msgid "SigG PUK retry counter:"
+msgstr "SigG PUK-försöksräknare:"
+
+#: src/cm-dinsig.c:284
+#, c-format
+msgid ""
+"There is not much information to display for a %s card.  You may want to use "
+"the application selector button to switch to another application available "
+"on this card."
+msgstr ""
+"Det finns inte mycket information att visa för ett %s-kort. Du kanske vill "
+"använda knappen för applikationsval för att ändra till en annan applikation "
+"som finns tillgänglig på detta kort."
+
+#~ msgid "Size"
+#~ msgstr "Storlek"
+
+#~ msgid "The file \"%s\" contained no validencrypted data."
+#~ msgstr "Filen ”%s” innehöll ingen giltig krypterad data."
+
+#~ msgid "The key ID is a short number to identify a certificate."
+#~ msgstr ""
+#~ "Nyckelidentiteten är ett kort tal för att identifiera ett certifikat."
+
+#~ msgid ""
+#~ "<b>Changing the PIN</b>\n"
+#~ "\n"
+#~ "If you proceed you will be asked to enter the current value of the PIN "
+#~ "and then to enter a new value and repeat that value at another prompt.\n"
+#~ "\n"
+#~ "Entering a wrong value for the PIN decrements the retry counter.  If the "
+#~ "retry counters of the PIN and of the Reset Code are both down to zero, "
+#~ "the PIN can still be reseted by using the Admin-PIN.\n"
+#~ "\n"
+#~ "A fresh standard card has set the PIN to the value <i>123456</i>.  "
+#~ "However, the issuer of your card might have initialized the card with a "
+#~ "different PIN.  Please check the instructions of your issuer."
+#~ msgstr ""
+#~ "<b>Ändra PIN</b>\n"
+#~ "\n"
+#~ "Om du fortsätter kommer du att efterfrågas om aktuellt värde i PIN och "
+#~ "sedan efterfrågas ett nytt värde och upprepa detta värde i en ny "
+#~ "inmatning.\n"
+#~ "\n"
+#~ "Om du matar in ett felaktigt värde för PIN minskas försöksräknaren. Om "
+#~ "försöksräknaren för PIN och även för Återställningskoden är nere på noll "
+#~ "kan PIN fortfarande återställas genom att använda sig av Admin-PIN.\n"
+#~ "\n"
+#~ "En fräscht standardkort har PIN satt till värdet <i>123456</i>. Dock så "
+#~ "kan utfärdaren av ditt kort ha initierat kortet med en annan PIN. "
+#~ "Vänligen kontrollera instruktionerna från utfärdaren."
+
+#~ msgid ""
+#~ "<b>Reseting the PIN or the Reset Code</b>\n"
+#~ "\n"
+#~ "If the retry counters of the PIN and of the Reset Code are both down to "
+#~ "zero, it is only possible to reset them if you have access to the Admin-"
+#~ "PIN.\n"
+#~ "\n"
+#~ "A fresh standard card has set the Admin-PIN to the value <i>12345678</"
+#~ "i>.  However, the issuer of your card might have initialized the card "
+#~ "with a different Admin-PIN and that Admin-PIN might only be known to the "
+#~ "issuer.  Please check the instructions of your issuer.\n"
+#~ "\n"
+#~ "If you proceed you will be asked to enter the current value of the "
+#~ "<b>Admin-PIN</b> and then to enter a new value for the PIN or the Reset "
+#~ "Code and repeat that new value at another prompt."
+#~ msgstr ""
+#~ "<b>Återställa PIN eller Återställningskoden</b>\n"
+#~ "\n"
+#~ "Om försöksräknarna för PIN och för Återställningskoden båda är nere på "
+#~ "noll, så är det endast möjligt att återställa dem om du har åtkomst till "
+#~ "Admin-PIN.\n"
+#~ "\n"
+#~ "Ett fräscht standardkort har satt Admin-PIN till värdet <i>12345678</i>. "
+#~ "Dock så kan utfärdaren av ditt kort ha initierat kortet med en annan "
+#~ "Admin-PIN och denna Admin-PIN kanske endast är känd för utfärdaren. "
+#~ "Vänligen kontrollera instruktionerna från utfärdaren.\n"
+#~ "\n"
+#~ "Om du fortsätter kommer du efterfrågas att mata in aktuellt värde av "
+#~ "<b>Admin-PIN</b> och sedan efterfrågas ett nytt värde för PIN eller "
+#~ "Återställningskod samt att upprepa detta nya värde i vid ytterligare en "
+#~ "inmatning."
+
+#~ msgid ""
+#~ "<b>Setting the Initial PIN</b> (%s)\n"
+#~ "\n"
+#~ "You selected to set the initial PIN of your card.  The PIN is currently "
+#~ "set to the NullPIN.  Setting an initial PIN is <b>required but can't be "
+#~ "reverted</b>.\n"
+#~ "\n"
+#~ "Please check the documentation of your card to learn for what the NullPIN "
+#~ "is good.\n"
+#~ "\n"
+#~ "If you proceeed you will be asked to enter a new PIN and later to repeat "
+#~ "that PIN.  Make sure that you will remember that PIN - it will not be "
+#~ "possible to recover the PIN if it has been entered wrongly more than %d "
+#~ "times.\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "<b>Sätta initial PIN</b> (%s)\n"
+#~ "\n"
+#~ "Du valde att sätta initial PIN i ditt kort.  PIN är för närvarande satt "
+#~ "till NullPIN.  Att sätta en initial PIN<b>krävs men kan inte återställas</"
+#~ "b>.\n"
+#~ "\n"
+#~ "Vänligen kontrollera dokumentationen för ditt kort för att lära dig för "
+#~ "vad du kan ha NullPIN till.\n"
+#~ "\n"
+#~ "Om du fortsätter kommer du efterfrågas att mata in en ny PIN och senare "
+#~ "även att upprepa denna PIN.  Säkerställ att du kommer att komma ihåg "
+#~ "denna PIN - Den kommer inte att kunna återställas om den har matats in "
+#~ "felaktigt mer än %d gånger.\n"
+#~ "\n"
+#~ "%s"

@@ -1,0 +1,98 @@
+.TH "gpa" "1" "" "" "User Commands"
+.nh
+.SH "NAME"
+gpa \- graphical frontend for the GNU Privacy Guard
+
+.SH "SYNOPSIS"
+.B gpa
+.RB [ "OPTION(S)" ]
+.RI [ "FILE(S)" ]
+
+.SH "DESCRIPTION"
+The GNU Privacy Assistant (GPA) is a graphical user interface for the GNU
+Privacy Guard (GnuPG).
+.PP
+\fBgpa\fP can be used to encrypt, decrypt, and sign files, to verify
+signatures and to manage the private and public keys.
+
+.SH "OPTIONS"
+.TP
+.B \-c, \-\-clipboard
+Open the clipboard.  This is the \fIdefault\fP action if no arguments are
+given and a key has already been created.
+.TP
+.B \-C, \-\-card
+Start with the card-manager open.
+.TP
+.B \-d, \-\-daemon
+Only start the UI server and no user interface.
+.TP
+.B \-\-no-remote
+Do not connect to a running instance but start a new one.  This can
+also be used to not start an UI server.
+.TP
+.B \-\-debug-edit-fsm
+Debug the Finite State Machine (FSM).
+.TP
+.B \-\-disable\-ticker
+Disable ticker used for card operations.
+.TP
+.B \-\-disable-x509
+Disable support for X.509.
+.TP
+.B \-\-enable-logging
+Enable logging on Win32 systems.
+.TP
+.B \-f, \-\-files
+Start with the file-manager open. This is the \fIdefault\fP if one or more
+\fIFILE(S)\fP are added to the command arguments.
+.TP
+.B \-k, \-\-keyring
+Start with the keyring editor. This is the \fIdefault\fP for a new
+installation.
+.TP
+.B \-o, \-\-options=\fIFILE\fP
+Read options from the specified file instead of \fI~/.gnupg/gpa.conf\fP.
+.TP
+.B \-s, \-\-settings
+Open the settings dialog.
+.TP
+.B \-v, \-\-version
+Print version information and exit.
+.TP
+.B \-\-help\-gtk
+Print options related to GTK. See also
+.BR gtk-options "(7)."
+.TP
+.B \-?, \-\-help, \-\-help\-all
+Print usage information and exit.
+
+.SH FILES
+.TP
+.I ~/.gnupg/gpa.conf
+Standard user configuration file read by \fBgpa\fP on startup.
+.TP
+.I ~/.gnupg/S.uiserver
+Socket listening for commands to the UI server.
+
+.SH "BUGS"
+Please report bugs to
+\fI\%http://bugs.gnupg.org/\fR.
+
+.SH AUTHORS
+.B gpa
+was mainly written by \fBBernhard Herzog\fP, \fBMarcus Brinkmann\fP,
+\fBMiguel Coca\fP, and \fBWerner Koch\fP.  See the \fIhelp menu\fR and
+\fI\%http://gitstats.gnupg.org/gpa/authors.html\fR for a detailed
+list.
+.PP
+This manual page was written by \fBArthur de Jong\fP <\&adejong@debian.org\&>
+and \fBDaniel Leidert\fP <\&daniel.leidert@wgdd.de\&> for the Debian GNU/Linux
+system (but may be used by others).
+
+.SH "SEE ALSO"
+.BR gpg (1),
+.BR gpg2 (1),
+.BR gpgconf (1),
+.BR gpgsm (1),
+.BR gtk-options (7)

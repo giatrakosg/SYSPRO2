@@ -1,0 +1,108 @@
+Program: GPA
+Homepage: https://gnupg.org/software/gpa/
+Download: https://gnupg.org/ftp/gcrypt/gpa/
+Maintainer: Werner Koch <wk@gnupg.org>
+Bug reports: https://bugs.gnupg.org
+Security related bug reports: <security@gnupg.org>
+License: GPLv3+
+
+
+Authors
+=======
+(Please put the names also into the file src/help.c)
+
+Markus Gerwinski <markus@gnu.de>
+        Designed GPA and GPAPA, implemented GPA.
+
+Peter Gerwinski <peter.gerwinski@g-n-u.de>
+        Implemented GPAPA; did changes everywhere in GPA.
+
+Peter Neuhaus <pneuhaus@openit.de>
+        German translation.
+
+Werner Koch <wk@gnupg.org>
+        Glued everything together, fixes here and there, W32 porting,
+        about dialog, card manager.
+
+Jan-Oliver Wagner <jan@intevation.de>
+	Polishing (toolbar, icons integration), some fixing.
+
+Beate Esser <begrafik@aol.com>
+	Icon design.
+
+Bernhard Herzog  <bh@intevation.de>
+        Revamped the whole src/ code.
+
+Shell Hung <shell@linux.org.hk>
+        Chinese translation (Big5)
+
+Peter Hanecak <hanecak@megaloman.sk>
+        Wrote gpa.spec
+
+Michael Fischer v. Mollard <mfvm@epost.de>
+        See ChangeLog.
+
+Michael Mauch <michael.mauch@gmx.de>
+        See ChangeLogs.
+
+Benedikt Wildenhain <mail@benedikt-wildenhain.de>
+        Helped to debug GPA and to make it compile under CygWin.
+
+Miguel Coca <mcoca@gnu.org>
+        Merged version 0.4.3 with 0.5.0, ported to GPGME.
+
+Renato Martini <rmartini@cipsga.org.br>
+        Brazilian translation.
+
+Yasunari Imado <master@it-translation.net>
+        Japanese translation.
+
+Michael Anckaert <xantor@linux.be>
+        Dutch translation.
+
+Mick Ohrberg <Mick.Ohrberg@umb.com>
+        Swedish Translation.
+
+Andy Ruddock <andy.ruddock@minnesund.net>
+        See ChangeLogs.
+
+Ling Li <ling@caltech.edu>
+        See ChangeLogs.
+
+Josué Burgos <jobugar@arrakis.es>
+        Designed the gpa.png icon.
+
+Can Berk Güder <cbguder@su.sabanciuniv.edu>
+        Turkish translation.
+
+Emilian Nowak <emil5@go2.pl>
+        Polish translation.
+
+Daniel Nylander <po@danielnylander.se>
+        Swedish translation.
+
+Zdenek Hatas <zdenek.hatas@gmail.com>
+        Czech translation.
+
+Maxim Britov <maxim.britov@gmail.com>
+        Russian translation.
+
+Marcus Brinkmann  <marcus@g10code.com>
+        Clipboard code, cleanups, bug fixes.
+
+
+
+Copyright and Redistribution
+============================
+
+The copyright for GPA is hold by the authors.  Check the above list
+and each source file for the details.  The file src/helpmenu.c is used
+to show the names of the author and of the major copyright holders.
+
+GPA is distributed under the GNU General Public License, version 3 or
+later.
+
+To allow easy reuse of certain parts of the code, some files are under
+a different license, for example the GNU Lesser General Public
+License.  These licenses are compatible with the GPLv3 which covers
+the entire work.
