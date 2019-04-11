@@ -2,10 +2,10 @@
 #
 
 OBJS 	= Client.o mirror_client.o Reader.o reader_client.o writer_client.o \
-Writer.o
+Writer.o pidlist.o
 SOURCE	= Client.cpp mirror_client.cpp Reader.cpp reader_client.cpp \
-writer_client.cpp Writer.cpp
-HEADER  = Client.hpp Reader.hpp Writer.hpp
+writer_client.cpp Writer.cpp pidlist.cpp
+HEADER  = Client.hpp Reader.hpp Writer.hpp pidlist.hpp
 OUT  	= mirror_client reader_client writer_client
 CC	= g++
 FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers -lcrypto
@@ -14,8 +14,8 @@ FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers -
 
 
 # create/compile the individual files >>separately<<
-mirror_client : mirror_client.o Client.o
-	$(CC) mirror_client.o Client.o -o mirror_client -lcrypto
+mirror_client : mirror_client.o Client.o pidlist.o
+	$(CC) mirror_client.o Client.o pidlist.o -o mirror_client -lcrypto
 reader_client : reader_client.o Reader.o
 	$(CC) reader_client.o Reader.o -o reader_client -lcrypto
 mirror_client.o : mirror_client.cpp
@@ -32,7 +32,8 @@ Writer.o : Writer.cpp
 	$(CC) $(FLAGS) Writer.cpp
 writer_client.o : writer_client.cpp
 	$(CC) $(FLAGS) writer_client.cpp
-
+pidlist.o : pidlist.cpp
+	$(CC) $(FLAGS) pidlist.cpp
 # clean house
 all : mirror_client reader_client writer_client
 clean:
