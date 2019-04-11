@@ -139,7 +139,7 @@ int Client::parseArgs(void) {
         mkdir(mirror_dir,0755);
     }
     // Create log file if it doesnt exit and open
-    log = fopen(log_file,"a+");
+    log = fopen(log_file,"w+");
     if (log == NULL) {
         perror("fopen");
         return -1 ;
@@ -189,32 +189,7 @@ int Client::detectNewID(void) {
     struct dirent *ind;
     char newContents[SEEN_BUFFER][FILE_NAME];
     rewinddir(c_dir);
-    /*
-    while ((ind = readdir(c_dir)) != NULL) {
-        char *item = (char *)bsearch(ind->d_name,seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
-        if (item != NULL) {
-            continue ;
-            fprintf(stderr, "Error : %s id already exists\n",id_s );
-            return -1 ;
-        } else  {
-            if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0) ||
-                (strstr(ind->d_name,".fifo") != NULL)) {
-                continue ;
-            }
-            flock(fileno(log),LOCK_EX);
-            fprintf(log, "detected %s\n",ind->d_name );
-            flock(fileno(log),LOCK_UN);
 
-            strcpy(seen[last_seen],ind->d_name);
-            last_seen++;
-            qsort(seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
-            int to = getIDfromString(ind->d_name);
-            createReaderProcess(to);
-            createWriterProcess(to);
-
-        }
-    }
-    */
     // We cycle through the directory and save all contents on a sorted array
     int i = 0 ;
     while ((ind = readdir(c_dir)) != NULL) {
@@ -222,7 +197,6 @@ int Client::detectNewID(void) {
             (strstr(ind->d_name,".fifo") != NULL)) {
             continue ;
         }
-        //printf("%s\n",ind->d_name );
         strcpy(newContents[i],ind->d_name);
         i++;
     }
@@ -234,7 +208,7 @@ int Client::detectNewID(void) {
             continue ;
         } else  {
             flock(fileno(log),LOCK_EX);
-            fprintf(stdout, "detected %s\n",newContents[j] );
+            fprintf(log, "detected %s\n",newContents[j] );
             flock(fileno(log),LOCK_UN);
             int to = getIDfromString(newContents[j]);
             createReaderProcess(to);
@@ -246,9 +220,13 @@ int Client::detectNewID(void) {
     for (int j = 0; j < last_seen; j++) {
         char *item = (char *)bsearch(seen[j],newContents,i,FILE_NAME,myStrCmp);
         if (item == NULL) {
-            fprintf(stdout, "Deleted %s\n",seen[j] );
+            flock(fileno(log),LOCK_EX);
+            fprintf(log, "Deleted %s\n",seen[j] );
+            flock(fileno(log),LOCK_UN);
+
             int id = getIDfromString(seen[j]);
             char cmd[256] ;
+            // Delete the deleted clients dir from mirror dir
             sprintf(cmd,"rm -r %s/%d",mirror_dir,id);
             system(cmd);
         }

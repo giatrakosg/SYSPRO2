@@ -4,14 +4,11 @@
 #define SLEEP_PERIOD 3
 
 bool runFlag ;
-Client *cli ;
 
 void sigstop_handler(int signum) {
     signal(SIGINT,sigstop_handler);
     signal(SIGQUIT,sigstop_handler);
     runFlag = false ;
-    delete cli ;
-    exit(0);
 }
 void sigusr_handler(int signum){
     signal(SIGUSR1,sigusr_handler);
@@ -19,13 +16,12 @@ void sigusr_handler(int signum){
 
 
 int main(int argc, char *argv[]) {
+    Client *cli = new Client ;
     runFlag = true ;
 
     signal(SIGQUIT,sigstop_handler);
     signal(SIGINT,sigstop_handler);
     signal(SIGUSR1,sigusr_handler);
-
-    cli = new Client;
     cli->getArgs(argc,argv);
     //cli->printArgs();
     int err = cli->parseArgs();
