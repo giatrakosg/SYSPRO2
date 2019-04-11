@@ -11,7 +11,7 @@ void sigalrm_handler(int signum) {
 int main(int argc, char *argv[]) {
     //printf("Created reader proc \n");
     signal(SIGALRM,sigalrm_handler);
-    alarm(2);
+    alarm(30);
     if (argc < 5) {
         fprintf(stderr, "Not enough arguments \n");
         return -1 ;

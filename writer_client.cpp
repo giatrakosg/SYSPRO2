@@ -5,7 +5,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Incorrect number of parameters\n");
         return -1 ;
     }
-    sleep(10);
     int buff = atoi(argv[1]);
     int fromID = atoi(argv[2]);
     int toID = atoi(argv[3]);

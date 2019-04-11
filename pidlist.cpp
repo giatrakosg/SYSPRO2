@@ -10,8 +10,8 @@
 
 
 pidlist::pidlist() : first(NULL) , last(NULL) {}
-int pidlist::add(int id ,pid_t rd,pid_t wr) {
-    struct pidentry *m = new pidentry(id,rd,wr);
+int pidlist::add(int id ,pid_t rd,pid_t wr,int retries) {
+    struct pidentry *m = new pidentry(id,rd,wr,retries);
     if (first == NULL) {
         first = m;
         last = first ;
@@ -84,6 +84,16 @@ int pidlist::remove(int rid) {
         delete ind ;
     }
     return 0 ;
+}
+struct pidentry * pidlist::find(pid_t rpid) {
+    struct pidentry *ind = first;
+    while (ind != NULL) {
+        if((ind->reader == rpid) || (ind->writer == rpid)) {
+            return ind ;
+        }
+        ind = ind->next ;
+    }
+    return NULL ;
 }
 
 int pidlist::free(void) {

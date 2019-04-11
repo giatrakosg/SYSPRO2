@@ -211,7 +211,7 @@ int Client::detectNewID(void) {
             fprintf(log, "detected %s\n",newContents[j] );
             flock(fileno(log),LOCK_UN);
             int to = getIDfromString(newContents[j]);
-            createProcesses(to);
+            createProcesses(to,0);
         }
     }
 
@@ -238,10 +238,10 @@ int Client::detectNewID(void) {
     return 0 ;
 
 }
-int Client::createProcesses(int to) {
+int Client::createProcesses(int to,int retries) {
     pid_t rdpid = createReaderProcess(to);
     pid_t wrpid = createWriterProcess(to);
-    list.add(to,rdpid,wrpid);
+    list.add(to,rdpid,wrpid,retries);
     // We add the 2 pids with it id to the list
 }
 // Calls waitpid to all the procesess in pidlist
@@ -251,9 +251,26 @@ int Client::checkProcesses(void) {
 }
 int Client::restartProcesses(void) {
     if (failpid == -1) {
-        return -1; 
+        return -1;
     }
     printf("Restart proc %ld\n",(long) failpid );
+    struct pidentry *m = list.find(failpid);
+    if (m == NULL) {
+        fprintf(stderr, "Error : pid not found ");
+        return -1 ;
+    }
+    if (m->retries == 3) {
+        fprintf(stderr, "Error : pid already retried 3 times ");
+        return -1 ;
+    }
+    kill(m->writer,SIGKILL);
+    kill(m->reader,SIGKILL);
+    int retries = m->retries ;
+    retries++;
+    int rid = m->id ;
+    list.remove(rid);
+    createProcesses(rid,retries);
+
 }
 pid_t Client::createReaderProcess(int to) {
     char toID[5] = {0};

@@ -21,9 +21,11 @@ struct pidentry {
     bool reader_done ;
     bool writer_done ;
     struct pidentry *next ;
-    pidentry(int id,pid_t reader,pid_t writer) :
+    int retries ;
+    pidentry(int id,pid_t reader,pid_t writer,int retries) :
     id(id) , reader(reader) , writer(writer) ,
-    next(NULL) , reader_done(false) , writer_done(false){}
+    next(NULL) , reader_done(false) , writer_done(false) ,
+    retries(retries){}
     int free(void) ;
 };
 
@@ -33,8 +35,9 @@ private:
     struct pidentry *last ;
 public:
     pidlist();
-    int add(int ,pid_t ,pid_t );
+    int add(int ,pid_t ,pid_t ,int );
     int remove(int ); // Removes the entry with id from list
+    struct pidentry *find(pid_t ); // Return ptr to entry with that id
     int free(void);
     ~pidlist();
 protected:

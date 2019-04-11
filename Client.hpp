@@ -60,7 +60,7 @@ private:
     int last_seen ;
     pid_t createReaderProcess(int ); // To id
     pid_t createWriterProcess(int );
-    int createProcesses(int );
+    int createProcesses(int ,int );
     int getIDfromString(char *);
 
 public:
