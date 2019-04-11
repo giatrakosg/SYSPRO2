@@ -7,15 +7,12 @@
 //
 
 #include "Client.hpp"
-
-int myStrCmp(const void *p1,const void *p2) {
-    char *s1 = (char *)p1 ;
-    char *s2 = (char *)p2 ;
-    if ((s1 == NULL) || (s2 == NULL)) {
-        return -1 ;
+// Taken from http://www.anyexample.com/programming/c/qsort__sorting_array_of_strings__integers_and_structs.xml
+int myStrCmp(const void *str1,const void *str2) {
+    if ((str1 == NULL) || (str2 == NULL)) {
+        printf("NULL string \n");
     }
-    return strcmp(s1,s2);
-
+    return strcmp((char *)str1, (char *)str2);
 }
 
 int Client::getIDfromString(char *string) {
@@ -190,7 +187,9 @@ int Client::writeID(void) {
 
 int Client::detectNewID(void) {
     struct dirent *ind;
+    char newContents[SEEN_BUFFER][FILE_NAME];
     rewinddir(c_dir);
+    /*
     while ((ind = readdir(c_dir)) != NULL) {
         char *item = (char *)bsearch(ind->d_name,seen,SEEN_BUFFER,sizeof(char *),myStrCmp);
         if (item != NULL) {
@@ -215,7 +214,51 @@ int Client::detectNewID(void) {
 
         }
     }
+    */
+    // We cycle through the directory and save all contents on a sorted array
+    int i = 0 ;
+    while ((ind = readdir(c_dir)) != NULL) {
+        if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0) ||
+            (strstr(ind->d_name,".fifo") != NULL)) {
+            continue ;
+        }
+        //printf("%s\n",ind->d_name );
+        strcpy(newContents[i],ind->d_name);
+        i++;
+    }
+    qsort(newContents,i,FILE_NAME,myStrCmp);
 
+    for (int j = 0; j < i; j++) {
+        char *item = (char *)bsearch(newContents[j],seen,last_seen,FILE_NAME,myStrCmp);
+        if (item != NULL) {
+            continue ;
+        } else  {
+            flock(fileno(log),LOCK_EX);
+            fprintf(stdout, "detected %s\n",newContents[j] );
+            flock(fileno(log),LOCK_UN);
+            int to = getIDfromString(newContents[j]);
+            createReaderProcess(to);
+            createWriterProcess(to);
+
+        }
+    }
+
+    for (int j = 0; j < last_seen; j++) {
+        char *item = (char *)bsearch(seen[j],newContents,i,FILE_NAME,myStrCmp);
+        if (item == NULL) {
+            fprintf(stdout, "Deleted %s\n",seen[j] );
+            int id = getIDfromString(seen[j]);
+            char cmd[256] ;
+            sprintf(cmd,"rm -r %s/%d",mirror_dir,id);
+            system(cmd);
+        }
+    }
+
+
+    for (int j = 0; j < i; j++) {
+        strcpy(seen[j],newContents[j]);
+    }
+    last_seen = i ;
     return 0 ;
 
 }
@@ -262,7 +305,7 @@ Client::~Client() {
     closedir(c_dir);
     closedir(m_dir);
     char cmd[1024] ;
-    sprintf(cmd,"rm -r %s*",mirror_dir);
+    sprintf(cmd,"rm -r %s/*",mirror_dir);
     system(cmd);
     perror("syscall");
     fclose(log);

@@ -31,7 +31,7 @@
 
 
 #define SEEN_BUFFER 256
-#define FILE_NAME 256
+#define FILE_NAME 512
 class Client {
 private:
     int id ;   // Int representation of id
