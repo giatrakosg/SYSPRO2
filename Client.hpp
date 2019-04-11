@@ -21,18 +21,25 @@
 #include <wait.h>
 #include <unistd.h>
 #include <sys/file.h>
-#include <gpgme.h>
+
+#include <openssl/rand.h>
+#include <openssl/rsa.h>
+#include <openssl/engine.h>
+#include <openssl/pem.h>
+#include <openssl/bio.h>
+#include <openssl/bn.h>
+
 
 #define SEEN_BUFFER 256
 #define FILE_NAME 256
 class Client {
 private:
     int id ;   // Int representation of id
-    char* id_s ; // String with id
+    char *id_s ; // String with id
     char *common_dir ;
     char *input_dir ;
     char *mirror_dir ;
-    int buff_size ;
+    int   buff_size ;
     char *log_file ;
 
     DIR* c_dir ; // Pointer to common directory

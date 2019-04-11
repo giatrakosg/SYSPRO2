@@ -8,17 +8,16 @@ writer_client.cpp Writer.cpp
 HEADER  = Client.hpp Reader.hpp Writer.hpp
 OUT  	= mirror_client reader_client writer_client
 CC	= g++
-FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers \
-`gpgme-config --cflags`
+FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers -lcrypto
 # -g option enables debugging mode
 # -c flag generates object code for separate files
 
 
 # create/compile the individual files >>separately<<
 mirror_client : mirror_client.o Client.o
-	$(CC) mirror_client.o Client.o -o mirror_client `gpgme-config --libs`
+	$(CC) mirror_client.o Client.o -o mirror_client -lcrypto
 reader_client : reader_client.o Reader.o
-	$(CC) reader_client.o Reader.o -o reader_client `gpgme-config --libs`
+	$(CC) reader_client.o Reader.o -o reader_client -lcrypto
 mirror_client.o : mirror_client.cpp
 	$(CC) $(FLAGS) mirror_client.cpp
 Client.o : Client.cpp
@@ -28,7 +27,7 @@ reader_client.o : reader_client.cpp
 Reader.o : Reader.cpp
 	$(CC) $(FLAGS) Reader.cpp
 writer_client: writer_client.o Writer.o
-	$(CC) writer_client.o Writer.o -o writer_client `gpgme-config --libs`
+	$(CC) writer_client.o Writer.o -o writer_client -lcrypto
 Writer.o : Writer.cpp
 	$(CC) $(FLAGS) Writer.cpp
 writer_client.o : writer_client.cpp
