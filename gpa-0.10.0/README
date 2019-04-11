@@ -1,0 +1,75 @@
+        ******************************************************
+              Welcome to GPA, the GNU Privacy Assistant!
+                            Version 0.10
+        ******************************************************
+
+GPA is a graphical frontend for the GNU Privacy Guard (GnuPG,
+https://gnupg.org). GPA can be used to encrypt, decrypt, and sign
+files, to verify signatures and to manage the private and public keys.
+
+Copyright (C) 2000-2002 G-N-U GmbH (http://www.g-n-u.de)
+Copyright (C) 2002-2004 Miguel Coca.
+Copyright (C) 2005-2016 g10 Code GmbH
+
+GPA uses fragments from the following programs and libraries:
+JNLIB, Copyright (C) 1998-2000 Free Software Foundation, Inc.
+GPGME, Copyright (C) 2000-2001 Werner Koch
+WinPT, Copyright (C) 2000-2002 Timo Schulz
+(For details, see the file `AUTHORS'.)
+
+The gnupg-devel mailing list is also ysed for the development of GPA.  See
+https://gnupg.org/software/gpa/ for more information.
+
+  GPA is free software; you can redistribute it and/or modify it
+  under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+
+  GPA is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, see <http://www.gnu.org/licenses/>.
+
+
+Installation under a Unix like operating system
+===============================================
+
+You need development versins of the GTK+ and GPGME libraries.
+See the file INSTALL for installation details; in short:
+
+    ./configure
+    make
+    make install
+
+The configure scripts check whether all required libraries are
+installed and that they are recent enough.  In order to do anything
+useful with GPA you also need the GNU Privacy Guard (GnuPG) version 2
+installed - see https://gnupg.org.
+
+
+Installation under MS-Windows
+=============================
+
+Instead of building GPA by yourself, you probably want to download
+the ready-to-use installer from https://www.gpg4win.org, the light
+installer is sufficient, don't you? ;-)
+
+If you want to do it your self, you need to have the Windows
+development version of all libraries already installed on your box.
+GPA may only be build using a cross compiler.  It is best to install
+all windows stuff under a tree like ~/w32root with the usual bin, lib
+and include directories.  If you did this you merely need to run
+
+  ./autogen.sh --build-w32
+  make
+  make install
+
+The autogen.sh script invoked this way calls configure with all
+required arguments.  Check the script to see how to adjust to your own
+environment.
+
+
+Have fun!

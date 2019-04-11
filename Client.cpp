@@ -33,7 +33,32 @@ int Client::getIDfromString(char *string) {
     return retID;
 }
 
-Client::Client():last_seen(0){}
+Client::Client():last_seen(0){
+
+    /*
+    int keylen ;
+    char *pem_key ;
+    unsigned char buffer[32];
+    int written = RAND_bytes(buffer, sizeof(buffer));
+
+    RAND_seed(buffer, written);
+    RSA *key = RSA_new();
+    BIGNUM *bn = BN_new();
+    RSA_generate_key_ex(key, 2048, bn,NULL);
+    BIO *bio = BIO_new(BIO_s_mem());
+    PEM_write_bio_RSAPrivateKey(bio, key, NULL, NULL, 0, NULL, NULL);
+
+    keylen = BIO_pending(bio);
+    pem_key =(char *) calloc(keylen+1, 1);
+    BIO_read(bio, pem_key, keylen);
+
+    printf("%s", pem_key);
+    BIO_free_all(bio);
+    RSA_free(key);
+    free(pem_key);
+    */
+
+}
 void Client::getArgs(int argc,char **argv) {
     // Parse cmd line parameters using getopts
     // Modified example found at :

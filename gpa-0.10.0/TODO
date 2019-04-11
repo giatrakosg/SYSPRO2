@@ -1,0 +1,153 @@
+-*- org -*-
+
+In no particular order:
+
+* Improve support for smartcard
+** display status during smartcard access, since it often takes longer
+   than a second (idea: simply disable refresh button?)
+** display messages "please attach reader" in case no smartcard reader is attached
+** generate-new-key-pair button if card contains no key.
+** check if cardman releases the smartcard (reader) as it should. maybe we have
+   to destroy the cardman instance instead of simply hiding it.
+** button for automatic retrieval of key through url field?
+
+* Redo the key generation wizard stuff, as it is one ugly hack on top of
+  another at this point.
+** It should also print a progress indicator as the expert mode does.
+
+* Dialogs should check user input and react to it.
+** Don't allow the user to go on unless the input makes sense (particularly
+   for the advanced key generation dialog and the import dialog).
+** Select options automatically if it's clearly what the user intends
+   For example, if a filename is written in the export dialog, obviously the
+   user intends to export to a file. We should either check the "export to
+   file" radio button automatically, or disable the file entry unless it's
+   checked.
+
+* The file decrypt operation should also show signatures, if available.
+** Problem: If we do a file-based operation and the file list contains
+   mixed files like detached signatures and inline decrypted files,
+   should a Decrypt/Verify operation should do its best to do the
+   right thing for each file?
+
+* Add more options to the "Edit key" dialog.
+** Manage UID's.
+** Manage subkeys.
+
+* Check which options should be available from the toolbar. Draw new icons if
+  needed.
+
+* Documentation!
+
+* Support a "File Status" (encrypted, signed, etc..) column in the
+  filemanager, if GPGME allows it.
+
+* [W32] Clipboard encryption
+
+* Support drag and drop in the file manager
+
+* There is no way to refresh selected keys from the keyserver.
+  We might also want to have a scheduled refresh mode.  But that might
+  be better implemented in gpg.
+
+* Cardman
+
+** We don't care about duplicate keys
+   In particular with X.509 it is common to use the same key (keygrip)
+   with several certificates.  GpaKeyDetails can't cope with that but
+   uses the first key found.
+
+
+* MB:
+** Support getting plaintext from verify operation (should emit "created file"
+   then).  Done for clipboard.  Also needed for normal file ops and server.
+
+** Convert the windows registry strings for the home dir to the glib filename
+   encoding, or rather to utf8 and from there to the glib filename encoding.
+   Use the wide character interfaces for that.
+** We need to make sure the server code works with the socket path containing
+   non-7bit ASCII characters under Windows!
+** We also need to make sure that under Unix with filename encoding being
+   different from UTF-8, everything works as expected.  All displayed
+   filenames should be converted with g_filename_to_utf8!
+** Support receiving keys from keyservers for unknown certificates, by
+   right click in "Signatures" tab of keyring manager and for all unknown
+   keys in that list at once.
+** Make signer selection list a bit larger than one row.
+** Change gpa_window_error to use gtk_label_set_line_wrap and remove
+   all those newlines. 
+** The sign, encrypt dialog and progress bar is not centered over the
+   parent.  Maybe it is realized too early due to init vs constructor?
+   It does get the right parent window parameter (checked that).
+** Use GtkActionGroups instead of manual GLists for update sensitivity and stuff.
+** Not all users know about ctrl+click to select multiple items from a list.
+   Use check boxes, or add instructions, or otherwise make this
+   easier.
+
+   - Or print a hint in the status bar the first time something is
+     selected.  Such hints helped me a lot to get acquainted with JOSM [wk].
+
+** The keyserver setting should remember the strings entered by the user.
+** In the expiration widget, the expire after and the calender widgets should
+   be synchronized.
+** When doing signing etc operations, gpa keylist should filter out expired
+   and otherwise unusable keys.  When an operation fails (due to bad
+   key, for example), GPA creates a signature of zero bytes and shows
+   a window with a hung progress bar and a greyed cancel button that
+   is not sensitive.
+** When a file in the file manager is deleted, and one tries to encrypt it,
+   GPA gives an untranslated error (mingw C lib syserr) and then shows
+   an empty window with just a close button (Urgs!).
+** A right mouse click on the keylist in the keyring editor while
+   the pop up menu is shown makes the popup menu vanish, but does not
+   pop up the new menu for the key that should now be current but is not.
+** The config file parser truly sucks.  It has buffer overflows and corrupts
+   broken config files even more (for example, a single line
+   "keyserver" will cause the next word to move to the keyserver
+   line).
+** Make the build clean with the flags:
+   -DG_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED
+   -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED
+   -DGDK_MULTIHEAD_SAFE -DGTK_MULTIHEAD_SAFE
+   This is mostly done, except for multi-head safeness and gtk marshalling.
+** multi-file operations and errors
+   When doing multi-file verify/decrypt, we may ignore more errors as
+   to make more progress.  This seems more useful than the current
+   behavior.
+
+** FileChooser Dialog with pseudo-random window size
+   When clicking "import" in the keyring manager, the FileChooser pops
+   up in a tiny window most of the time -- sometimes the window size is just right.
+   (It seems this bug is fixed in Upstream and will hopefully find it's way into
+   distributions)
+** keyring manager window changes it's size in a counter-intuitive way
+   After startup the keyring manager is displayed in a rather compact
+   window. When selecting a key, the window increases it's size --
+   sometimes dramatically! It's not obvious why the window needs to be
+   that big. Note: the "detailed view" mode is not enabled.
+** Window Icon not used
+   It seems, GPA windows have no icon set. Besides: GTK+ has a rather
+   nice key icon in it's stock: GTK_STOCK_AUTHENTICATION_DIALOG. Using
+   that would probably look more natural in a GNOME environment.
+* GUI
+** Use a fixed-size font
+   We should use a fixed-size font at certain places (e.g. display of fingerprints)
+
+** Resizing of widgets
+   In the cardmanager: when activating the expander for a key
+   fingerprint, the key details widget appers. But that widget's width
+   is bounded by the width of the expander's label (the
+   fingerprint). I think the expander's width should be allowed to
+   grow in case there's unused space to the right of the expander widget.
+
+** Keygenwizard
+   Immediately show an error description if the entered values does
+   not pass the validation function.
+
+
+* Building
+
+* Bugs
+** Error messages while switching simplified mode.
+  This happens with the gpa-details-view and might be related to
+  siglist.c
