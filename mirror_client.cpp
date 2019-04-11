@@ -2,9 +2,9 @@
 #include "Client.hpp"
 #include <signal.h>
 #define SLEEP_PERIOD 3
-
 bool runFlag ;
 pid_t failpid ;
+
 void sigstop_handler(int signum,siginfo_t *si,void *data) {
     printf("Signal %d from pid %lu\n", (int)si->si_signo,
        (unsigned long)si->si_pid);
@@ -13,10 +13,12 @@ void sigstop_handler(int signum,siginfo_t *si,void *data) {
 void sigusr_handler(int signum,siginfo_t *si,void *data){
     printf("Signal %d from pid %lu\n", (int)si->si_signo,
        (unsigned long)si->si_pid);
+       failpid = si->si_pid ;
 }
 
 
 int main(int argc, char *argv[]) {
+    failpid = -1 ;
     struct sigaction usr_act ;
     struct sigaction sigint_act ;
     struct sigaction sigstop_act ;
@@ -67,6 +69,7 @@ int main(int argc, char *argv[]) {
         sleep(SLEEP_PERIOD);
         cli->detectNewID();
         cli->checkProcesses();
+        cli->restartProcesses();
     }
 
     delete cli ;

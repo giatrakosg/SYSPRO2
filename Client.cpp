@@ -249,6 +249,12 @@ int Client::createProcesses(int to) {
 int Client::checkProcesses(void) {
     list.free();
 }
+int Client::restartProcesses(void) {
+    if (failpid == -1) {
+        return -1; 
+    }
+    printf("Restart proc %ld\n",(long) failpid );
+}
 pid_t Client::createReaderProcess(int to) {
     char toID[5] = {0};
     sprintf(toID,"%d",to);

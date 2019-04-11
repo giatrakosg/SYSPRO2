@@ -34,6 +34,10 @@
 
 #define SEEN_BUFFER 256
 #define FILE_NAME 512
+
+extern bool runFlag ;
+extern pid_t failpid ;
+
 class Client {
 private:
     int id ;   // Int representation of id
@@ -67,6 +71,7 @@ public:
     int writeID(void); // Writes file with id in common dir
     int detectNewID(void); // Scans the common dir for new id
     int checkProcesses(void);
+    int restartProcesses(void);
     // and places it in the ids array
     ~Client();
 protected:
