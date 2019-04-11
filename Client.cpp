@@ -211,9 +211,7 @@ int Client::detectNewID(void) {
             fprintf(log, "detected %s\n",newContents[j] );
             flock(fileno(log),LOCK_UN);
             int to = getIDfromString(newContents[j]);
-            createReaderProcess(to);
-            createWriterProcess(to);
-
+            createProcesses(to);
         }
     }
 
@@ -240,7 +238,18 @@ int Client::detectNewID(void) {
     return 0 ;
 
 }
-int Client::createReaderProcess(int to) {
+int Client::createProcesses(int to) {
+    pid_t rdpid = createReaderProcess(to);
+    pid_t wrpid = createWriterProcess(to);
+    list.add(to,rdpid,wrpid);
+    // We add the 2 pids with it id to the list
+}
+// Calls waitpid to all the procesess in pidlist
+// Thus freeing them
+int Client::checkProcesses(void) {
+    list.free();
+}
+pid_t Client::createReaderProcess(int to) {
     char toID[5] = {0};
     sprintf(toID,"%d",to);
     char fromID[5] = {0};
@@ -254,9 +263,9 @@ int Client::createReaderProcess(int to) {
         perror("exec");
         return -1 ;
     }
-    return 0 ;
+    return child ;
 }
-int Client::createWriterProcess(int to) {
+pid_t Client::createWriterProcess(int to) {
     char toID[5] = {0};
     sprintf(toID,"%d",to);
     char fromID[5] = {0};
@@ -270,12 +279,7 @@ int Client::createWriterProcess(int to) {
         perror("exec");
         return -1 ;
     }
-    int status ;
-    waitpid(child,&status,0);
-    if (status == 0) {
-        fprintf(stdout, "Client %d : success child %ld \n",id,(long)child );
-    }
-    return 0 ;
+    return child ;
 }
 Client::~Client() {
     std::cout <<  "Deleting Client Object " << std::endl ;

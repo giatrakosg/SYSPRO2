@@ -2,6 +2,7 @@
 #include <iostream>
 
 void sigalrm_handler(int signum) {
+    printf("Received alarm %d\n",signum );
     signal(SIGALRM,sigalrm_handler);
     kill(getppid(),SIGUSR1);
     exit(-1);
@@ -10,6 +11,7 @@ void sigalrm_handler(int signum) {
 int main(int argc, char *argv[]) {
     //printf("Created reader proc \n");
     signal(SIGALRM,sigalrm_handler);
+    //alarm(2);
     if (argc < 5) {
         fprintf(stderr, "Not enough arguments \n");
         return -1 ;

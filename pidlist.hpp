@@ -18,9 +18,13 @@ struct pidentry {
     int id ;
     pid_t reader ;
     pid_t writer ;
+    bool reader_done ;
+    bool writer_done ;
     struct pidentry *next ;
     pidentry(int id,pid_t reader,pid_t writer) :
-    id(id) , reader(reader) , writer(writer){}
+    id(id) , reader(reader) , writer(writer) ,
+    next(NULL) , reader_done(false) , writer_done(false){}
+    int free(void) ;
 };
 
 class pidlist {
@@ -30,6 +34,8 @@ private:
 public:
     pidlist();
     int add(int ,pid_t ,pid_t );
+    int remove(int ); // Removes the entry with id from list
+    int free(void);
     ~pidlist();
 protected:
 

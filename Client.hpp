@@ -9,6 +9,8 @@
 #ifndef Client_hpp
 #define Client_hpp
 
+#include "pidlist.hpp"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -49,10 +51,12 @@ private:
     FILE* f_id ; // Pointer to file id
     char* id_fn ; // Filename of id
 
+    pidlist list ;
     char seen[SEEN_BUFFER][FILE_NAME] ; // Strings of files we have already seen
     int last_seen ;
-    int createReaderProcess(int ); // To id
-    int createWriterProcess(int );
+    pid_t createReaderProcess(int ); // To id
+    pid_t createWriterProcess(int );
+    int createProcesses(int );
     int getIDfromString(char *);
 
 public:
@@ -62,6 +66,7 @@ public:
     int parseArgs(void) ; // Initiliazes values
     int writeID(void); // Writes file with id in common dir
     int detectNewID(void); // Scans the common dir for new id
+    int checkProcesses(void);
     // and places it in the ids array
     ~Client();
 protected:

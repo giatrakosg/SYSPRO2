@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
     while (runFlag == true) {
         sleep(SLEEP_PERIOD);
         cli->detectNewID();
+        cli->checkProcesses();
     }
 
     delete cli ;
