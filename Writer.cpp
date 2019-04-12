@@ -10,7 +10,7 @@
 // We remove everything before the 1st /
 
 
-
+// Allocate memory for the strings .Open the dirs/files(to append mode)
 Writer::Writer(int buff,int from,int to,char *inpDir,char *cDir,char *logfile) : buff(buff) ,
 from(from) , to(to) {
     inp_dir = new char[strlen(inpDir) + 1];
@@ -23,6 +23,7 @@ from(from) , to(to) {
     idirPtr = opendir(inp_dir);
 
 }
+// Connect to the fifo , if it doesnt exist creates it
 int Writer::connect(void) {
     char fifo_file[256] ;
     sprintf(fifo_file,"%s/%d_to_%d.fifo",common_dir,from,to);
@@ -38,6 +39,8 @@ int Writer::sendFile(char *dir,char *name) {
     char *strippedpath = strtok(dir2,"/");
     strippedpath = strtok(NULL,"");
 
+    // We differentiate between the relative path and what we want to send
+    // When we send the name of the file we remove the input dir
     char inpath[512] ;
     sprintf(inpath,"%s/%s",dir,name);
     struct stat st;
@@ -77,6 +80,7 @@ int Writer::sendFile(char *dir,char *name) {
     //fprintf(logF, "Dir %s . Name %s \n",strippedpath,name );
     return 0 ;
 }
+// Recursively goes through directories in inp_dir 
 int Writer::sendFilesInDir(char *dirpath) {
 
     DIR * dir = opendir(dirpath);
@@ -117,25 +121,6 @@ int Writer::sendFilesInDir(char *dirpath) {
 }
 int Writer::sendFiles(void) {
     sendFilesInDir(inp_dir);
-    /*
-    struct dirent *ind ;
-    while ((ind = readdir(idirPtr)) != NULL) {
-        char path[512];
-        sprintf(path,"%s/%s",inp_dir,ind->d_name);
-        // We check if it is a dir or a regular file
-        // This code snippet was taken from
-        // https://stackoverflow.com/questions/4553012/checking-if-a-file-is-a-directory-or-just-a-file
-        struct stat path_stat;
-        stat(path, &path_stat);
-        if(!S_ISREG(path_stat.st_mode)) {
-            if ((strcmp(ind->d_name,".") == 0) || (strcmp(ind->d_name,"..") == 0)) {
-                continue ;
-            }
-            fprintf(logF,"Dir : %s\n",path );
-            sendFilesInDir(path);
-        }
-    }
-    */
     short end = 0 ;
     write(pipeD,&end,2);
 
@@ -150,4 +135,5 @@ Writer::~Writer() {
     closedir(idirPtr);
     delete common_dir ;
     delete inp_dir ;
+    delete log_file ;
 }
