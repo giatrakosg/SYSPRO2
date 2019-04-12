@@ -23,9 +23,8 @@ struct pidentry {
     struct pidentry *next ;
     int retries ;
     pidentry(int id,pid_t reader,pid_t writer,int retries) :
-    id(id) , reader(reader) , writer(writer) ,
-    next(NULL) , reader_done(false) , writer_done(false) ,
-    retries(retries){}
+    id(id) , reader(reader) , writer(writer)  , reader_done(false) , writer_done(false) ,
+    next(NULL) , retries(retries){}
     int free(void) ;
 };
 

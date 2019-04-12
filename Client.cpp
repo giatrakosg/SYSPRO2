@@ -30,32 +30,8 @@ int Client::getIDfromString(char *string) {
     return retID;
 }
 
-Client::Client():last_seen(0){
-
-    /*
-    int keylen ;
-    char *pem_key ;
-    unsigned char buffer[32];
-    int written = RAND_bytes(buffer, sizeof(buffer));
-
-    RAND_seed(buffer, written);
-    RSA *key = RSA_new();
-    BIGNUM *bn = BN_new();
-    RSA_generate_key_ex(key, 2048, bn,NULL);
-    BIO *bio = BIO_new(BIO_s_mem());
-    PEM_write_bio_RSAPrivateKey(bio, key, NULL, NULL, 0, NULL, NULL);
-
-    keylen = BIO_pending(bio);
-    pem_key =(char *) calloc(keylen+1, 1);
-    BIO_read(bio, pem_key, keylen);
-
-    printf("%s", pem_key);
-    BIO_free_all(bio);
-    RSA_free(key);
-    free(pem_key);
-    */
-
-}
+Client::Client():last_seen(0){}
+// Parses arguments given in cmd line and sets variables
 void Client::getArgs(int argc,char **argv) {
     // Parse cmd line parameters using getopts
     // Modified example found at :
@@ -118,6 +94,7 @@ void Client::getArgs(int argc,char **argv) {
         }
     }
 }
+// Open the files / directories and do parameter checking
 int Client::parseArgs(void) {
     // Check if the common dir exists and create it if it doesnt
     struct  stat cs = {0};
@@ -159,6 +136,7 @@ void Client::printArgs(void) {
     << "LOG_F : " << log_file << std::endl ;
 }
 
+// Creates the .id file and writes the process id
 int Client::writeID(void) {
     struct dirent *ind ;
     // We cycle through contents of c_dir for file with same id as this
@@ -178,13 +156,15 @@ int Client::writeID(void) {
     long ppid = (long) getpid() ;
     fprintf(f_id, "%ld",ppid);
     fclose(f_id);
+    // We lock the log file to write that we created a client
     flock(fileno(log),LOCK_EX);
     fprintf(log, "client %d\n",id );
     flock(fileno(log),LOCK_UN);
     return 0 ;
 
 }
-
+// Function that cycles through contents of common dir and compares it to the
+// previous instance .Updates the copy stored at seen .
 int Client::detectNewID(void) {
     struct dirent *ind;
     char newContents[SEEN_BUFFER][FILE_NAME];
@@ -200,13 +180,16 @@ int Client::detectNewID(void) {
         strcpy(newContents[i],ind->d_name);
         i++;
     }
+    // Sort the array using qsort for bsearching later
     qsort(newContents,i,FILE_NAME,myStrCmp);
 
+    // Check if any new .id files have apeared in the common dir
     for (int j = 0; j < i; j++) {
         char *item = (char *)bsearch(newContents[j],seen,last_seen,FILE_NAME,myStrCmp);
         if (item != NULL) {
             continue ;
         } else  {
+            // A new id was detected .Write it to log and spawn the processes
             flock(fileno(log),LOCK_EX);
             fprintf(log, "detected %s\n",newContents[j] );
             flock(fileno(log),LOCK_UN);
@@ -214,7 +197,8 @@ int Client::detectNewID(void) {
             createProcesses(to,0);
         }
     }
-
+    // Check if any files in the previous instance have vanished .
+    // If yes then call system delete local copy
     for (int j = 0; j < last_seen; j++) {
         char *item = (char *)bsearch(seen[j],newContents,i,FILE_NAME,myStrCmp);
         if (item == NULL) {
@@ -230,7 +214,7 @@ int Client::detectNewID(void) {
         }
     }
 
-
+    // Update the seen buffer with newContents
     for (int j = 0; j < i; j++) {
         strcpy(seen[j],newContents[j]);
     }
@@ -243,13 +227,20 @@ int Client::createProcesses(int to,int retries) {
     pid_t wrpid = createWriterProcess(to);
     list.add(to,rdpid,wrpid,retries);
     // We add the 2 pids with it id to the list
+    return 0 ;
 }
 // Calls waitpid to all the procesess in pidlist
 // Thus freeing them
 int Client::checkProcesses(void) {
     list.free();
+    return 0 ;
 }
+// If we received a SIGUSR1 from the corresponding pid then we find
+// the id in our list and restart the 2 processes
 int Client::restartProcesses(void) {
+    sigset_t mask;
+    sigfillset(&mask);
+    sigprocmask(SIG_SETMASK, &mask, NULL);
     if (failpid == -1) {
         return -1;
     }
@@ -263,13 +254,18 @@ int Client::restartProcesses(void) {
         fprintf(stderr, "Error : pid already retried 3 times ");
         return -1 ;
     }
+    // Kill both the reader and the writer
     kill(m->writer,SIGKILL);
     kill(m->reader,SIGKILL);
+    // Update retries and recall processes
     int retries = m->retries ;
     retries++;
     int rid = m->id ;
     list.remove(rid);
     createProcesses(rid,retries);
+    failpid = -1 ;
+    sigprocmask(SIG_UNBLOCK, &mask, NULL);
+    return 0 ;
 
 }
 pid_t Client::createReaderProcess(int to) {

@@ -61,6 +61,7 @@ int pidentry::free(void) {
             return -1 ;
         }
     }
+    return 0 ;
 
 }
 int pidlist::remove(int rid) {
@@ -101,4 +102,5 @@ int pidlist::free(void) {
     while( (first != NULL) && ((rc = first->free()) > 0)) {
         remove(rc);
     }
+    return 0 ;
 }

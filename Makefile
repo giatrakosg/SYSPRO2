@@ -8,7 +8,8 @@ writer_client.cpp Writer.cpp pidlist.cpp
 HEADER  = Client.hpp Reader.hpp Writer.hpp pidlist.hpp
 OUT  	= mirror_client reader_client writer_client
 CC	= g++
-FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers -lcrypto
+FLAGS   = -g -c -pedantic -ansi  -Wall -Wextra -Wno-missing-field-initializers -lcrypto \
+-Wno-unused-parameter
 # -g option enables debugging mode
 # -c flag generates object code for separate files
 
