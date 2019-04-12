@@ -311,4 +311,10 @@ Client::~Client() {
     perror("syscall");
     fclose(log);
     remove(id_fn);
+    delete id_fn ;
+    delete id_s ;
+    delete common_dir ;
+    delete input_dir ;
+    delete mirror_dir ;
+    delete log_file ;
 }
